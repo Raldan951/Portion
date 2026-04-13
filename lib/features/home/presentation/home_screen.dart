@@ -2,30 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../../../core/models/bible_translation.dart';
-import '../../../core/models/journal_entry.dart';
 import '../../../core/models/reading_plan.dart';
 import '../../../core/providers/date_provider.dart';
 import '../../../core/providers/journal_providers.dart';
 import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
 import '../../../core/services/bible_link_service.dart';
+import '../../journal/presentation/journal_page.dart';
 import '../../reading/presentation/passage_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
-  String _getGreeting() {
-    final hour = DateTime.now().hour;
-    if (hour < 12) return 'Good morning';
-    if (hour < 17) return 'Good afternoon';
-    return 'Good evening';
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     const String bgImage = 'assets/images/desk_texture.jpg';
     const String cardBgImage = 'assets/images/aramaic2.jpg';
-    const Color outsideTextColor = Colors.white;
     const double cardOpacity = 0.15;
 
     final schedule = ref.watch(todaysScheduleProvider);
@@ -97,24 +89,7 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ),
 
-                const SizedBox(height: 52),
-                Text(
-                  '${_getGreeting()}, Pete.',
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    color: outsideTextColor,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  'Thy Word is a lamp unto my feet,\nand a Light unto my path.',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: outsideTextColor,
-                    height: 1.65,
-                  ),
-                ),
-
-                const SizedBox(height: 56),
+                const SizedBox(height: 32),
                 const _DateNavigator(),
                 const SizedBox(height: 40),
 
@@ -195,7 +170,7 @@ class HomeScreen extends ConsumerWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 28),
-                const _JournalCard(),
+                const _JournalPreviewCard(),
 
                 const SizedBox(height: 120),
                 Center(
@@ -341,172 +316,90 @@ class _TappableReading extends ConsumerWidget {
   }
 }
 
-/// Journal entry form + today's saved entries.
+/// Journal preview card on the home screen.
 ///
-/// Needs to be a ConsumerStatefulWidget to manage the TextEditingController
-/// lifecycle and invalidate the entries provider after saving.
-class _JournalCard extends ConsumerStatefulWidget {
-  const _JournalCard();
+/// Shows the first few lines of today's document (or a prompt if empty).
+/// Tapping opens the full [JournalPage].
+class _JournalPreviewCard extends ConsumerWidget {
+  const _JournalPreviewCard();
 
   @override
-  ConsumerState<_JournalCard> createState() => _JournalCardState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final docAsync = ref.watch(journalDocumentProvider);
+    final w = MediaQuery.of(context).size.width;
 
-class _JournalCardState extends ConsumerState<_JournalCard> {
-  final _controller = TextEditingController();
-  bool _saving = false;
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  Future<void> _save() async {
-    final body = _controller.text.trim();
-    if (body.isEmpty) return;
-
-    setState(() => _saving = true);
-
-    final service = await ref.read(journalServiceProvider.future);
-    final selectedDate = ref.read(selectedDateProvider);
-    final dateKey = DateFormat('yyyy-MM-dd').format(selectedDate);
-    await service.saveEntry(dateKey, body);
-
-    _controller.clear();
-    ref.invalidate(todayEntriesProvider);
-
-    if (mounted) {
-      setState(() => _saving = false);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Entry saved.')),
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final entriesAsync = ref.watch(todayEntriesProvider);
-    final selectedDate = ref.watch(selectedDateProvider);
-    final today = DateTime.now();
-    final isToday = selectedDate.year == today.year &&
-        selectedDate.month == today.month &&
-        selectedDate.day == today.day;
-    final entriesLabel = isToday
-        ? 'Earlier today'
-        : DateFormat('EEEE, MMMM d').format(selectedDate);
-
-    return Card(
-      elevation: 6,
-      child: Padding(
-        padding: EdgeInsets.all(
-          MediaQuery.of(context).size.width < 600 ? 20.0 : 44.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'What stood out to you today?',
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
-            ),
-            const SizedBox(height: 24),
-            TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                hintText: 'Write a short reflection\u2026',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
-                ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: const EdgeInsets.all(24),
-              ),
-              maxLines: 5,
-            ),
-            const SizedBox(height: 28),
-            Align(
-              alignment: Alignment.centerRight,
-              child: FilledButton.icon(
-                onPressed: _saving ? null : _save,
-                icon: _saving
-                    ? const SizedBox(
-                        width: 16,
-                        height: 16,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: Colors.white,
-                        ),
-                      )
-                    : const Icon(Icons.save_alt),
-                label: const Text('Save Entry'),
-              ),
-            ),
-
-            // Today's saved entries
-            entriesAsync.when(
-              loading: () => const SizedBox.shrink(),
-              error: (err, st) => const SizedBox.shrink(),
-              data: (entries) {
-                if (entries.isEmpty) return const SizedBox.shrink();
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 40),
-                    const Divider(),
-                    const SizedBox(height: 20),
-                    Text(
-                      entriesLabel,
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[600],
-                        letterSpacing: 0.5,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    ...entries.map((e) => _SavedEntry(entry: e)),
-                  ],
-                );
-              },
-            ),
-          ],
-        ),
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const JournalPage()),
       ),
-    );
-  }
-}
-
-class _SavedEntry extends StatelessWidget {
-  final JournalEntry entry;
-
-  const _SavedEntry({required this.entry});
-
-  @override
-  Widget build(BuildContext context) {
-    final time = DateFormat('h:mm a').format(entry.createdAt);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            time,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Color(0xFF5C6B4A),
-              fontWeight: FontWeight.w600,
-            ),
+      child: Card(
+        elevation: 4,
+        color: const Color(0xFFFAF7F0),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Padding(
+          padding: EdgeInsets.all(w < 600 ? 24.0 : 44.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(
+                    Icons.edit_note,
+                    color: Color(0xFF5C6B4A),
+                    size: 26,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: docAsync.when(
+                      loading: () => const SizedBox.shrink(),
+                      error: (err, st) => const SizedBox.shrink(),
+                      data: (doc) {
+                        final text = doc?.body.trim() ?? '';
+                        if (text.isEmpty) {
+                          return const Text(
+                            'Tap to begin writing\u2026',
+                            style: TextStyle(
+                              fontFamily: 'Georgia',
+                              fontSize: 16,
+                              color: Color(0xFFB8A898),
+                              fontStyle: FontStyle.italic,
+                            ),
+                          );
+                        }
+                        final preview =
+                            text.length > 160 ? '${text.substring(0, 160)}\u2026' : text;
+                        return Text(
+                          preview,
+                          style: const TextStyle(
+                            fontFamily: 'Georgia',
+                            fontSize: 15,
+                            color: Color(0xFF2C2C2C),
+                            height: 1.6,
+                          ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              const Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  'Open journal \u2192',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Color(0xFF5C6B4A),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 6),
-          Text(
-            entry.body,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Color(0xFF2C3A2A),
-              height: 1.55,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
