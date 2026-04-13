@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter analyze:*)",
+      "Bash(flutter devices:*)",
+      "Bash(flutter run:*)",
+      "Bash(python3 src/extract_mcheyne.py)",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/kjv.db \".tables\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/KJV.db \"SELECT * FROM KJV_verses LIMIT 3;\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/KJV.db \"SELECT * FROM KJV_books LIMIT 5;\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/KJV.db \".schema KJV_verses\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/KJV.db \".schema KJV_books\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/KJV.db \"SELECT * FROM KJV_books WHERE id IN \\(10,11,12\\);\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/KJV.db \"SELECT * FROM KJV_books;\")",
+      "Bash(python3 -c ':*)",
+      "Bash(flutter pub:*)",
+      "Bash(pod install:*)",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/BSB.db \".tables\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/BSB.db \".schema\")",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/BSB.db \"SELECT * FROM BSB_books WHERE id IN \\(9,10,11,19,66\\);\")"
+    ]
+  }
+}

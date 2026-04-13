@@ -1,0 +1,37 @@
+name: biblejournal_v2
+description: A calm, local-first Bible journaling companion with M’Cheyne rhythm
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '^3.11.0'      # This is the missing line (matches your Dart 3.11.4)
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Add these as we go (you can add them now or later)
+  flutter_riverpod: ^3.3.1
+  intl: ^0.20.2
+  url_launcher: ^6.3.0
+  shared_preferences: ^2.5.3
+  sqflite: ^2.4.2
+  path_provider: ^2.1.5
+  path: ^1.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # We'll add assets later
+  assets:
+    - assets/images/desk_texture.jpg
+    - assets/images/aramaic2.jpg
+    - assets/plans/
+    - assets/data/KJV.db
+    - assets/data/BSB.db

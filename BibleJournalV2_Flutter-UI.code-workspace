@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "BibleJournal V2 Flutter UI",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "dart.previewUpdateImportsOnRename": true,
+    "files.exclude": {
+      "**/.dart_tool": true,
+      "**/.pub-cache": true,
+      "**/build": true
+    }
+  }
+}
