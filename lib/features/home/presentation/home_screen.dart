@@ -33,6 +33,11 @@ class HomeScreen extends ConsumerWidget {
       data: (plan) => plan.name,
     );
 
+    final w = MediaQuery.of(context).size.width;
+    final hPad = w < 600 ? 20.0 : w < 900 ? 40.0 : 72.0;
+    final cardPad = w < 600 ? 20.0 : w < 900 ? 32.0 : 52.0;
+    final topPad = w < 600 ? 32.0 : 52.0;
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -44,7 +49,8 @@ class HomeScreen extends ConsumerWidget {
         ),
         child: SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(72, 52, 72, 80),
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            padding: EdgeInsets.fromLTRB(hPad, topPad, hPad, 80),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -67,23 +73,25 @@ class HomeScreen extends ConsumerWidget {
                         color: Color(0xFF3F2E1F),
                       ),
                       const SizedBox(width: 16),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'BibleJournal',
-                            style: Theme.of(context).textTheme.headlineMedium
-                                ?.copyWith(
-                                  color: const Color(0xFF3F2E1F),
-                                  fontWeight: FontWeight.w700,
-                                ),
-                          ),
-                          Text(
-                            'v2 • Your reading, study and prayer aid',
-                            style: Theme.of(context).textTheme.bodySmall
-                                ?.copyWith(color: Colors.grey[700]),
-                          ),
-                        ],
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'BibleJournal',
+                              style: Theme.of(context).textTheme.headlineMedium
+                                  ?.copyWith(
+                                    color: const Color(0xFF3F2E1F),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                            ),
+                            Text(
+                              'v2 • Your reading, study and prayer aid',
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: Colors.grey[700]),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -124,7 +132,7 @@ class HomeScreen extends ConsumerWidget {
                         opacity: cardOpacity,
                       ),
                     ),
-                    padding: const EdgeInsets.all(52),
+                    padding: EdgeInsets.all(cardPad),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -391,7 +399,9 @@ class _JournalCardState extends ConsumerState<_JournalCard> {
     return Card(
       elevation: 6,
       child: Padding(
-        padding: const EdgeInsets.all(44),
+        padding: EdgeInsets.all(
+          MediaQuery.of(context).size.width < 600 ? 20.0 : 44.0,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -529,23 +539,27 @@ class _DateNavigator extends ConsumerWidget {
               icon: Icons.chevron_left,
               onTap: notifier.goBack,
             ),
-            Column(
-              children: [
-                Text(
-                  DateFormat('EEEE').format(date),
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
+            Flexible(
+              child: Column(
+                children: [
+                  Text(
+                    DateFormat('EEEE').format(date),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  DateFormat('MMMM d, y').format(date),
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.white.withValues(alpha: 0.8),
+                  const SizedBox(height: 4),
+                  Text(
+                    DateFormat('MMMM d, y').format(date),
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: Colors.white.withValues(alpha: 0.8),
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             _NavArrow(
               icon: Icons.chevron_right,
