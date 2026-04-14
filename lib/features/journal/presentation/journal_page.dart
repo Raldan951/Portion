@@ -131,6 +131,7 @@ class _JournalPageState extends ConsumerState<JournalPage> {
           icon: const Icon(Icons.arrow_back, color: Color(0xFF2C3A2A)),
           onPressed: () async {
             _debounce?.cancel();
+            FocusScope.of(context).unfocus();
             final navigator = Navigator.of(context);
             await _saveNow();
             navigator.pop();
@@ -155,6 +156,7 @@ class _JournalPageState extends ConsumerState<JournalPage> {
           // The journal page itself
           Expanded(
             child: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               child: Stack(
                 children: [
                   // Ruled paper background — fills whatever height the text needs
