@@ -4,7 +4,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import '../models/journal_document.dart';
 import '../models/journal_entry.dart';
-import 'icloud_service.dart';
 
 /// Manages journal data as per-day plain-text files.
 ///
@@ -19,8 +18,10 @@ class JournalService {
   late final String _basePath;
 
   Future<void> init() async {
-    final icloudPath = await ICloudService.containerPath;
-    _basePath = icloudPath ?? (await getApplicationDocumentsDirectory()).path;
+    // Always use the local app documents directory for reliable, consistent
+    // storage. iCloud sync will be added later as a deliberate feature once
+    // basic persistence is confirmed working.
+    _basePath = (await getApplicationDocumentsDirectory()).path;
 
     // Ensure the journal sub-directory exists.
     await Directory(p.join(_basePath, 'journal')).create(recursive: true);

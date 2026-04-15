@@ -168,12 +168,20 @@ class _JournalPageState extends ConsumerState<JournalPage> {
             _debounce?.cancel();
             FocusScope.of(context).unfocus();
             final navigator = Navigator.of(context);
-            // Save synchronously using cached values if available.
-            // Never await the full service future here — that can hang.
-            if (_cachedService != null && _cachedDateKey != null) {
+            // Use cached service, or fall back to the already-resolved
+            // provider value (synchronous — never hangs).
+            final service = _cachedService ??
+                ref.read(journalServiceProvider).when(
+                  data: (s) => s,
+                  loading: () => null,
+                  error: (_, _) => null,
+                );
+            final dateKey = _cachedDateKey ??
+                DateFormat('yyyy-MM-dd')
+                    .format(ref.read(selectedDateProvider));
+            if (service != null) {
               try {
-                await _cachedService!.upsertDocument(
-                    _cachedDateKey!, _controller.text);
+                await service.upsertDocument(dateKey, _controller.text);
               } catch (_) {}
             }
             navigator.pop();
