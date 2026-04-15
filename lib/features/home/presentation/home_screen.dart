@@ -228,6 +228,8 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 28),
                 const _JournalPreviewCard(),
+                const SizedBox(height: 20),
+                const _DateNavigator(compact: true),
 
                 const SizedBox(height: 120),
                 Center(
@@ -623,7 +625,8 @@ class _JournalPreviewCard extends ConsumerWidget {
 /// A pill appears when viewing a past date, a future date, or when a new
 /// calendar day has become available mid-session.
 class _DateNavigator extends ConsumerWidget {
-  const _DateNavigator();
+  const _DateNavigator({this.compact = false});
+  final bool compact;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -639,47 +642,71 @@ class _DateNavigator extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _NavArrow(icon: Icons.chevron_left, onTap: notifier.goBack),
+            _NavArrow(
+              icon: Icons.chevron_left,
+              onTap: notifier.goBack,
+              compact: compact,
+            ),
             Flexible(
               child: Column(
                 children: [
                   Text(
                     DateFormat('EEEE').format(date),
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: compact
+                        ? const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                          )
+                        : Theme.of(context).textTheme.headlineMedium?.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                          ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 4),
+                  SizedBox(height: compact ? 2 : 4),
                   Text(
                     DateFormat('MMMM d, y').format(date),
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Colors.white.withValues(alpha: 0.8),
-                    ),
+                    style: compact
+                        ? TextStyle(
+                            fontSize: 11,
+                            color: Colors.white.withValues(alpha: 0.8),
+                          )
+                        : Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: Colors.white.withValues(alpha: 0.8),
+                          ),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
-            _NavArrow(icon: Icons.chevron_right, onTap: notifier.goForward),
+            _NavArrow(
+              icon: Icons.chevron_right,
+              onTap: notifier.goForward,
+              compact: compact,
+            ),
           ],
         ),
         if (!isToday || newDayAvailable) ...[
-          const SizedBox(height: 16),
+          SizedBox(height: compact ? 8 : 16),
           TextButton(
             onPressed: notifier.goToToday,
             style: TextButton.styleFrom(
               foregroundColor: const Color(0xFF3F2E1F),
               backgroundColor: Colors.white.withValues(alpha: 0.88),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+              padding: compact
+                  ? const EdgeInsets.symmetric(horizontal: 12, vertical: 4)
+                  : const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
             child: Text(
               isFuture ? 'You\'re ahead — Return to Today' : 'Return to Today',
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontSize: compact ? 10 : 13,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
@@ -691,19 +718,22 @@ class _DateNavigator extends ConsumerWidget {
 class _NavArrow extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onTap;
+  final bool compact;
 
-  const _NavArrow({required this.icon, this.onTap});
+  const _NavArrow({required this.icon, this.onTap, this.compact = false});
 
   @override
   Widget build(BuildContext context) {
+    final size = compact ? 28.0 : 52.0;
+    final iconSize = compact ? 16.0 : 30.0;
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(size / 2),
         child: Container(
-          width: 52,
-          height: 52,
+          width: size,
+          height: size,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white.withValues(alpha: 0.18),
@@ -712,7 +742,7 @@ class _NavArrow extends StatelessWidget {
               width: 1.2,
             ),
           ),
-          child: Icon(icon, color: Colors.white, size: 30),
+          child: Icon(icon, color: Colors.white, size: iconSize),
         ),
       ),
     );
