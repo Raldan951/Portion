@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import '../../../core/models/reading_plan.dart';
 import '../../../core/providers/date_provider.dart';
 import '../../../core/providers/journal_providers.dart';
+import '../../../core/services/journal_service.dart';
 import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
 import '../../../core/services/bible_link_service.dart';
@@ -32,6 +33,10 @@ class _JournalPageState extends ConsumerState<JournalPage> {
   Timer? _debounce;
   bool _initialized = false;
 
+  // Cached so dispose() can save without accessing ref after unmount.
+  JournalService? _cachedService;
+  String? _cachedDateKey;
+
   @override
   void initState() {
     super.initState();
@@ -40,7 +45,20 @@ class _JournalPageState extends ConsumerState<JournalPage> {
 
   @override
   void dispose() {
-    _debounce?.cancel();
+    // On macOS the window can be closed (Cmd+W / red button) without going
+    // through the AppBar back handler. Flush any pending debounce save now
+    // using the cached service so the text isn't lost.
+    if ((_debounce?.isActive ?? false) &&
+        _cachedService != null &&
+        _cachedDateKey != null) {
+      final body = _controller.text;
+      final svc = _cachedService!;
+      final key = _cachedDateKey!;
+      _debounce!.cancel();
+      unawaited(svc.upsertDocument(key, body));
+    } else {
+      _debounce?.cancel();
+    }
     _controller.dispose();
     super.dispose();
   }
@@ -51,17 +69,27 @@ class _JournalPageState extends ConsumerState<JournalPage> {
   }
 
   Future<void> _saveNow() async {
-    if (!mounted) return;
     final body = _controller.text;
     try {
-      final service = await ref.read(journalServiceProvider.future);
-      if (!mounted) return;
-      final date = ref.read(selectedDateProvider);
-      final dateKey = DateFormat('yyyy-MM-dd').format(date);
+      // Use cached service/dateKey if available so this works even after pop.
+      final service = _cachedService ??
+          (mounted ? await ref.read(journalServiceProvider.future) : null);
+      if (service == null) return;
+      final dateKey = _cachedDateKey ??
+          (mounted
+              ? DateFormat('yyyy-MM-dd').format(ref.read(selectedDateProvider))
+              : null);
+      if (dateKey == null) return;
+      _cachedService = service;
+      _cachedDateKey = dateKey;
       await service.upsertDocument(dateKey, body);
       if (mounted) ref.invalidate(journalDocumentProvider);
-    } catch (_) {
-      // Silent — auto-save failures don't interrupt the user
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Journal save failed: $e')),
+        );
+      }
     }
   }
 
@@ -93,20 +121,27 @@ class _JournalPageState extends ConsumerState<JournalPage> {
     final schedule = ref.watch(todaysScheduleProvider);
 
     // Initialise the controller once, when the document first resolves.
-    // After loading, drain any clip that was queued before the page opened —
-    // ref.listen only fires on *changes*, so a pre-existing value needs an
-    // explicit read here.
+    // Uses addPostFrameCallback so we never mutate controller or provider
+    // state during a build frame (illegal in Flutter and silently breaks
+    // things like clip insertion and auto-save).
     if (!_initialized) {
       docAsync.whenData((doc) {
-        if (!_initialized) {
+        if (_initialized) return;
+        _initialized = true; // set immediately so re-builds don't re-enter
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) return;
+          // Remove listener before programmatic set so _onTextChanged
+          // does not fire (which would start an auto-save of empty text).
+          _controller.removeListener(_onTextChanged);
           _controller.text = doc?.body ?? '';
-          _initialized = true;
+          _controller.addListener(_onTextChanged);
+          // Drain any clip that was queued before the page opened.
           final pending = ref.read(clipQueueProvider);
           if (pending != null) {
             _insertClip(pending);
             ref.read(clipQueueProvider.notifier).clear();
           }
-        }
+        });
       });
     }
 
@@ -133,7 +168,14 @@ class _JournalPageState extends ConsumerState<JournalPage> {
             _debounce?.cancel();
             FocusScope.of(context).unfocus();
             final navigator = Navigator.of(context);
-            await _saveNow();
+            // Save synchronously using cached values if available.
+            // Never await the full service future here — that can hang.
+            if (_cachedService != null && _cachedDateKey != null) {
+              try {
+                await _cachedService!.upsertDocument(
+                    _cachedDateKey!, _controller.text);
+              } catch (_) {}
+            }
             navigator.pop();
           },
         ),

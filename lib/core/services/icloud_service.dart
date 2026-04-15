@@ -12,9 +12,13 @@ class ICloudService {
   static const _channel = MethodChannel('com.peterparise.biblejournal/icloud');
 
   /// Returns the iCloud Documents container path, or null if unavailable.
+  /// Hard timeout of 6 s so a slow or unavailable iCloud daemon never hangs
+  /// the app indefinitely.
   static Future<String?> get containerPath async {
     try {
-      return await _channel.invokeMethod<String>('getContainerPath');
+      return await _channel
+          .invokeMethod<String>('getContainerPath')
+          .timeout(const Duration(seconds: 6), onTimeout: () => null);
     } on PlatformException {
       return null;
     }

@@ -485,9 +485,9 @@ class _TappableReading extends ConsumerWidget {
               ),
             ),
           if (showCheckboxes) const SizedBox(width: 6),
-          InkWell(
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
             onTap: openReading,
-            borderRadius: BorderRadius.circular(4),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
               child: Row(
@@ -980,8 +980,9 @@ class _PlanSelectorState extends ConsumerState<_PlanSelector> {
                                     ref
                                         .read(planStartProvider.notifier)
                                         .setDay(plan.id, day);
-                                    if (context.mounted)
+                                    if (context.mounted) {
                                       Navigator.of(context).pop();
+                                    }
                                   }
                                 },
                                 child: Center(
