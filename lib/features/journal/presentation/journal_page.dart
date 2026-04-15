@@ -119,6 +119,7 @@ class _JournalPageState extends ConsumerState<JournalPage> {
     final docAsync = ref.watch(journalDocumentProvider);
     final selectedDate = ref.watch(selectedDateProvider);
     final schedule = ref.watch(todaysScheduleProvider);
+    final dateLabel = DateFormat('EEEE, MMMM d, y').format(selectedDate);
 
     // Initialise the controller once, when the document first resolves.
     // Uses addPostFrameCallback so we never mutate controller or provider
@@ -133,7 +134,8 @@ class _JournalPageState extends ConsumerState<JournalPage> {
           // Remove listener before programmatic set so _onTextChanged
           // does not fire (which would start an auto-save of empty text).
           _controller.removeListener(_onTextChanged);
-          _controller.text = doc?.body ?? '';
+          // New entries get a date header; existing entries load as-is.
+          _controller.text = doc?.body ?? '# $dateLabel\n\n';
           _controller.addListener(_onTextChanged);
           // Drain any clip that was queued before the page opened.
           final pending = ref.read(clipQueueProvider);
@@ -153,8 +155,6 @@ class _JournalPageState extends ConsumerState<JournalPage> {
         ref.read(clipQueueProvider.notifier).clear();
       }
     });
-
-    final dateLabel = DateFormat('EEEE, MMMM d, y').format(selectedDate);
 
     return Scaffold(
       backgroundColor: const Color(0xFFFAF7F0),

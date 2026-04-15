@@ -34,8 +34,8 @@ final journalDocumentProvider = FutureProvider<JournalDocument?>((ref) async {
 });
 
 /// Watches the journal directory for file changes (e.g. iCloud syncing a
-/// new or updated .txt file). Fires a [FileSystemEvent] for every change to
-/// a .txt file. Consumers listen and invalidate [journalDocumentProvider] so
+/// new or updated .md file). Fires a [FileSystemEvent] for every change to
+/// a .md file. Consumers listen and invalidate [journalDocumentProvider] so
 /// the UI reflects changes from other devices without a manual refresh.
 ///
 /// iOS does not support [Directory.watch] — returns an empty stream there.
@@ -48,7 +48,7 @@ final journalWatcherProvider = StreamProvider<FileSystemEvent>((ref) async* {
   if (!dir.existsSync()) return;
   yield* dir
       .watch(events: FileSystemEvent.all)
-      .where((e) => e.path.endsWith('.txt'));
+      .where((e) => e.path.endsWith('.md'));
 });
 
 /// Holds the text of a clipped passage waiting to be inserted into the journal.

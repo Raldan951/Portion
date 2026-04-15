@@ -1,14 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/providers/settings_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
-class SettingsScreen extends ConsumerWidget {
+import '../../../core/providers/journal_providers.dart';
+
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final settings = ref.watch(appSettingsProvider);
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
+}
 
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  bool _exporting = false;
+
+  Future<void> _exportJournal(BuildContext context) async {
+    setState(() => _exporting = true);
+    try {
+      final service = await ref.read(journalServiceProvider.future);
+      final paths = await service.allEntryPaths();
+
+      if (!context.mounted) return;
+
+      if (paths.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No journal entries to export.')),
+        );
+        return;
+      }
+
+      final files = paths.map((p) => XFile(p)).toList();
+      final box = context.findRenderObject() as RenderBox?;
+      final origin = box != null
+          ? box.localToGlobal(Offset.zero) & box.size
+          : Rect.fromLTWH(
+              MediaQuery.of(context).size.width / 2,
+              MediaQuery.of(context).size.height / 2,
+              1,
+              1,
+            );
+
+      await Share.shareXFiles(
+        files,
+        subject: 'BibleJournal entries',
+        sharePositionOrigin: origin,
+      );
+    } finally {
+      if (mounted) setState(() => _exporting = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFBF8F2),
       appBar: AppBar(
@@ -30,13 +73,35 @@ class SettingsScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         children: [
-          _SectionHeader('Reading'),
-          _SettingsTile(
-            title: 'Show reading checkboxes',
-            subtitle: 'Mark each passage as you complete it',
-            value: settings.showReadingCheckboxes,
-            onChanged: (v) =>
-                ref.read(appSettingsProvider.notifier).setShowCheckboxes(v),
+          _SectionHeader('Journal'),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey[200]!),
+            ),
+            child: ListTile(
+              title: const Text(
+                'Export entries',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Color(0xFF2C2C2C),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              subtitle: Text(
+                'Share all journal entries as Markdown files',
+                style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+              ),
+              trailing: _exporting
+                  ? const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : Icon(Icons.ios_share, color: Colors.grey[600], size: 20),
+              onTap: _exporting ? null : () => _exportJournal(context),
+            ),
           ),
         ],
       ),
@@ -60,51 +125,6 @@ class _SectionHeader extends StatelessWidget {
           color: Colors.grey[500],
           letterSpacing: 1.1,
         ),
-      ),
-    );
-  }
-}
-
-class _SettingsTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final bool value;
-  final ValueChanged<bool> onChanged;
-
-  const _SettingsTile({
-    required this.title,
-    required this.subtitle,
-    required this.value,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey[200]!),
-      ),
-      child: SwitchListTile(
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 15,
-            color: Color(0xFF2C2C2C),
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(fontSize: 13, color: Colors.grey[600]),
-        ),
-        value: value,
-        onChanged: onChanged,
-        activeThumbColor: const Color(0xFF5C6B4A),
-        activeTrackColor: const Color(0xFF5C6B4A).withValues(alpha: 0.4),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       ),
     );
   }

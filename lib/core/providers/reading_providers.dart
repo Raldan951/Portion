@@ -7,7 +7,6 @@ import '../services/bible_database_service.dart';
 import '../services/icloud_service.dart';
 import '../services/reading_plan_service.dart';
 import 'date_provider.dart';
-import 'reading_completion_provider.dart';
 
 /// A single shared instance of ReadingPlanService.
 final readingPlanServiceProvider = Provider<ReadingPlanService>(
@@ -168,53 +167,6 @@ final todaysScheduleProvider = Provider<DailySchedule?>((ref) {
   );
 });
 
-/// The plan day and calendar date of the user's most recent completed reading.
-///
-/// Scans completion keys for the current plan, finds the latest date among
-/// them, and converts it to a plan day number using the same logic as
-/// [todaysScheduleProvider]. Returns null if no completions exist.
-final lastCompletedPlanDayProvider = Provider<({int day, DateTime date})?>(
-  (ref) {
-    final completions = ref.watch(readingCompletionProvider);
-    final planId = ref.watch(selectedPlanIdProvider);
-    final startModes = ref.watch(planStartProvider);
-
-    return ref.watch(activePlanProvider).whenOrNull(
-      data: (plan) {
-        final prefix = '${planId}_';
-        DateTime? latestDate;
-
-        for (final key in completions) {
-          if (!key.startsWith(prefix)) continue;
-          // Key: planId_YYYY-MM-DD_sectionIdx_readingIdx
-          // planId may contain underscores, so slice by known prefix length.
-          if (key.length < prefix.length + 10) continue;
-          final dateStr = key.substring(prefix.length, prefix.length + 10);
-          if (!RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(dateStr)) continue;
-          try {
-            final d = DateTime.parse(dateStr);
-            if (latestDate == null || d.isAfter(latestDate)) latestDate = d;
-          } catch (_) {}
-        }
-
-        if (latestDate == null) return null;
-
-        final startMode = startModes[planId];
-        final int dayIndex;
-        if (startMode != null && startMode != 'calendar') {
-          final startDate = DateTime.parse(startMode);
-          dayIndex = latestDate.difference(startDate).inDays;
-        } else {
-          dayIndex =
-              latestDate.difference(DateTime(latestDate.year)).inDays;
-        }
-
-        final planDay = (dayIndex % plan.schedule.length) + 1;
-        return (day: planDay, date: latestDate);
-      },
-    );
-  },
-);
 
 /// True when today is the first day of a new plan cycle in user-anchored mode.
 ///

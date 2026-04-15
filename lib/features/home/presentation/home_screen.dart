@@ -5,9 +5,7 @@ import '../../../core/models/bible_translation.dart';
 import '../../../core/models/reading_plan.dart';
 import '../../../core/providers/date_provider.dart';
 import '../../../core/providers/journal_providers.dart';
-import '../../../core/providers/reading_completion_provider.dart';
 import '../../../core/providers/reading_providers.dart';
-import '../../../core/providers/settings_provider.dart';
 import '../../../core/providers/translation_provider.dart';
 import '../../../core/services/bible_link_service.dart';
 import '../../../core/services/reading_plan_service.dart';
@@ -212,6 +210,7 @@ class HomeScreen extends ConsumerWidget {
                                   sectionIndex: e.key,
                                 ),
                               ),
+                          const _SyncPlanButton(),
                         ] else
                           const Padding(
                             padding: EdgeInsets.symmetric(vertical: 16),
@@ -420,20 +419,6 @@ class _TappableReading extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final translation = ref.watch(selectedTranslationProvider);
-    final showCheckboxes = ref.watch(appSettingsProvider).showReadingCheckboxes;
-    final planId = ref.watch(selectedPlanIdProvider);
-    final date = ref.watch(selectedDateProvider);
-    final dateStr =
-        '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-    final completionKey = ReadingCompletionNotifier.keyFor(
-      planId: planId,
-      date: dateStr,
-      sectionIndex: sectionIndex,
-      readingIndex: readingIndex,
-    );
-    final isDone = ref.watch(
-      readingCompletionProvider.select((s) => s.contains(completionKey)),
-    );
 
     Future<void> openReading() async {
       if (translation.isExternal) {
@@ -459,62 +444,32 @@ class _TappableReading extends ConsumerWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (showCheckboxes)
-            SizedBox(
-              width: 28,
-              height: 28,
-              child: Checkbox(
-                value: isDone,
-                onChanged: (_) => ref
-                    .read(readingCompletionProvider.notifier)
-                    .toggle(completionKey),
-                activeColor: const Color(0xFF5C6B4A),
-                side: const BorderSide(color: Color(0xFF5C6B4A), width: 1.5),
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                visualDensity: VisualDensity.compact,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: openReading,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                reference.display,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF5C6B4A),
+                  decoration: TextDecoration.underline,
+                  decorationColor: Color(0xFF5C6B4A),
+                ),
               ),
-            ),
-          if (showCheckboxes) const SizedBox(width: 6),
-          GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: openReading,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    reference.display,
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: isDone && showCheckboxes
-                          ? const Color(0xFF5C6B4A).withValues(alpha: 0.45)
-                          : const Color(0xFF5C6B4A),
-                      decoration: isDone && showCheckboxes
-                          ? TextDecoration.lineThrough
-                          : TextDecoration.underline,
-                      decorationColor: const Color(0xFF5C6B4A),
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  Icon(
-                    translation.isExternal
-                        ? Icons.open_in_new
-                        : Icons.menu_book,
-                    size: 14,
-                    color: isDone && showCheckboxes
-                        ? const Color(0xFF5C6B4A).withValues(alpha: 0.45)
-                        : const Color(0xFF5C6B4A),
-                  ),
-                ],
+              const SizedBox(width: 6),
+              Icon(
+                translation.isExternal ? Icons.open_in_new : Icons.menu_book,
+                size: 14,
+                color: const Color(0xFF5C6B4A),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -986,13 +941,6 @@ class _PlanSelectorState extends ConsumerState<_PlanSelector> {
                                 ),
                               ],
                               const SizedBox(height: 10),
-                              if (isSelected) ...[
-                                _ResumeFromTodayButton(
-                                  planId: plan.id,
-                                  onDone: () => Navigator.of(context).pop(),
-                                ),
-                                const SizedBox(height: 6),
-                              ],
                               GestureDetector(
                                 onTap: () async {
                                   final day = await showDialog<int>(
@@ -1040,36 +988,115 @@ class _PlanSelectorState extends ConsumerState<_PlanSelector> {
   }
 }
 
-/// "Resume from [date]" link shown in the plan picker when the active plan
-/// has at least one completed reading. Reanchors the start date so today
-/// equals the plan day of the user's last checked reading.
-class _ResumeFromTodayButton extends ConsumerWidget {
-  final String planId;
-  final VoidCallback onDone;
-
-  const _ResumeFromTodayButton({required this.planId, required this.onDone});
+/// Shown at the bottom of the reading card for non-calendar plans.
+///
+/// Navigates the user to the currently viewed day, then re-anchors the plan
+/// so that day becomes today. Only visible when viewing a non-today date.
+class _SyncPlanButton extends ConsumerWidget {
+  const _SyncPlanButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final last = ref.watch(lastCompletedPlanDayProvider);
-    if (last == null) return const SizedBox.shrink();
+    final planId = ref.watch(selectedPlanIdProvider);
+    final meta = ReadingPlanService.availablePlans.firstWhere(
+      (p) => p.id == planId,
+      orElse: () => ReadingPlanService.availablePlans.first,
+    );
+    if (meta.calendarAligned) return const SizedBox.shrink();
 
-    final label = DateFormat('MMMM d').format(last.date);
+    ref.watch(selectedDateProvider); // rebuild when date changes
+    if (ref.read(selectedDateProvider.notifier).isToday) {
+      return const SizedBox.shrink();
+    }
 
-    return GestureDetector(
-      onTap: () {
-        ref.read(planStartProvider.notifier).setDay(planId, last.day);
-        onDone();
-      },
-      child: Center(
-        child: Text(
-          'Resume from $label →',
-          style: TextStyle(
-            fontSize: 13,
-            color: const Color(0xFF5C6B4A).withValues(alpha: 0.8),
-            fontWeight: FontWeight.w600,
+    final schedule = ref.watch(todaysScheduleProvider);
+    if (schedule == null) return const SizedBox.shrink();
+    final planDay = schedule.day;
+
+    return Column(
+      children: [
+        Divider(height: 1, color: Colors.grey[300]),
+        const SizedBox(height: 14),
+        Center(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GestureDetector(
+                onTap: () => _confirmSync(context, ref, planId, planDay),
+                child: Text(
+                  'Sync plan to this day →',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: const Color(0xFF5C6B4A).withValues(alpha: 0.8),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 4),
+              GestureDetector(
+                onTap: () => _showInfo(context),
+                child: Icon(
+                  Icons.help_outline,
+                  size: 15,
+                  color: Colors.grey[500],
+                ),
+              ),
+            ],
           ),
         ),
+      ],
+    );
+  }
+
+  Future<void> _confirmSync(
+    BuildContext context,
+    WidgetRef ref,
+    String planId,
+    int planDay,
+  ) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Sync plan to this day?'),
+        content: Text(
+          'Day $planDay will become your current day. '
+          'Your plan position will be adjusted so today\'s readings '
+          'match where you are now.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Sync Plan'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed == true) {
+      ref.read(planStartProvider.notifier).setDay(planId, planDay);
+      ref.read(selectedDateProvider.notifier).goToToday();
+    }
+  }
+
+  void _showInfo(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Sync Plan'),
+        content: const Text(
+          'Adjusts your plan position so the day you\'re currently '
+          'viewing becomes today. Use this if you\'ve fallen behind '
+          'or read ahead and want to reset where you are in the plan.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('OK'),
+          ),
+        ],
       ),
     );
   }

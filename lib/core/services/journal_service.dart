@@ -6,9 +6,9 @@ import '../models/journal_document.dart';
 import '../models/journal_entry.dart';
 import 'icloud_service.dart';
 
-/// Manages journal data as per-day plain-text files.
+/// Manages journal data as per-day Markdown files.
 ///
-/// Each day's journal is stored as `$base/journal/YYYY-MM-DD.txt`.
+/// Each day's journal is stored as `$base/journal/YYYY-MM-DD.md`.
 /// On iOS and macOS, `$base` is the iCloud ubiquity container Documents
 /// folder so files sync automatically across devices. When iCloud is
 /// unavailable (simulator, iCloud disabled, other platforms) the files
@@ -48,7 +48,7 @@ class JournalService {
   String get journalDirPath => p.join(_basePath, 'journal');
 
   File _fileForDate(String date) =>
-      File(p.join(_basePath, 'journal', '$date.txt'));
+      File(p.join(_basePath, 'journal', '$date.md'));
 
   // ── Document API (v2) ─────────────────────────────────────────────────────
 
@@ -65,6 +65,19 @@ class JournalService {
   /// Writes the journal document for [date].
   Future<void> upsertDocument(String date, String body) async {
     await _fileForDate(date).writeAsString(body);
+  }
+
+  /// Returns the file paths of all journal entries, sorted by date.
+  Future<List<String>> allEntryPaths() async {
+    final dir = Directory(p.join(_basePath, 'journal'));
+    if (!dir.existsSync()) return [];
+    return dir
+        .listSync()
+        .whereType<File>()
+        .where((f) => p.extension(f.path) == '.md')
+        .map((f) => f.path)
+        .toList()
+      ..sort();
   }
 
   // ── Legacy entry API (v1 — stubs, no longer written) ─────────────────────
@@ -98,7 +111,7 @@ class JournalService {
         final files = localJournalDir
             .listSync()
             .whereType<File>()
-            .where((f) => p.extension(f.path) == '.txt');
+            .where((f) => p.extension(f.path) == '.md');
         for (final file in files) {
           final dest = File(
             p.join(iCloudPath, 'journal', p.basename(file.path)),

@@ -41,7 +41,10 @@ assets/
   - Tier 1 (bundled): KJV, BSB — local SQLite via `BibleDatabaseService`
   - Tier 2 (external): Logos deep links — opens passage in Logos app
 - **Logos URL format**: `logosres:{version};ref=Bible{VERSION}.{Book}.{Chapter}` (spaces → %20)
-- **Journal storage**: One plain-text file per day in iCloud container (`journal/YYYY-MM-DD.txt`). No SQLite in iCloud — conflict-prone.
+- **Journal storage**: One Markdown file per day in iCloud container (`journal/YYYY-MM-DD.md`). No SQLite in iCloud — conflict-prone. New entries pre-populated with `# Weekday, Month D, YYYY` header.
+- **Clip behavior**: Clips always land in the journal for the currently viewed date — intentional. Notes about a day's readings belong with that day.
+- **Reading checkboxes**: Removed. Completion state was tied to calendar date, not plan day — re-anchoring orphaned all marks. No checkbox feature planned.
+- **Sync Plan**: Non-M'Cheyne plans only. Button appears at bottom of reading card when viewing a non-today date. Re-anchors so the viewed plan day becomes today. M'Cheyne is calendar-locked — no sync option.
 - **iCloud sync**: `NSUbiquitousKeyValueStore` for translation preference; `Directory.watch()` on journal dir for file sync.
 - **Morning/Evening labels**: M'Cheyne's "Family/Secret" renamed for clarity.
 
