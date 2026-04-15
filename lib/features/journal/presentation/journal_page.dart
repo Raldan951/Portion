@@ -217,7 +217,7 @@ class _ReadingChipsRow extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final translation = ref.watch(selectedTranslationProvider);
-    final allReadings = [...schedule.morning, ...schedule.evening];
+    final allReadings = schedule.allReadings;
 
     return Container(
       color: const Color(0xFFFAF7F0),

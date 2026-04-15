@@ -1,31 +1,26 @@
-import Flutter
+import FlutterMacOS
 import Foundation
 
-/// Native method channel that gives Flutter two iCloud capabilities:
+/// macOS equivalent of the iOS ICloudService — same channel name and behaviour.
 ///
-/// 1. `getContainerPath` — returns the local path of the iCloud ubiquity
-///    container where we store journal.db. iOS syncs this directory
-///    automatically. Returns nil if iCloud is unavailable (simulator, Mac,
-///    iCloud disabled in Settings).
-///
-/// 2. `kvGet` / `kvSet` — thin wrappers around NSUbiquitousKeyValueStore,
-///    used for small preferences (selected translation). Changes propagate
-///    to other devices within seconds.
-@objc class ICloudService: NSObject, FlutterPlugin {
+/// Provides:
+/// 1. `getContainerPath` — local path of the iCloud ubiquity container's
+///    Documents folder. macOS syncs this via the iCloud Drive daemon once
+///    the app is installed and signed.
+/// 2. `kvGet` / `kvSet` — NSUbiquitousKeyValueStore wrappers for preferences.
+class ICloudService: NSObject, FlutterPlugin {
 
   static let channelName = "com.peterparise.biblejournal/icloud"
   static let containerID  = "iCloud.com.peterparise.biblejournal"
 
-  /// True when iCloud account is signed in and KVS entitlement is present.
   private static var kvsAvailable: Bool = {
-    // FileManager.ubiquityIdentityToken is nil when iCloud is not signed in.
     return FileManager.default.ubiquityIdentityToken != nil
   }()
 
   static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(
       name: channelName,
-      binaryMessenger: registrar.messenger()
+      binaryMessenger: registrar.messenger
     )
     let instance = ICloudService()
     registrar.addMethodCallDelegate(instance, channel: channel)
@@ -35,9 +30,6 @@ import Foundation
     switch call.method {
 
     case "getContainerPath":
-      // url(forUbiquityContainerIdentifier:) can return nil on the first call
-      // after a cold launch while iCloud is still initialising. Retry up to
-      // 5 times with 1-second gaps before giving up and returning nil.
       DispatchQueue.global(qos: .userInitiated).async {
         var resolved: URL? = nil
         for _ in 0..<5 {

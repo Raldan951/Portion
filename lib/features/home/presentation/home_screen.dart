@@ -5,11 +5,15 @@ import '../../../core/models/bible_translation.dart';
 import '../../../core/models/reading_plan.dart';
 import '../../../core/providers/date_provider.dart';
 import '../../../core/providers/journal_providers.dart';
+import '../../../core/providers/reading_completion_provider.dart';
 import '../../../core/providers/reading_providers.dart';
+import '../../../core/providers/settings_provider.dart';
 import '../../../core/providers/translation_provider.dart';
 import '../../../core/services/bible_link_service.dart';
+import '../../../core/services/reading_plan_service.dart';
 import '../../journal/presentation/journal_page.dart';
 import '../../reading/presentation/passage_screen.dart';
+import '../../settings/presentation/settings_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -21,13 +25,28 @@ class HomeScreen extends ConsumerWidget {
     const double cardOpacity = 0.15;
 
     final schedule = ref.watch(todaysScheduleProvider);
-    final planName = ref.watch(mcheynePlanProvider).whenOrNull(
-      data: (plan) => plan.name,
+    final planAsync = ref.watch(activePlanProvider);
+    final planName = planAsync.whenOrNull(data: (plan) => plan.name);
+    final totalDays = planAsync.whenOrNull(
+      data: (plan) => plan.schedule.length,
     );
 
+    // When iCloud syncs a journal file, reload the document provider.
+    ref.listen(journalWatcherProvider, (_, _) {
+      ref.invalidate(journalDocumentProvider);
+    });
+
     final w = MediaQuery.of(context).size.width;
-    final hPad = w < 600 ? 20.0 : w < 900 ? 40.0 : 72.0;
-    final cardPad = w < 600 ? 20.0 : w < 900 ? 32.0 : 52.0;
+    final hPad = w < 600
+        ? 20.0
+        : w < 900
+        ? 40.0
+        : 72.0;
+    final cardPad = w < 600
+        ? 20.0
+        : w < 900
+        ? 32.0
+        : 52.0;
     final topPad = w < 600 ? 32.0 : 52.0;
 
     return Scaffold(
@@ -78,7 +97,7 @@ class HomeScreen extends ConsumerWidget {
                                   ),
                             ),
                             Text(
-                              'v2 • Your reading, study and prayer aid',
+                              'Thy Word is a lamp unto my feet\nand a Light unto my path',
                               style: Theme.of(context).textTheme.bodySmall
                                   ?.copyWith(color: Colors.grey[700]),
                             ),
@@ -92,6 +111,11 @@ class HomeScreen extends ConsumerWidget {
                 const SizedBox(height: 32),
                 const _DateNavigator(),
                 const SizedBox(height: 40),
+
+                if (ref.watch(planJustCompletedProvider)) ...[
+                  const _PlanCompletionBanner(),
+                  const SizedBox(height: 24),
+                ],
 
                 Card(
                   elevation: 6,
@@ -128,28 +152,61 @@ class HomeScreen extends ConsumerWidget {
                         ),
                         if (planName != null) ...[
                           const SizedBox(height: 4),
-                          Text(
-                            planName,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey[600],
-                              fontStyle: FontStyle.italic,
+                          InkWell(
+                            onTap: () => _showPlanSelector(context, ref),
+                            borderRadius: BorderRadius.circular(4),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 2,
+                                horizontal: 2,
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    planName,
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey[600],
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Icon(
+                                    Icons.swap_horiz,
+                                    size: 14,
+                                    color: Colors.grey[500],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
+                          if (schedule != null && totalDays != null) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              'Day ${schedule.day} of $totalDays',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
                         ],
                         const SizedBox(height: 28),
                         const _TranslationSelector(),
                         const SizedBox(height: 40),
 
                         if (schedule != null) ...[
-                          _ReadingSection(
-                            label: 'Morning',
-                            readings: schedule.morning,
-                          ),
-                          _ReadingSection(
-                            label: 'Evening',
-                            readings: schedule.evening,
-                          ),
+                          ...schedule.sections
+                              .asMap()
+                              .entries
+                              .where((e) => e.value.readings.isNotEmpty)
+                              .map(
+                                (e) => _ReadingSection(
+                                  section: e.value,
+                                  sectionIndex: e.key,
+                                ),
+                              ),
                         ] else
                           const Padding(
                             padding: EdgeInsets.symmetric(vertical: 16),
@@ -185,6 +242,20 @@ class HomeScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
+                const SizedBox(height: 32),
+                Center(
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.settings,
+                      color: Colors.white.withValues(alpha: 0.35),
+                      size: 22,
+                    ),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                    ),
+                    tooltip: 'Settings',
+                  ),
+                ),
               ],
             ),
           ),
@@ -192,14 +263,90 @@ class HomeScreen extends ConsumerWidget {
       ),
     );
   }
+
+  void _showPlanSelector(BuildContext context, WidgetRef ref) {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => const _PlanSelector(),
+    );
+  }
 }
 
-/// A labelled group of tappable readings (Morning or Evening).
-class _ReadingSection extends StatelessWidget {
-  final String label;
-  final List<BibleReference> readings;
+/// Shown on the first day of a new plan cycle (user-anchored mode only).
+///
+/// Quiet acknowledgment — warm but unobtrusive. Disappears automatically
+/// the following day as the cycle banner condition no longer holds.
+class _PlanCompletionBanner extends ConsumerWidget {
+  const _PlanCompletionBanner();
 
-  const _ReadingSection({required this.label, required this.readings});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final planName = ref
+        .watch(activePlanProvider)
+        .whenOrNull(data: (plan) => plan.name);
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+      decoration: BoxDecoration(
+        color: const Color(0xFF5C6B4A).withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: const Color(0xFF5C6B4A).withValues(alpha: 0.35),
+        ),
+      ),
+      child: Row(
+        children: [
+          const Icon(
+            Icons.check_circle_outline,
+            color: Color(0xFF5C6B4A),
+            size: 28,
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Plan complete',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF3F2E1F),
+                  ),
+                ),
+                if (planName != null)
+                  Text(
+                    'You\'ve finished $planName. Beginning again from Day 1.',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey[700],
+                      height: 1.4,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A group of tappable readings for one section of the day's schedule.
+///
+/// If [section.label] is non-null a header is shown (e.g. 'Morning').
+/// Plans that don't use time-of-day framing omit the label entirely.
+class _ReadingSection extends StatelessWidget {
+  final ReadingSection section;
+  final int sectionIndex;
+
+  const _ReadingSection({required this.section, required this.sectionIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -208,12 +355,20 @@ class _ReadingSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            label,
-            style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+          if (section.label != null) ...[
+            Text(
+              section.label!,
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+            ),
+            const SizedBox(height: 10),
+          ],
+          ...section.readings.asMap().entries.map(
+            (e) => _TappableReading(
+              reference: e.value,
+              sectionIndex: sectionIndex,
+              readingIndex: e.key,
+            ),
           ),
-          const SizedBox(height: 10),
-          ...readings.map((ref) => _TappableReading(reference: ref)),
         ],
       ),
     );
@@ -252,65 +407,120 @@ class _TranslationSelector extends ConsumerWidget {
 }
 
 /// A single reading passage — taps open PassageScreen for inline
-/// translations, or launch Logos directly for the Logos segment.
+/// translations, or launches Logos directly for the Logos segment.
+///
+/// When the global "show checkboxes" setting is on, a completion checkbox
+/// appears to the left. Tapping it marks/unmarks the reading without
+/// navigating away.
 class _TappableReading extends ConsumerWidget {
   final BibleReference reference;
+  final int sectionIndex;
+  final int readingIndex;
 
-  const _TappableReading({required this.reference});
+  const _TappableReading({
+    required this.reference,
+    required this.sectionIndex,
+    required this.readingIndex,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final translation = ref.watch(selectedTranslationProvider);
+    final showCheckboxes = ref.watch(appSettingsProvider).showReadingCheckboxes;
+    final planId = ref.watch(selectedPlanIdProvider);
+    final date = ref.watch(selectedDateProvider);
+    final dateStr =
+        '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+    final completionKey = ReadingCompletionNotifier.keyFor(
+      planId: planId,
+      date: dateStr,
+      sectionIndex: sectionIndex,
+      readingIndex: readingIndex,
+    );
+    final isDone = ref.watch(
+      readingCompletionProvider.select((s) => s.contains(completionKey)),
+    );
 
-    return InkWell(
-      onTap: () async {
-        if (translation.isExternal) {
-          // Logos: open the passage directly in the external app.
-          final launched = await BibleLinkService.openInLogos(reference);
-          if (!launched && context.mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Could not open Logos \u2014 is it installed?'),
-              ),
-            );
-          }
-        } else {
-          // Inline translation: navigate to the reading screen.
-          if (context.mounted) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => PassageScreen(
-                  reference: reference,
-                  translation: translation,
-                ),
-              ),
-            );
-          }
+    Future<void> openReading() async {
+      if (translation.isExternal) {
+        final launched = await BibleLinkService.openInLogos(reference);
+        if (!launched && context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Could not open Logos \u2014 is it installed?'),
+            ),
+          );
         }
-      },
-      borderRadius: BorderRadius.circular(4),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              reference.display,
-              style: const TextStyle(
-                fontSize: 18,
-                color: Color(0xFF5C6B4A),
-                decoration: TextDecoration.underline,
-                decorationColor: Color(0xFF5C6B4A),
+      } else {
+        if (context.mounted) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) =>
+                  PassageScreen(reference: reference, translation: translation),
+            ),
+          );
+        }
+      }
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          if (showCheckboxes)
+            SizedBox(
+              width: 28,
+              height: 28,
+              child: Checkbox(
+                value: isDone,
+                onChanged: (_) => ref
+                    .read(readingCompletionProvider.notifier)
+                    .toggle(completionKey),
+                activeColor: const Color(0xFF5C6B4A),
+                side: const BorderSide(color: Color(0xFF5C6B4A), width: 1.5),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                visualDensity: VisualDensity.compact,
               ),
             ),
-            const SizedBox(width: 6),
-            Icon(
-              translation.isExternal ? Icons.open_in_new : Icons.menu_book,
-              size: 14,
-              color: const Color(0xFF5C6B4A),
+          if (showCheckboxes) const SizedBox(width: 6),
+          InkWell(
+            onTap: openReading,
+            borderRadius: BorderRadius.circular(4),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    reference.display,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: isDone && showCheckboxes
+                          ? const Color(0xFF5C6B4A).withValues(alpha: 0.45)
+                          : const Color(0xFF5C6B4A),
+                      decoration: isDone && showCheckboxes
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.underline,
+                      decorationColor: const Color(0xFF5C6B4A),
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Icon(
+                    translation.isExternal
+                        ? Icons.open_in_new
+                        : Icons.menu_book,
+                    size: 14,
+                    color: isDone && showCheckboxes
+                        ? const Color(0xFF5C6B4A).withValues(alpha: 0.45)
+                        : const Color(0xFF5C6B4A),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -329,9 +539,9 @@ class _JournalPreviewCard extends ConsumerWidget {
     final w = MediaQuery.of(context).size.width;
 
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => const JournalPage()),
-      ),
+      onTap: () => Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const JournalPage())),
       child: Card(
         elevation: 4,
         color: const Color(0xFFFAF7F0),
@@ -367,8 +577,9 @@ class _JournalPreviewCard extends ConsumerWidget {
                             ),
                           );
                         }
-                        final preview =
-                            text.length > 160 ? '${text.substring(0, 160)}\u2026' : text;
+                        final preview = text.length > 160
+                            ? '${text.substring(0, 160)}\u2026'
+                            : text;
                         return Text(
                           preview,
                           style: const TextStyle(
@@ -408,8 +619,9 @@ class _JournalPreviewCard extends ConsumerWidget {
 /// Floating date navigation bar — lives between the greeting and reading card.
 ///
 /// Day of week large, full date below. Circle arrow buttons on each side.
-/// Forward arrow fades when on today (the anchor). A warm "Return to Today"
-/// pill appears only when viewing a past date.
+/// Forward navigation is unrestricted — users can read ahead freely.
+/// A pill appears when viewing a past date, a future date, or when a new
+/// calendar day has become available mid-session.
 class _DateNavigator extends ConsumerWidget {
   const _DateNavigator();
 
@@ -417,10 +629,9 @@ class _DateNavigator extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final date = ref.watch(selectedDateProvider);
     final notifier = ref.read(selectedDateProvider.notifier);
-    final today = DateTime.now();
-    final isToday = date.year == today.year &&
-        date.month == today.month &&
-        date.day == today.day;
+    final isToday = notifier.isToday;
+    final isFuture = notifier.isFuture;
+    final newDayAvailable = notifier.newDayAvailable;
 
     return Column(
       children: [
@@ -428,10 +639,7 @@ class _DateNavigator extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _NavArrow(
-              icon: Icons.chevron_left,
-              onTap: notifier.goBack,
-            ),
+            _NavArrow(icon: Icons.chevron_left, onTap: notifier.goBack),
             Flexible(
               child: Column(
                 children: [
@@ -454,29 +662,24 @@ class _DateNavigator extends ConsumerWidget {
                 ],
               ),
             ),
-            _NavArrow(
-              icon: Icons.chevron_right,
-              onTap: isToday ? null : notifier.goForward,
-              dimmed: isToday,
-            ),
+            _NavArrow(icon: Icons.chevron_right, onTap: notifier.goForward),
           ],
         ),
-        if (!isToday) ...[
+        if (!isToday || newDayAvailable) ...[
           const SizedBox(height: 16),
           TextButton(
             onPressed: notifier.goToToday,
             style: TextButton.styleFrom(
               foregroundColor: const Color(0xFF3F2E1F),
               backgroundColor: Colors.white.withValues(alpha: 0.88),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            child: const Text(
-              'Return to Today',
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            child: Text(
+              isFuture ? 'You\'re ahead — Return to Today' : 'Return to Today',
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
             ),
           ),
         ],
@@ -488,32 +691,459 @@ class _DateNavigator extends ConsumerWidget {
 class _NavArrow extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onTap;
-  final bool dimmed;
 
-  const _NavArrow({required this.icon, this.onTap, this.dimmed = false});
+  const _NavArrow({required this.icon, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: dimmed ? 0.28 : 1.0,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(28),
-          child: Container(
-            width: 52,
-            height: 52,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white.withValues(alpha: 0.18),
-              border: Border.all(
-                color: Colors.white.withValues(alpha: 0.35),
-                width: 1.2,
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(28),
+        child: Container(
+          width: 52,
+          height: 52,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white.withValues(alpha: 0.18),
+            border: Border.all(
+              color: Colors.white.withValues(alpha: 0.35),
+              width: 1.2,
+            ),
+          ),
+          child: Icon(icon, color: Colors.white, size: 30),
+        ),
+      ),
+    );
+  }
+}
+
+/// Bottom sheet for switching the active reading plan.
+///
+/// Tapping a plan card expands it to reveal start mode options.
+/// The user chooses "Start today" (Day 1 from today) or "Follow the calendar"
+/// (use day-of-year). M'Cheyne shows an additional note about seasonal alignment.
+class _PlanSelector extends ConsumerStatefulWidget {
+  const _PlanSelector();
+
+  @override
+  ConsumerState<_PlanSelector> createState() => _PlanSelectorState();
+}
+
+class _PlanSelectorState extends ConsumerState<_PlanSelector> {
+  String? _expandedPlanId;
+
+  void _activate(String planId, bool startToday) {
+    ref.read(selectedPlanIdProvider.notifier).select(planId);
+    if (startToday) {
+      ref.read(planStartProvider.notifier).setStartDate(planId, DateTime.now());
+    } else {
+      ref.read(planStartProvider.notifier).setCalendar(planId);
+    }
+    Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final selectedId = ref.watch(selectedPlanIdProvider);
+    final startModes = ref.watch(planStartProvider);
+    final plans = ReadingPlanService.availablePlans;
+
+    return SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // ── Fixed header ──────────────────────────────────────────────
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 16, 4, 0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Spacer(),
+                Container(
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.close, size: 20),
+                  color: Colors.grey[500],
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
+            child: Text(
+              'Reading Plan',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w700,
+                color: const Color(0xFF3F2E1F),
               ),
             ),
-            child: Icon(icon, color: Colors.white, size: 30),
           ),
+          // ── Scrollable plan list ──────────────────────────────────────
+          Flexible(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...plans.map((plan) {
+                    final isSelected = plan.id == selectedId;
+                    final isExpanded = _expandedPlanId == plan.id;
+                    final startMode = startModes[plan.id];
+                    final currentModeLabel =
+                        (startMode == null || startMode == 'calendar')
+                        ? 'Following the calendar'
+                        : 'Started $startMode';
+
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _expandedPlanId = isExpanded ? null : plan.id;
+                        });
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        margin: const EdgeInsets.only(bottom: 10),
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? const Color(0xFF5C6B4A).withValues(alpha: 0.1)
+                              : Colors.grey[50],
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: isSelected
+                                ? const Color(0xFF5C6B4A)
+                                : Colors.grey[200]!,
+                            width: isSelected ? 1.5 : 1.0,
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // ── Header row ──────────────────────────────────────
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        plan.name,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 15,
+                                          color: Color(0xFF3F2E1F),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 2),
+                                      Text(
+                                        plan.author,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.grey[600],
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        plan.description,
+                                        maxLines: isExpanded ? 10 : 2,
+                                        overflow: isExpanded
+                                            ? TextOverflow.visible
+                                            : TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          color: Colors.grey[700],
+                                          height: 1.4,
+                                        ),
+                                      ),
+                                      if (isSelected && !isExpanded) ...[
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          currentModeLabel,
+                                          style: TextStyle(
+                                            fontSize: 11,
+                                            color: const Color(
+                                              0xFF5C6B4A,
+                                            ).withValues(alpha: 0.8),
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                        ),
+                                      ],
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    if (isSelected) ...[
+                                      const Icon(
+                                        Icons.check_circle,
+                                        color: Color(0xFF5C6B4A),
+                                        size: 18,
+                                      ),
+                                      const SizedBox(width: 4),
+                                    ],
+                                    Icon(
+                                      isExpanded
+                                          ? Icons.expand_less
+                                          : Icons.expand_more,
+                                      color: isSelected
+                                          ? const Color(0xFF5C6B4A)
+                                          : Colors.grey[400],
+                                      size: 20,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+                            // ── Start mode choice (expanded only) ───────────────
+                            if (isExpanded) ...[
+                              const SizedBox(height: 14),
+                              const Divider(height: 1),
+                              const SizedBox(height: 14),
+                              Text(
+                                'When would you like to begin?',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.grey[800],
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: _StartButton(
+                                      label: 'Start today',
+                                      sublabel: 'You\'ll be on Day 1',
+                                      onTap: () => _activate(plan.id, true),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    child: _StartButton(
+                                      label: 'Follow the calendar',
+                                      sublabel:
+                                          'Picks up where the plan is today',
+                                      onTap: () => _activate(plan.id, false),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              if (plan.id == 'mcheyne') ...[
+                                const SizedBox(height: 10),
+                                Text(
+                                  'M\'Cheyne aligns specific passages with seasons '
+                                  'of the church year — Advent, Easter, and others. '
+                                  '"Follow the calendar" honours that design.',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey[600],
+                                    fontStyle: FontStyle.italic,
+                                    height: 1.4,
+                                  ),
+                                ),
+                              ],
+                              const SizedBox(height: 10),
+                              if (isSelected) ...[
+                                _ResumeFromTodayButton(
+                                  planId: plan.id,
+                                  onDone: () => Navigator.of(context).pop(),
+                                ),
+                                const SizedBox(height: 6),
+                              ],
+                              GestureDetector(
+                                onTap: () async {
+                                  final day = await showDialog<int>(
+                                    context: context,
+                                    builder: (_) => const _DayEntryDialog(),
+                                  );
+                                  if (day != null) {
+                                    ref
+                                        .read(selectedPlanIdProvider.notifier)
+                                        .select(plan.id);
+                                    ref
+                                        .read(planStartProvider.notifier)
+                                        .setDay(plan.id, day);
+                                    if (context.mounted)
+                                      Navigator.of(context).pop();
+                                  }
+                                },
+                                child: Center(
+                                  child: Text(
+                                    'Jump to a specific day →',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: const Color(
+                                        0xFF5C6B4A,
+                                      ).withValues(alpha: 0.8),
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// "Resume from [date]" link shown in the plan picker when the active plan
+/// has at least one completed reading. Reanchors the start date so today
+/// equals the plan day of the user's last checked reading.
+class _ResumeFromTodayButton extends ConsumerWidget {
+  final String planId;
+  final VoidCallback onDone;
+
+  const _ResumeFromTodayButton({required this.planId, required this.onDone});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final last = ref.watch(lastCompletedPlanDayProvider);
+    if (last == null) return const SizedBox.shrink();
+
+    final label = DateFormat('MMMM d').format(last.date);
+
+    return GestureDetector(
+      onTap: () {
+        ref.read(planStartProvider.notifier).setDay(planId, last.day);
+        onDone();
+      },
+      child: Center(
+        child: Text(
+          'Resume from $label →',
+          style: TextStyle(
+            fontSize: 13,
+            color: const Color(0xFF5C6B4A).withValues(alpha: 0.8),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Dialog for entering a specific day number to jump to in a reading plan.
+class _DayEntryDialog extends StatefulWidget {
+  const _DayEntryDialog();
+
+  @override
+  State<_DayEntryDialog> createState() => _DayEntryDialogState();
+}
+
+class _DayEntryDialogState extends State<_DayEntryDialog> {
+  final _controller = TextEditingController();
+  String? _error;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _submit() {
+    final value = int.tryParse(_controller.text.trim());
+    if (value == null || value < 1) {
+      setState(() => _error = 'Enter a day number (1 or higher)');
+      return;
+    }
+    Navigator.of(context).pop(value);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Jump to Day'),
+      content: TextField(
+        controller: _controller,
+        keyboardType: TextInputType.number,
+        autofocus: true,
+        decoration: InputDecoration(hintText: 'e.g. 47', errorText: _error),
+        onSubmitted: (_) => _submit(),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
+        TextButton(onPressed: _submit, child: const Text('Go')),
+      ],
+    );
+  }
+}
+
+/// A compact two-line button used inside the plan start mode chooser.
+class _StartButton extends StatelessWidget {
+  final String label;
+  final String sublabel;
+  final VoidCallback onTap;
+
+  const _StartButton({
+    required this.label,
+    required this.sublabel,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+        decoration: BoxDecoration(
+          color: const Color(0xFF5C6B4A).withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: const Color(0xFF5C6B4A).withValues(alpha: 0.35),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF3F2E1F),
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              sublabel,
+              style: TextStyle(
+                fontSize: 11,
+                color: Colors.grey[600],
+                height: 1.3,
+              ),
+            ),
+          ],
         ),
       ),
     );

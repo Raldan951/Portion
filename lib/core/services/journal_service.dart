@@ -1,103 +1,104 @@
+import 'dart:io';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import '../models/journal_document.dart';
 import '../models/journal_entry.dart';
+import 'icloud_service.dart';
 
-/// Manages the local journal SQLite database.
+/// Manages journal data as per-day plain-text files.
 ///
-/// v1: journal_entries — one entry per reflection, multiple per day.
-/// v2: journal_documents — one continuous document per day (the journal page).
+/// Each day's journal is stored as `$base/journal/YYYY-MM-DD.txt`.
+/// When iCloud is available, `$base` is the ubiquity container Documents
+/// folder and iOS/macOS syncs the files automatically. When iCloud is
+/// unavailable the files live in the local app documents directory.
 ///
-/// Both tables coexist; v1 data is preserved for future migration if needed.
+/// On first run, any existing SQLite journal_documents rows are migrated
+/// to text files so no data is lost.
 class JournalService {
-  Database? _db;
+  late final String _basePath;
 
   Future<void> init() async {
-    final docsDir = await getApplicationDocumentsDirectory();
-    final dbPath = p.join(docsDir.path, 'journal.db');
+    final icloudPath = await ICloudService.containerPath;
+    _basePath = icloudPath ?? (await getApplicationDocumentsDirectory()).path;
 
-    _db = await openDatabase(
-      dbPath,
-      version: 2,
-      onCreate: (db, version) async {
-        await db.execute('''
-          CREATE TABLE journal_entries (
-            id         INTEGER PRIMARY KEY AUTOINCREMENT,
-            date       TEXT    NOT NULL,
-            body       TEXT    NOT NULL,
-            created_at INTEGER NOT NULL
-          )
-        ''');
-        await db.execute(
-          'CREATE INDEX idx_journal_date ON journal_entries (date)',
-        );
-        await db.execute('''
-          CREATE TABLE journal_documents (
-            date       TEXT    PRIMARY KEY,
-            body       TEXT    NOT NULL DEFAULT '',
-            updated_at INTEGER NOT NULL
-          )
-        ''');
-      },
-      onUpgrade: (db, oldVersion, newVersion) async {
-        if (oldVersion < 2) {
-          await db.execute('''
-            CREATE TABLE IF NOT EXISTS journal_documents (
-              date       TEXT    PRIMARY KEY,
-              body       TEXT    NOT NULL DEFAULT '',
-              updated_at INTEGER NOT NULL
-            )
-          ''');
-        }
-      },
-    );
+    // Ensure the journal sub-directory exists.
+    await Directory(p.join(_basePath, 'journal')).create(recursive: true);
+
+    // One-time migration from legacy SQLite.
+    await _migrateFromSqliteIfNeeded();
   }
 
-  // ── Legacy entry API (v1) ─────────────────────────────────────────────────
+  // ── File path helper ──────────────────────────────────────────────────────
 
-  Future<void> saveEntry(String date, String body) async {
-    await _db!.insert('journal_entries', {
-      'date': date,
-      'body': body.trim(),
-      'created_at': DateTime.now().millisecondsSinceEpoch,
-    });
-  }
+  /// The journal sub-directory path — used by the file watcher provider.
+  String get journalDirPath => p.join(_basePath, 'journal');
 
-  Future<List<JournalEntry>> getEntriesForDate(String date) async {
-    final rows = await _db!.query(
-      'journal_entries',
-      where: 'date = ?',
-      whereArgs: [date],
-      orderBy: 'created_at DESC',
-    );
-    return rows.map(JournalEntry.fromMap).toList();
-  }
+  File _fileForDate(String date) =>
+      File(p.join(_basePath, 'journal', '$date.txt'));
 
   // ── Document API (v2) ─────────────────────────────────────────────────────
 
-  /// Returns the journal document for [date], or null if none exists yet.
+  /// Returns the journal document for [date], or null if nothing written yet.
   Future<JournalDocument?> getDocument(String date) async {
-    final rows = await _db!.query(
-      'journal_documents',
-      where: 'date = ?',
-      whereArgs: [date],
-      limit: 1,
-    );
-    if (rows.isEmpty) return null;
-    return JournalDocument.fromMap(rows.first);
+    final file = _fileForDate(date);
+    if (!file.existsSync()) return null;
+    final body = await file.readAsString();
+    if (body.isEmpty) return null;
+    final stat = file.statSync();
+    return JournalDocument(date: date, body: body, updatedAt: stat.modified);
   }
 
-  /// Creates or replaces the journal document for [date].
+  /// Writes the journal document for [date].
   Future<void> upsertDocument(String date, String body) async {
-    await _db!.insert(
-      'journal_documents',
-      {
-        'date': date,
-        'body': body,
-        'updated_at': DateTime.now().millisecondsSinceEpoch,
-      },
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    await _fileForDate(date).writeAsString(body);
+  }
+
+  // ── Legacy entry API (v1 — stubs, no longer written) ─────────────────────
+
+  Future<void> saveEntry(String date, String body) async {}
+
+  Future<List<JournalEntry>> getEntriesForDate(String date) async => [];
+
+  // ── SQLite migration ──────────────────────────────────────────────────────
+
+  /// Reads any existing rows from the legacy journal.db and writes them as
+  /// text files. Skips dates that already have a text file. Marks completion
+  /// with a `.migrated` sentinel so this only runs once.
+  Future<void> _migrateFromSqliteIfNeeded() async {
+    final sentinel = File(p.join(_basePath, 'journal', '.migrated'));
+    if (sentinel.existsSync()) return;
+
+    final localDocsPath = (await getApplicationDocumentsDirectory()).path;
+    final dbPath = p.join(localDocsPath, 'journal.db');
+    if (!File(dbPath).existsSync()) {
+      // No legacy DB — just mark done.
+      await sentinel.writeAsString(DateTime.now().toIso8601String());
+      return;
+    }
+
+    try {
+      final db = await openDatabase(dbPath, readOnly: true);
+      final rows = await db.query('journal_documents', orderBy: 'date');
+      for (final row in rows) {
+        final date = row['date'] as String;
+        final body = row['body'] as String;
+        if (body.isNotEmpty) {
+          final file = _fileForDate(date);
+          if (!file.existsSync()) {
+            await file.writeAsString(body);
+            // ignore: avoid_print
+            print('[JournalService] migrated $date (${body.length} chars)');
+          }
+        }
+      }
+      await db.close();
+    } catch (e) {
+      // Non-fatal — user keeps existing text files, SQLite data stays on disk.
+      // ignore: avoid_print
+      print('[JournalService] migration error: $e');
+    }
+
+    await sentinel.writeAsString(DateTime.now().toIso8601String());
   }
 }

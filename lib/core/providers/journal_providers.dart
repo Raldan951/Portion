@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../models/journal_document.dart';
@@ -30,6 +31,19 @@ final journalDocumentProvider = FutureProvider<JournalDocument?>((ref) async {
   final service = await ref.watch(journalServiceProvider.future);
   final dateKey = DateFormat('yyyy-MM-dd').format(selectedDate);
   return service.getDocument(dateKey);
+});
+
+/// Watches the journal directory for file changes (e.g. iCloud syncing a
+/// new or updated .txt file). Fires a [FileSystemEvent] for every change to
+/// a .txt file. Consumers listen and invalidate [journalDocumentProvider] so
+/// the UI reflects changes from other devices without a manual refresh.
+final journalWatcherProvider = StreamProvider<FileSystemEvent>((ref) async* {
+  final service = await ref.watch(journalServiceProvider.future);
+  final dir = Directory(service.journalDirPath);
+  if (!dir.existsSync()) return;
+  yield* dir
+      .watch(events: FileSystemEvent.all)
+      .where((e) => e.path.endsWith('.txt'));
 });
 
 /// Holds the text of a clipped passage waiting to be inserted into the journal.

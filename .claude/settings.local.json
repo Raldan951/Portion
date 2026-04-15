@@ -17,7 +17,17 @@
       "Bash(pod install:*)",
       "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/BSB.db \".tables\")",
       "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/BSB.db \".schema\")",
-      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/BSB.db \"SELECT * FROM BSB_books WHERE id IN \\(9,10,11,19,66\\);\")"
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/BSB.db \"SELECT * FROM BSB_books WHERE id IN \\(9,10,11,19,66\\);\")",
+      "Bash(xcrun simctl:*)",
+      "Bash(open -a Simulator)",
+      "Bash(sqlite3 /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/assets/data/KJV.db \"SELECT name FROM KJV_books WHERE name IN \\('Leviticus', 'Psalms', 'Proverbs', 'I Timothy'\\);\")",
+      "Bash(grep -A3 \"name: sqflite$\\\\|name: sqflite_darwin\\\\|name: objective_c\" /Volumes/OWC_Envoy_Ultra/Projects/BibleJournal-V2/Flutter-UI/pubspec.lock)",
+      "Bash(flutter clean:*)",
+      "Bash(flutter build:*)",
+      "Bash(python3 src/generate_plans.py)",
+      "Bash(python3 -)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)"
     ]
   }
 }

@@ -1,0 +1,9315 @@
+{
+  "id": "bible_in_a_year",
+  "name": "Bible in a Year",
+  "description": "Read through the entire Bible in one year, Genesis to Revelation, moving sequentially through every book. Three to four chapters daily.",
+  "author": "Traditional",
+  "schedule": [
+    {
+      "day": 1,
+      "month_day": "01-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Genesis 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Genesis 3-4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "month_day": "01-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Genesis 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Genesis 7-8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "month_day": "01-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Genesis 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Genesis 11-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "month_day": "01-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Genesis 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Genesis 15-16"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "month_day": "01-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "Genesis 17-18"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Genesis 19-20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "month_day": "01-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "Genesis 21-22"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "Genesis 23-24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "month_day": "01-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Genesis 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "Genesis 27-28"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "month_day": "01-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 29,
+              "chapter_end": 30,
+              "display": "Genesis 29-30"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Genesis 31-32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "month_day": "01-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 33,
+              "chapter_end": 34,
+              "display": "Genesis 33-34"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 35,
+              "chapter_end": 36,
+              "display": "Genesis 35-36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 10,
+      "month_day": "01-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Genesis 37-38"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 39,
+              "chapter_end": 40,
+              "display": "Genesis 39-40"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 11,
+      "month_day": "01-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 41,
+              "chapter_end": 42,
+              "display": "Genesis 41-42"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 43,
+              "chapter_end": 44,
+              "display": "Genesis 43-44"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 12,
+      "month_day": "01-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 45,
+              "chapter_end": 46,
+              "display": "Genesis 45-46"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 47,
+              "chapter_end": 48,
+              "display": "Genesis 47-48"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 13,
+      "month_day": "01-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Genesis",
+              "chapter": 49,
+              "chapter_end": 50,
+              "display": "Genesis 49-50"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Exodus 1-2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 14,
+      "month_day": "01-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Exodus 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Exodus 5-6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 15,
+      "month_day": "01-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Exodus 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Exodus 9-10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 16,
+      "month_day": "01-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Exodus 11-12"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Exodus 13-14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 17,
+      "month_day": "01-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Exodus 15-16"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "Exodus 17-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 18,
+      "month_day": "01-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Exodus 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "Exodus 21-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 19,
+      "month_day": "01-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "Exodus 23-24"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Exodus 25-26"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 20,
+      "month_day": "01-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "Exodus 27-28"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 29,
+              "chapter_end": 30,
+              "display": "Exodus 29-30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 21,
+      "month_day": "01-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Exodus 31-32"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 33,
+              "chapter_end": 34,
+              "display": "Exodus 33-34"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 22,
+      "month_day": "01-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 35,
+              "chapter_end": 36,
+              "display": "Exodus 35-36"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Exodus 37-38"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 23,
+      "month_day": "01-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Exodus",
+              "chapter": 39,
+              "chapter_end": 40,
+              "display": "Exodus 39-40"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Leviticus 1-2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 24,
+      "month_day": "01-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Leviticus 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Leviticus 5-6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 25,
+      "month_day": "01-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Leviticus 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Leviticus 9-10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 26,
+      "month_day": "01-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Leviticus 11-12"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Leviticus 13-14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 27,
+      "month_day": "01-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Leviticus 15-16"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "Leviticus 17-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 28,
+      "month_day": "01-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Leviticus 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "Leviticus 21-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 29,
+      "month_day": "01-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "Leviticus 23-24"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Leviticus 25-26"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 30,
+      "month_day": "01-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Leviticus",
+              "chapter": 27,
+              "display": "Leviticus 27"
+            },
+            {
+              "book": "Numbers",
+              "chapter": 1,
+              "display": "Numbers 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Numbers 2-3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 31,
+      "month_day": "01-31",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Numbers 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Numbers 6-7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 32,
+      "month_day": "02-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Numbers 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Numbers 10-11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 33,
+      "month_day": "02-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Numbers 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Numbers 14-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 34,
+      "month_day": "02-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Numbers 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Numbers 18-19"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 35,
+      "month_day": "02-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Numbers 20-21"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Numbers 22-23"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 36,
+      "month_day": "02-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "Numbers 24-25"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 26,
+              "chapter_end": 27,
+              "display": "Numbers 26-27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 37,
+      "month_day": "02-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Numbers 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 30,
+              "chapter_end": 31,
+              "display": "Numbers 30-31"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 38,
+      "month_day": "02-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 32,
+              "chapter_end": 33,
+              "display": "Numbers 32-33"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "Numbers 34-35"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 39,
+      "month_day": "02-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Numbers",
+              "chapter": 36,
+              "display": "Numbers 36"
+            },
+            {
+              "book": "Deuteronomy",
+              "chapter": 1,
+              "display": "Deuteronomy 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Deuteronomy 2-3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 40,
+      "month_day": "02-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Deuteronomy 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Deuteronomy 6-7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 41,
+      "month_day": "02-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Deuteronomy 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Deuteronomy 10-11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 42,
+      "month_day": "02-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Deuteronomy 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Deuteronomy 14-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 43,
+      "month_day": "02-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Deuteronomy 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Deuteronomy 18-19"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 44,
+      "month_day": "02-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Deuteronomy 20-21"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Deuteronomy 22-23"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 45,
+      "month_day": "02-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "Deuteronomy 24-25"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 26,
+              "chapter_end": 27,
+              "display": "Deuteronomy 26-27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 46,
+      "month_day": "02-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Deuteronomy 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 30,
+              "chapter_end": 31,
+              "display": "Deuteronomy 30-31"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 47,
+      "month_day": "02-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 32,
+              "chapter_end": 33,
+              "display": "Deuteronomy 32-33"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Deuteronomy",
+              "chapter": 34,
+              "display": "Deuteronomy 34"
+            },
+            {
+              "book": "Joshua",
+              "chapter": 1,
+              "display": "Joshua 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 48,
+      "month_day": "02-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Joshua 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Joshua 4-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 49,
+      "month_day": "02-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Joshua 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Joshua 8-9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 50,
+      "month_day": "02-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Joshua 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Joshua 12-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 51,
+      "month_day": "02-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Joshua 14-15"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Joshua 16-17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 52,
+      "month_day": "02-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Joshua 18-19"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Joshua 20-21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 53,
+      "month_day": "02-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Joshua 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Joshua",
+              "chapter": 24,
+              "display": "Joshua 24"
+            },
+            {
+              "book": "Judges",
+              "chapter": 1,
+              "display": "Judges 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 54,
+      "month_day": "02-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Judges 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Judges 4-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 55,
+      "month_day": "02-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Judges 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Judges 8-9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 56,
+      "month_day": "02-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Judges 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Judges 12-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 57,
+      "month_day": "02-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Judges 14-15"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Judges 16-17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 58,
+      "month_day": "02-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Judges 18-19"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Judges",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Judges 20-21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 59,
+      "month_day": "02-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ruth",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Ruth 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ruth",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Ruth 3-4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 60,
+      "month_day": "03-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "1 Samuel 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "1 Samuel 3-4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 61,
+      "month_day": "03-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "1 Samuel 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "1 Samuel 7-8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 62,
+      "month_day": "03-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "1 Samuel 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "1 Samuel 11-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 63,
+      "month_day": "03-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "1 Samuel 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "1 Samuel 15-16"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 64,
+      "month_day": "03-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "1 Samuel 17-18"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "1 Samuel 19-20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 65,
+      "month_day": "03-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "1 Samuel 21-22"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "1 Samuel 23-24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 66,
+      "month_day": "03-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "1 Samuel 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "1 Samuel 27-28"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 67,
+      "month_day": "03-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 29,
+              "chapter_end": 30,
+              "display": "1 Samuel 29-30"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Samuel",
+              "chapter": 31,
+              "display": "1 Samuel 31"
+            },
+            {
+              "book": "2 Samuel",
+              "chapter": 1,
+              "display": "2 Samuel 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 68,
+      "month_day": "03-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Samuel 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "2 Samuel 4-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 69,
+      "month_day": "03-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "2 Samuel 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "2 Samuel 8-9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 70,
+      "month_day": "03-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "2 Samuel 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "2 Samuel 12-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 71,
+      "month_day": "03-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "2 Samuel 14-15"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "2 Samuel 16-17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 72,
+      "month_day": "03-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "2 Samuel 18-19"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "2 Samuel 20-21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 73,
+      "month_day": "03-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "2 Samuel 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Samuel",
+              "chapter": 24,
+              "display": "2 Samuel 24"
+            },
+            {
+              "book": "1 Kings",
+              "chapter": 1,
+              "display": "1 Kings 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 74,
+      "month_day": "03-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "1 Kings 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "1 Kings 4-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 75,
+      "month_day": "03-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "1 Kings 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "1 Kings 8-9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 76,
+      "month_day": "03-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "1 Kings 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "1 Kings 12-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 77,
+      "month_day": "03-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "1 Kings 14-15"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "1 Kings 16-17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 78,
+      "month_day": "03-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "1 Kings 18-19"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "1 Kings 20-21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 79,
+      "month_day": "03-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Kings",
+              "chapter": 22,
+              "display": "1 Kings 22"
+            },
+            {
+              "book": "2 Kings",
+              "chapter": 1,
+              "display": "2 Kings 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Kings 2-3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 80,
+      "month_day": "03-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "2 Kings 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "2 Kings 6-7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 81,
+      "month_day": "03-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "2 Kings 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "2 Kings 10-11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 82,
+      "month_day": "03-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "2 Kings 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "2 Kings 14-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 83,
+      "month_day": "03-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "2 Kings 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "2 Kings 18-19"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 84,
+      "month_day": "03-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "2 Kings 20-21"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "2 Kings 22-23"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 85,
+      "month_day": "03-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Kings",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "2 Kings 24-25"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "1 Chronicles 1-2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 86,
+      "month_day": "03-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "1 Chronicles 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "1 Chronicles 5-6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 87,
+      "month_day": "03-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "1 Chronicles 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "1 Chronicles 9-10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 88,
+      "month_day": "03-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "1 Chronicles 11-12"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "1 Chronicles 13-14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 89,
+      "month_day": "03-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "1 Chronicles 15-16"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "1 Chronicles 17-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 90,
+      "month_day": "03-31",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "1 Chronicles 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "1 Chronicles 21-22"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 91,
+      "month_day": "04-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "1 Chronicles 23-24"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "1 Chronicles 25-26"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 92,
+      "month_day": "04-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "1 Chronicles 27-28"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Chronicles",
+              "chapter": 29,
+              "display": "1 Chronicles 29"
+            },
+            {
+              "book": "2 Chronicles",
+              "chapter": 1,
+              "display": "2 Chronicles 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 93,
+      "month_day": "04-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Chronicles 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "2 Chronicles 4-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 94,
+      "month_day": "04-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "2 Chronicles 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "2 Chronicles 8-9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 95,
+      "month_day": "04-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "2 Chronicles 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 12,
+              "display": "2 Chronicles 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 96,
+      "month_day": "04-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "2 Chronicles 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 15,
+              "display": "2 Chronicles 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 97,
+      "month_day": "04-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "2 Chronicles 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 18,
+              "display": "2 Chronicles 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 98,
+      "month_day": "04-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "2 Chronicles 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 21,
+              "display": "2 Chronicles 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 99,
+      "month_day": "04-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "2 Chronicles 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 24,
+              "display": "2 Chronicles 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 100,
+      "month_day": "04-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "2 Chronicles 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 27,
+              "display": "2 Chronicles 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 101,
+      "month_day": "04-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "2 Chronicles 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 30,
+              "display": "2 Chronicles 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 102,
+      "month_day": "04-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "2 Chronicles 31-32"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 33,
+              "display": "2 Chronicles 33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 103,
+      "month_day": "04-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "2 Chronicles 34-35"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Chronicles",
+              "chapter": 36,
+              "display": "2 Chronicles 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 104,
+      "month_day": "04-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezra",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Ezra 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezra",
+              "chapter": 3,
+              "display": "Ezra 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 105,
+      "month_day": "04-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezra",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Ezra 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezra",
+              "chapter": 6,
+              "display": "Ezra 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 106,
+      "month_day": "04-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezra",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Ezra 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezra",
+              "chapter": 9,
+              "display": "Ezra 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 107,
+      "month_day": "04-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezra",
+              "chapter": 10,
+              "display": "Ezra 10"
+            },
+            {
+              "book": "Nehemiah",
+              "chapter": 1,
+              "display": "Nehemiah 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 2,
+              "display": "Nehemiah 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 108,
+      "month_day": "04-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Nehemiah 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 5,
+              "display": "Nehemiah 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 109,
+      "month_day": "04-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Nehemiah 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 8,
+              "display": "Nehemiah 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 110,
+      "month_day": "04-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Nehemiah 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 11,
+              "display": "Nehemiah 11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 111,
+      "month_day": "04-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Nehemiah",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Nehemiah 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Esther",
+              "chapter": 1,
+              "display": "Esther 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 112,
+      "month_day": "04-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Esther",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Esther 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Esther",
+              "chapter": 4,
+              "display": "Esther 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 113,
+      "month_day": "04-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Esther",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Esther 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Esther",
+              "chapter": 7,
+              "display": "Esther 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 114,
+      "month_day": "04-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Esther",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Esther 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Esther",
+              "chapter": 10,
+              "display": "Esther 10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 115,
+      "month_day": "04-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Job 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 3,
+              "display": "Job 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 116,
+      "month_day": "04-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Job 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 6,
+              "display": "Job 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 117,
+      "month_day": "04-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Job 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 9,
+              "display": "Job 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 118,
+      "month_day": "04-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Job 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 12,
+              "display": "Job 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 119,
+      "month_day": "04-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Job 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 15,
+              "display": "Job 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 120,
+      "month_day": "04-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Job 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 18,
+              "display": "Job 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 121,
+      "month_day": "05-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Job 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 21,
+              "display": "Job 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 122,
+      "month_day": "05-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Job 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 24,
+              "display": "Job 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 123,
+      "month_day": "05-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Job 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 27,
+              "display": "Job 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 124,
+      "month_day": "05-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Job 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 30,
+              "display": "Job 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 125,
+      "month_day": "05-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Job 31-32"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 33,
+              "display": "Job 33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 126,
+      "month_day": "05-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "Job 34-35"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 36,
+              "display": "Job 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 127,
+      "month_day": "05-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Job 37-38"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 39,
+              "display": "Job 39"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 128,
+      "month_day": "05-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 40,
+              "chapter_end": 41,
+              "display": "Job 40-41"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Job",
+              "chapter": 42,
+              "display": "Job 42"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 129,
+      "month_day": "05-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Psalms 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 3,
+              "display": "Psalms 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 130,
+      "month_day": "05-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Psalms 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 6,
+              "display": "Psalms 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 131,
+      "month_day": "05-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Psalms 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 9,
+              "display": "Psalms 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 132,
+      "month_day": "05-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Psalms 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 12,
+              "display": "Psalms 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 133,
+      "month_day": "05-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Psalms 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 15,
+              "display": "Psalms 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 134,
+      "month_day": "05-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Psalms 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 18,
+              "display": "Psalms 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 135,
+      "month_day": "05-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Psalms 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 21,
+              "display": "Psalms 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 136,
+      "month_day": "05-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Psalms 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 24,
+              "display": "Psalms 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 137,
+      "month_day": "05-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Psalms 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 27,
+              "display": "Psalms 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 138,
+      "month_day": "05-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Psalms 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 30,
+              "display": "Psalms 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 139,
+      "month_day": "05-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Psalms 31-32"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 33,
+              "display": "Psalms 33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 140,
+      "month_day": "05-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "Psalms 34-35"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 36,
+              "display": "Psalms 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 141,
+      "month_day": "05-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Psalms 37-38"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 39,
+              "display": "Psalms 39"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 142,
+      "month_day": "05-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 40,
+              "chapter_end": 41,
+              "display": "Psalms 40-41"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 42,
+              "display": "Psalms 42"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 143,
+      "month_day": "05-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 43,
+              "chapter_end": 44,
+              "display": "Psalms 43-44"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 45,
+              "display": "Psalms 45"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 144,
+      "month_day": "05-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 46,
+              "chapter_end": 47,
+              "display": "Psalms 46-47"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 48,
+              "display": "Psalms 48"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 145,
+      "month_day": "05-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 49,
+              "chapter_end": 50,
+              "display": "Psalms 49-50"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 51,
+              "display": "Psalms 51"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 146,
+      "month_day": "05-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 52,
+              "chapter_end": 53,
+              "display": "Psalms 52-53"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 54,
+              "display": "Psalms 54"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 147,
+      "month_day": "05-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 55,
+              "chapter_end": 56,
+              "display": "Psalms 55-56"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 57,
+              "display": "Psalms 57"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 148,
+      "month_day": "05-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 58,
+              "chapter_end": 59,
+              "display": "Psalms 58-59"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 60,
+              "display": "Psalms 60"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 149,
+      "month_day": "05-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 61,
+              "chapter_end": 62,
+              "display": "Psalms 61-62"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 63,
+              "display": "Psalms 63"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 150,
+      "month_day": "05-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 64,
+              "chapter_end": 65,
+              "display": "Psalms 64-65"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 66,
+              "display": "Psalms 66"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 151,
+      "month_day": "05-31",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 67,
+              "chapter_end": 68,
+              "display": "Psalms 67-68"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 69,
+              "display": "Psalms 69"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 152,
+      "month_day": "06-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 70,
+              "chapter_end": 71,
+              "display": "Psalms 70-71"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 72,
+              "display": "Psalms 72"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 153,
+      "month_day": "06-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 73,
+              "chapter_end": 74,
+              "display": "Psalms 73-74"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 75,
+              "display": "Psalms 75"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 154,
+      "month_day": "06-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 76,
+              "chapter_end": 77,
+              "display": "Psalms 76-77"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 78,
+              "display": "Psalms 78"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 155,
+      "month_day": "06-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 79,
+              "chapter_end": 80,
+              "display": "Psalms 79-80"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 81,
+              "display": "Psalms 81"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 156,
+      "month_day": "06-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 82,
+              "chapter_end": 83,
+              "display": "Psalms 82-83"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 84,
+              "display": "Psalms 84"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 157,
+      "month_day": "06-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 85,
+              "chapter_end": 86,
+              "display": "Psalms 85-86"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 87,
+              "display": "Psalms 87"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 158,
+      "month_day": "06-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 88,
+              "chapter_end": 89,
+              "display": "Psalms 88-89"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 90,
+              "display": "Psalms 90"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 159,
+      "month_day": "06-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 91,
+              "chapter_end": 92,
+              "display": "Psalms 91-92"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 93,
+              "display": "Psalms 93"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 160,
+      "month_day": "06-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 94,
+              "chapter_end": 95,
+              "display": "Psalms 94-95"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 96,
+              "display": "Psalms 96"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 161,
+      "month_day": "06-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 97,
+              "chapter_end": 98,
+              "display": "Psalms 97-98"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 99,
+              "display": "Psalms 99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 162,
+      "month_day": "06-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 100,
+              "chapter_end": 101,
+              "display": "Psalms 100-101"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 102,
+              "display": "Psalms 102"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 163,
+      "month_day": "06-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 103,
+              "chapter_end": 104,
+              "display": "Psalms 103-104"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 105,
+              "display": "Psalms 105"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 164,
+      "month_day": "06-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 106,
+              "chapter_end": 107,
+              "display": "Psalms 106-107"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 108,
+              "display": "Psalms 108"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 165,
+      "month_day": "06-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 109,
+              "chapter_end": 110,
+              "display": "Psalms 109-110"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 111,
+              "display": "Psalms 111"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 166,
+      "month_day": "06-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 112,
+              "chapter_end": 113,
+              "display": "Psalms 112-113"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 114,
+              "display": "Psalms 114"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 167,
+      "month_day": "06-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 115,
+              "chapter_end": 116,
+              "display": "Psalms 115-116"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 117,
+              "display": "Psalms 117"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 168,
+      "month_day": "06-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 118,
+              "chapter_end": 119,
+              "display": "Psalms 118-119"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 120,
+              "display": "Psalms 120"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 169,
+      "month_day": "06-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 121,
+              "chapter_end": 122,
+              "display": "Psalms 121-122"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 123,
+              "display": "Psalms 123"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 170,
+      "month_day": "06-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 124,
+              "chapter_end": 125,
+              "display": "Psalms 124-125"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 126,
+              "display": "Psalms 126"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 171,
+      "month_day": "06-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 127,
+              "chapter_end": 128,
+              "display": "Psalms 127-128"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 129,
+              "display": "Psalms 129"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 172,
+      "month_day": "06-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 130,
+              "chapter_end": 131,
+              "display": "Psalms 130-131"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 132,
+              "display": "Psalms 132"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 173,
+      "month_day": "06-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 133,
+              "chapter_end": 134,
+              "display": "Psalms 133-134"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 135,
+              "display": "Psalms 135"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 174,
+      "month_day": "06-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 136,
+              "chapter_end": 137,
+              "display": "Psalms 136-137"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 138,
+              "display": "Psalms 138"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 175,
+      "month_day": "06-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 139,
+              "chapter_end": 140,
+              "display": "Psalms 139-140"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 141,
+              "display": "Psalms 141"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 176,
+      "month_day": "06-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 142,
+              "chapter_end": 143,
+              "display": "Psalms 142-143"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 144,
+              "display": "Psalms 144"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 177,
+      "month_day": "06-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 145,
+              "chapter_end": 146,
+              "display": "Psalms 145-146"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 147,
+              "display": "Psalms 147"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 178,
+      "month_day": "06-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 148,
+              "chapter_end": 149,
+              "display": "Psalms 148-149"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Psalms",
+              "chapter": 150,
+              "display": "Psalms 150"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 179,
+      "month_day": "06-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Proverbs 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 3,
+              "display": "Proverbs 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 180,
+      "month_day": "06-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Proverbs 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 6,
+              "display": "Proverbs 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 181,
+      "month_day": "06-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Proverbs 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 9,
+              "display": "Proverbs 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 182,
+      "month_day": "07-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Proverbs 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 12,
+              "display": "Proverbs 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 183,
+      "month_day": "07-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Proverbs 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 15,
+              "display": "Proverbs 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 184,
+      "month_day": "07-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Proverbs 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 18,
+              "display": "Proverbs 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 185,
+      "month_day": "07-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Proverbs 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 21,
+              "display": "Proverbs 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 186,
+      "month_day": "07-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Proverbs 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 24,
+              "display": "Proverbs 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 187,
+      "month_day": "07-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Proverbs 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 27,
+              "display": "Proverbs 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 188,
+      "month_day": "07-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Proverbs 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 30,
+              "display": "Proverbs 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 189,
+      "month_day": "07-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Proverbs",
+              "chapter": 31,
+              "display": "Proverbs 31"
+            },
+            {
+              "book": "Ecclesiastes",
+              "chapter": 1,
+              "display": "Ecclesiastes 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 2,
+              "display": "Ecclesiastes 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 190,
+      "month_day": "07-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Ecclesiastes 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 5,
+              "display": "Ecclesiastes 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 191,
+      "month_day": "07-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Ecclesiastes 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 8,
+              "display": "Ecclesiastes 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 192,
+      "month_day": "07-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Ecclesiastes 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 11,
+              "display": "Ecclesiastes 11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 193,
+      "month_day": "07-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ecclesiastes",
+              "chapter": 12,
+              "display": "Ecclesiastes 12"
+            },
+            {
+              "book": "Song of Solomon",
+              "chapter": 1,
+              "display": "Song of Solomon 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Song of Solomon",
+              "chapter": 2,
+              "display": "Song of Solomon 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 194,
+      "month_day": "07-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Song of Solomon",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Song of Solomon 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Song of Solomon",
+              "chapter": 5,
+              "display": "Song of Solomon 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 195,
+      "month_day": "07-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Song of Solomon",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Song of Solomon 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Song of Solomon",
+              "chapter": 8,
+              "display": "Song of Solomon 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 196,
+      "month_day": "07-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Isaiah 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 3,
+              "display": "Isaiah 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 197,
+      "month_day": "07-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Isaiah 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 6,
+              "display": "Isaiah 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 198,
+      "month_day": "07-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Isaiah 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 9,
+              "display": "Isaiah 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 199,
+      "month_day": "07-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Isaiah 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 12,
+              "display": "Isaiah 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 200,
+      "month_day": "07-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Isaiah 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 15,
+              "display": "Isaiah 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 201,
+      "month_day": "07-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Isaiah 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 18,
+              "display": "Isaiah 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 202,
+      "month_day": "07-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Isaiah 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 21,
+              "display": "Isaiah 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 203,
+      "month_day": "07-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Isaiah 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 24,
+              "display": "Isaiah 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 204,
+      "month_day": "07-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Isaiah 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 27,
+              "display": "Isaiah 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 205,
+      "month_day": "07-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Isaiah 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 30,
+              "display": "Isaiah 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 206,
+      "month_day": "07-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Isaiah 31-32"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 33,
+              "display": "Isaiah 33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 207,
+      "month_day": "07-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "Isaiah 34-35"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 36,
+              "display": "Isaiah 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 208,
+      "month_day": "07-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Isaiah 37-38"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 39,
+              "display": "Isaiah 39"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 209,
+      "month_day": "07-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 40,
+              "chapter_end": 41,
+              "display": "Isaiah 40-41"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 42,
+              "display": "Isaiah 42"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 210,
+      "month_day": "07-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 43,
+              "chapter_end": 44,
+              "display": "Isaiah 43-44"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 45,
+              "display": "Isaiah 45"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 211,
+      "month_day": "07-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 46,
+              "chapter_end": 47,
+              "display": "Isaiah 46-47"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 48,
+              "display": "Isaiah 48"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 212,
+      "month_day": "07-31",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 49,
+              "chapter_end": 50,
+              "display": "Isaiah 49-50"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 51,
+              "display": "Isaiah 51"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 213,
+      "month_day": "08-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 52,
+              "chapter_end": 53,
+              "display": "Isaiah 52-53"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 54,
+              "display": "Isaiah 54"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 214,
+      "month_day": "08-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 55,
+              "chapter_end": 56,
+              "display": "Isaiah 55-56"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 57,
+              "display": "Isaiah 57"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 215,
+      "month_day": "08-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 58,
+              "chapter_end": 59,
+              "display": "Isaiah 58-59"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 60,
+              "display": "Isaiah 60"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 216,
+      "month_day": "08-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 61,
+              "chapter_end": 62,
+              "display": "Isaiah 61-62"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 63,
+              "display": "Isaiah 63"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 217,
+      "month_day": "08-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 64,
+              "chapter_end": 65,
+              "display": "Isaiah 64-65"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Isaiah",
+              "chapter": 66,
+              "display": "Isaiah 66"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 218,
+      "month_day": "08-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Jeremiah 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 3,
+              "display": "Jeremiah 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 219,
+      "month_day": "08-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Jeremiah 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 6,
+              "display": "Jeremiah 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 220,
+      "month_day": "08-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Jeremiah 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 9,
+              "display": "Jeremiah 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 221,
+      "month_day": "08-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Jeremiah 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 12,
+              "display": "Jeremiah 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 222,
+      "month_day": "08-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Jeremiah 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 15,
+              "display": "Jeremiah 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 223,
+      "month_day": "08-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Jeremiah 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 18,
+              "display": "Jeremiah 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 224,
+      "month_day": "08-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Jeremiah 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 21,
+              "display": "Jeremiah 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 225,
+      "month_day": "08-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Jeremiah 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 24,
+              "display": "Jeremiah 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 226,
+      "month_day": "08-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Jeremiah 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 27,
+              "display": "Jeremiah 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 227,
+      "month_day": "08-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Jeremiah 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 30,
+              "display": "Jeremiah 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 228,
+      "month_day": "08-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Jeremiah 31-32"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 33,
+              "display": "Jeremiah 33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 229,
+      "month_day": "08-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "Jeremiah 34-35"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 36,
+              "display": "Jeremiah 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 230,
+      "month_day": "08-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Jeremiah 37-38"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 39,
+              "display": "Jeremiah 39"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 231,
+      "month_day": "08-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 40,
+              "chapter_end": 41,
+              "display": "Jeremiah 40-41"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 42,
+              "display": "Jeremiah 42"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 232,
+      "month_day": "08-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 43,
+              "chapter_end": 44,
+              "display": "Jeremiah 43-44"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 45,
+              "display": "Jeremiah 45"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 233,
+      "month_day": "08-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 46,
+              "chapter_end": 47,
+              "display": "Jeremiah 46-47"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 48,
+              "display": "Jeremiah 48"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 234,
+      "month_day": "08-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 49,
+              "chapter_end": 50,
+              "display": "Jeremiah 49-50"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 51,
+              "display": "Jeremiah 51"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 235,
+      "month_day": "08-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jeremiah",
+              "chapter": 52,
+              "display": "Jeremiah 52"
+            },
+            {
+              "book": "Lamentations",
+              "chapter": 1,
+              "display": "Lamentations 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Lamentations",
+              "chapter": 2,
+              "display": "Lamentations 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 236,
+      "month_day": "08-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Lamentations",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Lamentations 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Lamentations",
+              "chapter": 5,
+              "display": "Lamentations 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 237,
+      "month_day": "08-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Ezekiel 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 3,
+              "display": "Ezekiel 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 238,
+      "month_day": "08-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Ezekiel 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 6,
+              "display": "Ezekiel 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 239,
+      "month_day": "08-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Ezekiel 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 9,
+              "display": "Ezekiel 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 240,
+      "month_day": "08-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Ezekiel 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 12,
+              "display": "Ezekiel 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 241,
+      "month_day": "08-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Ezekiel 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 15,
+              "display": "Ezekiel 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 242,
+      "month_day": "08-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Ezekiel 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 18,
+              "display": "Ezekiel 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 243,
+      "month_day": "08-31",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Ezekiel 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 21,
+              "display": "Ezekiel 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 244,
+      "month_day": "09-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Ezekiel 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 24,
+              "display": "Ezekiel 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 245,
+      "month_day": "09-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Ezekiel 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 27,
+              "display": "Ezekiel 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 246,
+      "month_day": "09-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Ezekiel 28-29"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 30,
+              "display": "Ezekiel 30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 247,
+      "month_day": "09-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Ezekiel 31-32"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 33,
+              "display": "Ezekiel 33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 248,
+      "month_day": "09-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "Ezekiel 34-35"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 36,
+              "display": "Ezekiel 36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 249,
+      "month_day": "09-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Ezekiel 37-38"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 39,
+              "display": "Ezekiel 39"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 250,
+      "month_day": "09-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 40,
+              "chapter_end": 41,
+              "display": "Ezekiel 40-41"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 42,
+              "display": "Ezekiel 42"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 251,
+      "month_day": "09-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 43,
+              "chapter_end": 44,
+              "display": "Ezekiel 43-44"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 45,
+              "display": "Ezekiel 45"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 252,
+      "month_day": "09-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 46,
+              "chapter_end": 47,
+              "display": "Ezekiel 46-47"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ezekiel",
+              "chapter": 48,
+              "display": "Ezekiel 48"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 253,
+      "month_day": "09-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Daniel 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 3,
+              "display": "Daniel 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 254,
+      "month_day": "09-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Daniel 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 6,
+              "display": "Daniel 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 255,
+      "month_day": "09-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Daniel 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 9,
+              "display": "Daniel 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 256,
+      "month_day": "09-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Daniel 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Daniel",
+              "chapter": 12,
+              "display": "Daniel 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 257,
+      "month_day": "09-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Hosea 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 3,
+              "display": "Hosea 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 258,
+      "month_day": "09-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Hosea 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 6,
+              "display": "Hosea 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 259,
+      "month_day": "09-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Hosea 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 9,
+              "display": "Hosea 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 260,
+      "month_day": "09-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Hosea 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 12,
+              "display": "Hosea 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 261,
+      "month_day": "09-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hosea",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Hosea 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Joel",
+              "chapter": 1,
+              "display": "Joel 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 262,
+      "month_day": "09-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Joel",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Joel 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Amos",
+              "chapter": 1,
+              "display": "Amos 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 263,
+      "month_day": "09-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Amos",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Amos 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Amos",
+              "chapter": 4,
+              "display": "Amos 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 264,
+      "month_day": "09-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Amos",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Amos 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Amos",
+              "chapter": 7,
+              "display": "Amos 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 265,
+      "month_day": "09-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Amos",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Amos 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Obadiah",
+              "chapter": 1,
+              "display": "Obadiah 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 266,
+      "month_day": "09-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jonah",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Jonah 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Jonah",
+              "chapter": 3,
+              "display": "Jonah 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 267,
+      "month_day": "09-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Jonah",
+              "chapter": 4,
+              "display": "Jonah 4"
+            },
+            {
+              "book": "Micah",
+              "chapter": 1,
+              "display": "Micah 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Micah",
+              "chapter": 2,
+              "display": "Micah 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 268,
+      "month_day": "09-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Micah",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Micah 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Micah",
+              "chapter": 5,
+              "display": "Micah 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 269,
+      "month_day": "09-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Micah",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Micah 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Nahum",
+              "chapter": 1,
+              "display": "Nahum 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 270,
+      "month_day": "09-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Nahum",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Nahum 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Habakkuk",
+              "chapter": 1,
+              "display": "Habakkuk 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 271,
+      "month_day": "09-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Habakkuk",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Habakkuk 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Zephaniah",
+              "chapter": 1,
+              "display": "Zephaniah 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 272,
+      "month_day": "09-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Zephaniah",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Zephaniah 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Haggai",
+              "chapter": 1,
+              "display": "Haggai 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 273,
+      "month_day": "09-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Haggai",
+              "chapter": 2,
+              "display": "Haggai 2"
+            },
+            {
+              "book": "Zechariah",
+              "chapter": 1,
+              "display": "Zechariah 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 2,
+              "display": "Zechariah 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 274,
+      "month_day": "10-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Zechariah 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 5,
+              "display": "Zechariah 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 275,
+      "month_day": "10-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Zechariah 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 8,
+              "display": "Zechariah 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 276,
+      "month_day": "10-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Zechariah 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 11,
+              "display": "Zechariah 11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 277,
+      "month_day": "10-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Zechariah 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Zechariah",
+              "chapter": 14,
+              "display": "Zechariah 14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 278,
+      "month_day": "10-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Malachi",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Malachi 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Malachi",
+              "chapter": 3,
+              "display": "Malachi 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 279,
+      "month_day": "10-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Malachi",
+              "chapter": 4,
+              "display": "Malachi 4"
+            },
+            {
+              "book": "Matthew",
+              "chapter": 1,
+              "display": "Matthew 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 2,
+              "display": "Matthew 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 280,
+      "month_day": "10-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Matthew 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 5,
+              "display": "Matthew 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 281,
+      "month_day": "10-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Matthew 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 8,
+              "display": "Matthew 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 282,
+      "month_day": "10-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Matthew 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 11,
+              "display": "Matthew 11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 283,
+      "month_day": "10-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Matthew 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 14,
+              "display": "Matthew 14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 284,
+      "month_day": "10-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Matthew 15-16"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 17,
+              "display": "Matthew 17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 285,
+      "month_day": "10-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Matthew 18-19"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 20,
+              "display": "Matthew 20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 286,
+      "month_day": "10-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "Matthew 21-22"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 23,
+              "display": "Matthew 23"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 287,
+      "month_day": "10-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "Matthew 24-25"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 26,
+              "display": "Matthew 26"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 288,
+      "month_day": "10-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Matthew",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "Matthew 27-28"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 1,
+              "display": "Mark 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 289,
+      "month_day": "10-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Mark 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 4,
+              "display": "Mark 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 290,
+      "month_day": "10-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Mark 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 7,
+              "display": "Mark 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 291,
+      "month_day": "10-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Mark 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 10,
+              "display": "Mark 10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 292,
+      "month_day": "10-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Mark 11-12"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 13,
+              "display": "Mark 13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 293,
+      "month_day": "10-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Mark 14-15"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Mark",
+              "chapter": 16,
+              "display": "Mark 16"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 294,
+      "month_day": "10-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Luke 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 3,
+              "display": "Luke 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 295,
+      "month_day": "10-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Luke 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 6,
+              "display": "Luke 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 296,
+      "month_day": "10-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Luke 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 9,
+              "display": "Luke 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 297,
+      "month_day": "10-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Luke 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 12,
+              "display": "Luke 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 298,
+      "month_day": "10-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Luke 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 15,
+              "display": "Luke 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 299,
+      "month_day": "10-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Luke 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 18,
+              "display": "Luke 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 300,
+      "month_day": "10-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Luke 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 21,
+              "display": "Luke 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 301,
+      "month_day": "10-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Luke 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Luke",
+              "chapter": 24,
+              "display": "Luke 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 302,
+      "month_day": "10-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "John 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 3,
+              "display": "John 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 303,
+      "month_day": "10-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "John 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 6,
+              "display": "John 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 304,
+      "month_day": "10-31",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "John 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 9,
+              "display": "John 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 305,
+      "month_day": "11-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "John 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 12,
+              "display": "John 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 306,
+      "month_day": "11-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "John 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 15,
+              "display": "John 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 307,
+      "month_day": "11-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "John 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 18,
+              "display": "John 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 308,
+      "month_day": "11-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "John 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "John",
+              "chapter": 21,
+              "display": "John 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 309,
+      "month_day": "11-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Acts 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 3,
+              "display": "Acts 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 310,
+      "month_day": "11-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Acts 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 6,
+              "display": "Acts 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 311,
+      "month_day": "11-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Acts 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 9,
+              "display": "Acts 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 312,
+      "month_day": "11-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Acts 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 12,
+              "display": "Acts 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 313,
+      "month_day": "11-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Acts 13-14"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 15,
+              "display": "Acts 15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 314,
+      "month_day": "11-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Acts 16-17"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 18,
+              "display": "Acts 18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 315,
+      "month_day": "11-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Acts 19-20"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 21,
+              "display": "Acts 21"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 316,
+      "month_day": "11-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Acts 22-23"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 24,
+              "display": "Acts 24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 317,
+      "month_day": "11-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Acts 25-26"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 27,
+              "display": "Acts 27"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 318,
+      "month_day": "11-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Acts",
+              "chapter": 28,
+              "display": "Acts 28"
+            },
+            {
+              "book": "Romans",
+              "chapter": 1,
+              "display": "Romans 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 2,
+              "display": "Romans 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 319,
+      "month_day": "11-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Romans 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 5,
+              "display": "Romans 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 320,
+      "month_day": "11-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Romans 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 8,
+              "display": "Romans 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 321,
+      "month_day": "11-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Romans 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 11,
+              "display": "Romans 11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 322,
+      "month_day": "11-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Romans 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 14,
+              "display": "Romans 14"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 323,
+      "month_day": "11-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Romans",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Romans 15-16"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 1,
+              "display": "1 Corinthians 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 324,
+      "month_day": "11-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "1 Corinthians 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 4,
+              "display": "1 Corinthians 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 325,
+      "month_day": "11-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "1 Corinthians 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 7,
+              "display": "1 Corinthians 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 326,
+      "month_day": "11-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "1 Corinthians 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 10,
+              "display": "1 Corinthians 10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 327,
+      "month_day": "11-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "1 Corinthians 11-12"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 13,
+              "display": "1 Corinthians 13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 328,
+      "month_day": "11-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "1 Corinthians 14-15"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Corinthians",
+              "chapter": 16,
+              "display": "1 Corinthians 16"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 329,
+      "month_day": "11-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "2 Corinthians 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 3,
+              "display": "2 Corinthians 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 330,
+      "month_day": "11-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "2 Corinthians 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 6,
+              "display": "2 Corinthians 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 331,
+      "month_day": "11-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "2 Corinthians 7-8"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 9,
+              "display": "2 Corinthians 9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 332,
+      "month_day": "11-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "2 Corinthians 10-11"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 12,
+              "display": "2 Corinthians 12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 333,
+      "month_day": "11-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Corinthians",
+              "chapter": 13,
+              "display": "2 Corinthians 13"
+            },
+            {
+              "book": "Galatians",
+              "chapter": 1,
+              "display": "Galatians 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Galatians",
+              "chapter": 2,
+              "display": "Galatians 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 334,
+      "month_day": "11-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Galatians",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Galatians 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Galatians",
+              "chapter": 5,
+              "display": "Galatians 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 335,
+      "month_day": "12-01",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Galatians",
+              "chapter": 6,
+              "display": "Galatians 6"
+            },
+            {
+              "book": "Ephesians",
+              "chapter": 1,
+              "display": "Ephesians 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ephesians",
+              "chapter": 2,
+              "display": "Ephesians 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 336,
+      "month_day": "12-02",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ephesians",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Ephesians 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Ephesians",
+              "chapter": 5,
+              "display": "Ephesians 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 337,
+      "month_day": "12-03",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Ephesians",
+              "chapter": 6,
+              "display": "Ephesians 6"
+            },
+            {
+              "book": "Philippians",
+              "chapter": 1,
+              "display": "Philippians 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Philippians",
+              "chapter": 2,
+              "display": "Philippians 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 338,
+      "month_day": "12-04",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Philippians",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Philippians 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Colossians",
+              "chapter": 1,
+              "display": "Colossians 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 339,
+      "month_day": "12-05",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Colossians",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Colossians 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Colossians",
+              "chapter": 4,
+              "display": "Colossians 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 340,
+      "month_day": "12-06",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Thessalonians",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "1 Thessalonians 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Thessalonians",
+              "chapter": 3,
+              "display": "1 Thessalonians 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 341,
+      "month_day": "12-07",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Thessalonians",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "1 Thessalonians 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Thessalonians",
+              "chapter": 1,
+              "display": "2 Thessalonians 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 342,
+      "month_day": "12-08",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Thessalonians",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Thessalonians 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Timothy",
+              "chapter": 1,
+              "display": "1 Timothy 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 343,
+      "month_day": "12-09",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Timothy",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "1 Timothy 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Timothy",
+              "chapter": 4,
+              "display": "1 Timothy 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 344,
+      "month_day": "12-10",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Timothy",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "1 Timothy 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Timothy",
+              "chapter": 1,
+              "display": "2 Timothy 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 345,
+      "month_day": "12-11",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Timothy",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Timothy 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Timothy",
+              "chapter": 4,
+              "display": "2 Timothy 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 346,
+      "month_day": "12-12",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Titus",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Titus 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Titus",
+              "chapter": 3,
+              "display": "Titus 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 347,
+      "month_day": "12-13",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Philemon",
+              "chapter": 1,
+              "display": "Philemon 1"
+            },
+            {
+              "book": "Hebrews",
+              "chapter": 1,
+              "display": "Hebrews 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 2,
+              "display": "Hebrews 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 348,
+      "month_day": "12-14",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Hebrews 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 5,
+              "display": "Hebrews 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 349,
+      "month_day": "12-15",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Hebrews 6-7"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 8,
+              "display": "Hebrews 8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 350,
+      "month_day": "12-16",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Hebrews 9-10"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 11,
+              "display": "Hebrews 11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 351,
+      "month_day": "12-17",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Hebrews",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Hebrews 12-13"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "James",
+              "chapter": 1,
+              "display": "James 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 352,
+      "month_day": "12-18",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "James",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "James 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "James",
+              "chapter": 4,
+              "display": "James 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 353,
+      "month_day": "12-19",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "James",
+              "chapter": 5,
+              "display": "James 5"
+            },
+            {
+              "book": "1 Peter",
+              "chapter": 1,
+              "display": "1 Peter 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Peter",
+              "chapter": 2,
+              "display": "1 Peter 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 354,
+      "month_day": "12-20",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 Peter",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "1 Peter 3-4"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 Peter",
+              "chapter": 5,
+              "display": "1 Peter 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 355,
+      "month_day": "12-21",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "2 Peter",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "2 Peter 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 Peter",
+              "chapter": 3,
+              "display": "2 Peter 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 356,
+      "month_day": "12-22",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 John",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "1 John 1-2"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "1 John",
+              "chapter": 3,
+              "display": "1 John 3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 357,
+      "month_day": "12-23",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "1 John",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "1 John 4-5"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "2 John",
+              "chapter": 1,
+              "display": "2 John 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 358,
+      "month_day": "12-24",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "3 John",
+              "chapter": 1,
+              "display": "3 John 1"
+            },
+            {
+              "book": "Jude",
+              "chapter": 1,
+              "display": "Jude 1"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 1,
+              "display": "Revelation 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 359,
+      "month_day": "12-25",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Revelation 2-3"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 4,
+              "display": "Revelation 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 360,
+      "month_day": "12-26",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Revelation 5-6"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 7,
+              "display": "Revelation 7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 361,
+      "month_day": "12-27",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Revelation 8-9"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 10,
+              "display": "Revelation 10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 362,
+      "month_day": "12-28",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Revelation 11-12"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 13,
+              "display": "Revelation 13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 363,
+      "month_day": "12-29",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Revelation 14-15"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 16,
+              "display": "Revelation 16"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 364,
+      "month_day": "12-30",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "Revelation 17-18"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 19,
+              "display": "Revelation 19"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day": 365,
+      "month_day": "12-31",
+      "sections": [
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Revelation 20-21"
+            }
+          ]
+        },
+        {
+          "readings": [
+            {
+              "book": "Revelation",
+              "chapter": 22,
+              "display": "Revelation 22"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

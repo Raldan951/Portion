@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 /// One Bible passage reference — book, chapter, and optional range info.
 ///
 /// The [display] field is the original text from the source data
-/// (e.g. 'Psalm 119:1-24') and is used directly in the UI so we don't
+/// (e.g. 'Psalm 119:1-8 (Aleph)') and is used directly in the UI so we don't
 /// have to reconstruct it from parts.
 @immutable
 class BibleReference {
@@ -35,42 +35,72 @@ class BibleReference {
   String toString() => display;
 }
 
+/// A named group of readings within a daily schedule.
+///
+/// [label] is optional — when null the UI renders the readings with no header.
+/// M'Cheyne uses 'Morning' and 'Evening'; other plans omit labels entirely.
+@immutable
+class ReadingSection {
+  final String? label;
+  final List<BibleReference> readings;
+
+  const ReadingSection({this.label, required this.readings});
+
+  factory ReadingSection.fromJson(Map<String, dynamic> json) {
+    return ReadingSection(
+      label: json['label'] as String?,
+      readings: (json['readings'] as List)
+          .map((r) => BibleReference.fromJson(r as Map<String, dynamic>))
+          .toList(),
+    );
+  }
+}
+
 /// The readings assigned to one calendar day.
 @immutable
 class DailySchedule {
-  final int day;              // 1–365
-  final String monthDay;      // 'MM-DD', e.g. '04-11'
-  final List<BibleReference> morning;
-  final List<BibleReference> evening;
+  final int day;        // 1–365
+  final String monthDay; // 'MM-DD', e.g. '04-11'
+  final List<ReadingSection> sections;
 
   const DailySchedule({
     required this.day,
     required this.monthDay,
-    required this.morning,
-    required this.evening,
+    required this.sections,
   });
 
   factory DailySchedule.fromJson(Map<String, dynamic> json) {
     return DailySchedule(
       day: json['day'] as int,
       monthDay: json['month_day'] as String,
-      morning: (json['morning'] as List)
-          .map((r) => BibleReference.fromJson(r as Map<String, dynamic>))
-          .toList(),
-      evening: (json['evening'] as List)
-          .map((r) => BibleReference.fromJson(r as Map<String, dynamic>))
+      sections: (json['sections'] as List)
+          .map((s) => ReadingSection.fromJson(s as Map<String, dynamic>))
           .toList(),
     );
   }
 
-  /// Formats morning readings as a single display string, e.g.
-  /// 'Leviticus 15  •  Psalm 18'
-  String get morningLabel =>
-      morning.map((r) => r.display).join('  \u2022  ');
+  /// All references flattened across all sections — used by the completion provider.
+  List<BibleReference> get allReadings =>
+      sections.expand((s) => s.readings).toList();
+}
 
-  /// Formats evening readings as a single display string.
-  String get eveningLabel =>
-      evening.map((r) => r.display).join('  \u2022  ');
+/// Lightweight metadata for a reading plan — used in the plan picker UI
+/// without loading the full 365-day schedule.
+@immutable
+class ReadingPlanMeta {
+  final String id;
+  final String name;
+  final String description;
+  final String author;
+  final String assetPath;
+
+  const ReadingPlanMeta({
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.author,
+    required this.assetPath,
+  });
 }
 
 /// A complete reading plan — metadata plus the full daily schedule.
@@ -106,12 +136,5 @@ class ReadingPlan {
   DailySchedule? forDay(int dayOfYear) {
     if (dayOfYear < 1 || dayOfYear > schedule.length) return null;
     return schedule[dayOfYear - 1];
-  }
-
-  /// Returns today's schedule entry.
-  DailySchedule? get today {
-    final now = DateTime.now();
-    final dayOfYear = now.difference(DateTime(now.year)).inDays;
-    return forDay(dayOfYear);
   }
 }

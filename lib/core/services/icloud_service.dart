@@ -1,0 +1,40 @@
+import 'package:flutter/services.dart';
+
+/// Dart interface to the native ICloudService method channel.
+///
+/// Provides two things:
+/// - [containerPath]: the local path of the iCloud ubiquity container's
+///   Documents folder. iOS syncs this directory automatically. Returns null
+///   when iCloud is unavailable (simulator, iCloud off in Settings).
+/// - [kvGet] / [kvSet]: NSUbiquitousKeyValueStore wrappers for small
+///   preferences that should sync across devices within seconds.
+class ICloudService {
+  static const _channel = MethodChannel('com.peterparise.biblejournal/icloud');
+
+  /// Returns the iCloud Documents container path, or null if unavailable.
+  static Future<String?> get containerPath async {
+    try {
+      return await _channel.invokeMethod<String>('getContainerPath');
+    } on PlatformException {
+      return null;
+    }
+  }
+
+  /// Reads a string value from NSUbiquitousKeyValueStore.
+  static Future<String?> kvGet(String key) async {
+    try {
+      return await _channel.invokeMethod<String>('kvGet', {'key': key});
+    } on PlatformException {
+      return null;
+    }
+  }
+
+  /// Writes a string value to NSUbiquitousKeyValueStore.
+  static Future<void> kvSet(String key, String value) async {
+    try {
+      await _channel.invokeMethod<void>('kvSet', {'key': key, 'value': value});
+    } on PlatformException {
+      // Best-effort — local shared_preferences will still have the value.
+    }
+  }
+}
