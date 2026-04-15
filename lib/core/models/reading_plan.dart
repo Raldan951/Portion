@@ -94,12 +94,18 @@ class ReadingPlanMeta {
   final String author;
   final String assetPath;
 
+  /// True when the plan spans a full calendar year and Day 1 aligns with
+  /// January 1. Controls the copy shown in the plan picker's start-mode
+  /// chooser: true → "Follow the calendar", false → "Sync with Plan".
+  final bool calendarAligned;
+
   const ReadingPlanMeta({
     required this.id,
     required this.name,
     required this.description,
     required this.author,
     required this.assetPath,
+    this.calendarAligned = true,
   });
 }
 

@@ -50,6 +50,11 @@ class HomeScreen extends ConsumerWidget {
     final topPad = w < 600 ? 32.0 : 52.0;
 
     return Scaffold(
+      // The desk texture Container covers only the screen viewport.
+      // On iOS the SingleChildScrollView renders off-screen content on the
+      // Scaffold background — set it to the texture's dark base tone so
+      // white text and buttons don't disappear against white when scrolled.
+      backgroundColor: const Color(0xFF3F2E1F),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -231,20 +236,7 @@ class HomeScreen extends ConsumerWidget {
                 const SizedBox(height: 20),
                 const _DateNavigator(compact: true),
 
-                const SizedBox(height: 120),
-                Center(
-                  child: Opacity(
-                    opacity: 0.78,
-                    child: Text(
-                      'This is your quiet space.\nThe Scriptures themselves are the real Park.',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 48),
                 Center(
                   child: IconButton(
                     icon: Icon(
@@ -726,24 +718,23 @@ class _NavArrow extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = compact ? 28.0 : 52.0;
     final iconSize = compact ? 16.0 : 30.0;
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(size / 2),
-        child: Container(
-          width: size,
-          height: size,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white.withValues(alpha: 0.18),
-            border: Border.all(
-              color: Colors.white.withValues(alpha: 0.35),
-              width: 1.2,
-            ),
+    // GestureDetector with opaque hit-testing is more reliable than
+    // Material+InkWell inside a ScrollView on iOS — no gesture arena conflict.
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white.withValues(alpha: 0.18),
+          border: Border.all(
+            color: Colors.white.withValues(alpha: 0.35),
+            width: 1.2,
           ),
-          child: Icon(icon, color: Colors.white, size: iconSize),
         ),
+        child: Icon(icon, color: Colors.white, size: iconSize),
       ),
     );
   }
@@ -832,7 +823,9 @@ class _PlanSelectorState extends ConsumerState<_PlanSelector> {
                     final startMode = startModes[plan.id];
                     final currentModeLabel =
                         (startMode == null || startMode == 'calendar')
-                        ? 'Following the calendar'
+                        ? (plan.calendarAligned
+                            ? 'Following the calendar'
+                            : 'Synced with Plan')
                         : 'Started $startMode';
 
                     return GestureDetector(
@@ -967,9 +960,12 @@ class _PlanSelectorState extends ConsumerState<_PlanSelector> {
                                   const SizedBox(width: 10),
                                   Expanded(
                                     child: _StartButton(
-                                      label: 'Follow the calendar',
-                                      sublabel:
-                                          'Picks up where the plan is today',
+                                      label: plan.calendarAligned
+                                          ? 'Follow the calendar'
+                                          : 'Sync with Plan',
+                                      sublabel: plan.calendarAligned
+                                          ? 'Picks up where the plan is today'
+                                          : 'Your position is set by today\'s date',
                                       onTap: () => _activate(plan.id, false),
                                     ),
                                   ),

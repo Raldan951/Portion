@@ -35,6 +35,7 @@ class ReadingPlanService {
           'ideal for those new to regular Bible reading.',
       author: 'Traditional',
       assetPath: 'assets/plans/nt_90_days.json',
+      calendarAligned: false,
     ),
     ReadingPlanMeta(
       id: 'three_streams',

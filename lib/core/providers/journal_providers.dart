@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:io' show Directory, FileSystemEvent, Platform;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../models/journal_document.dart';
@@ -37,7 +37,12 @@ final journalDocumentProvider = FutureProvider<JournalDocument?>((ref) async {
 /// new or updated .txt file). Fires a [FileSystemEvent] for every change to
 /// a .txt file. Consumers listen and invalidate [journalDocumentProvider] so
 /// the UI reflects changes from other devices without a manual refresh.
+///
+/// iOS does not support [Directory.watch] — returns an empty stream there.
+/// Journal saves and loads still work; the watcher is only needed for live
+/// iCloud push updates while the journal page is already open.
 final journalWatcherProvider = StreamProvider<FileSystemEvent>((ref) async* {
+  if (Platform.isIOS) return;
   final service = await ref.watch(journalServiceProvider.future);
   final dir = Directory(service.journalDirPath);
   if (!dir.existsSync()) return;

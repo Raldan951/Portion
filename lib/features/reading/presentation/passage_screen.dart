@@ -358,43 +358,48 @@ class _VerseRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Row-based layout replaces RichText+WidgetSpan. GestureDetector inside
+    // WidgetSpan has broken hit-testing on iOS (especially verse 1). A plain
+    // Row with a fixed-width verse-number column is fully reliable on all
+    // platforms and matches the standard Bible app layout.
     return AnimatedContainer(
       duration: const Duration(milliseconds: 140),
-      color: selected
-          ? const Color(0xFFFFF3C4)
-          : Colors.transparent,
+      color: selected ? const Color(0xFFFFF3C4) : Colors.transparent,
       padding: const EdgeInsets.symmetric(vertical: 1),
-      child: RichText(
-        text: TextSpan(
-          style: const TextStyle(
-            fontSize: 18,
-            color: Color(0xFF2C3A2A),
-            height: 1.8,
-          ),
-          children: [
-            WidgetSpan(
-              alignment: PlaceholderAlignment.baseline,
-              baseline: TextBaseline.alphabetic,
-              child: GestureDetector(
-                onTap: () => onVerseNumberTap(verse.chapter, verse.verse),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 3),
-                  child: Text(
-                    '${verse.verse}',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
-                      color: selected
-                          ? const Color(0xFF8B6914)
-                          : const Color(0xFF5C6B4A),
-                    ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => onVerseNumberTap(verse.chapter, verse.verse),
+            child: SizedBox(
+              width: 24,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text(
+                  '${verse.verse}',
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    color: selected
+                        ? const Color(0xFF8B6914)
+                        : const Color(0xFF5C6B4A),
                   ),
                 ),
               ),
             ),
-            TextSpan(text: '${verse.text} '),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Text(
+              '${verse.text} ',
+              style: const TextStyle(
+                fontSize: 18,
+                color: Color(0xFF2C3A2A),
+                height: 1.8,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

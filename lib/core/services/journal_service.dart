@@ -4,27 +4,39 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import '../models/journal_document.dart';
 import '../models/journal_entry.dart';
+import 'icloud_service.dart';
 
 /// Manages journal data as per-day plain-text files.
 ///
 /// Each day's journal is stored as `$base/journal/YYYY-MM-DD.txt`.
-/// When iCloud is available, `$base` is the ubiquity container Documents
-/// folder and iOS/macOS syncs the files automatically. When iCloud is
-/// unavailable the files live in the local app documents directory.
+/// On iOS and macOS, `$base` is the iCloud ubiquity container Documents
+/// folder so files sync automatically across devices. When iCloud is
+/// unavailable (simulator, iCloud disabled, other platforms) the files
+/// live in the local app documents directory instead.
 ///
 /// On first run, any existing SQLite journal_documents rows are migrated
-/// to text files so no data is lost.
+/// to text files so no data is lost. If iCloud becomes available for the
+/// first time, any locally-saved .txt files are copied there once.
 class JournalService {
   late final String _basePath;
 
   Future<void> init() async {
-    // Always use the local app documents directory for reliable, consistent
-    // storage. iCloud sync will be added later as a deliberate feature once
-    // basic persistence is confirmed working.
-    _basePath = (await getApplicationDocumentsDirectory()).path;
+    // On iOS/macOS, try the iCloud ubiquity container first. Falls back to
+    // local app documents if iCloud is unavailable (no account, simulator,
+    // entitlement missing, etc.).
+    String? iCloudPath;
+    if (Platform.isIOS || Platform.isMacOS) {
+      iCloudPath = await ICloudService.containerPath;
+    }
+    _basePath = iCloudPath ?? (await getApplicationDocumentsDirectory()).path;
 
     // Ensure the journal sub-directory exists.
     await Directory(p.join(_basePath, 'journal')).create(recursive: true);
+
+    // If we landed on the iCloud path, migrate any previously-local journals.
+    if (iCloudPath != null) {
+      await _migrateLocalToICloud(iCloudPath);
+    }
 
     // One-time migration from legacy SQLite.
     await _migrateFromSqliteIfNeeded();
@@ -62,6 +74,52 @@ class JournalService {
   Future<List<JournalEntry>> getEntriesForDate(String date) async => [];
 
   // ── SQLite migration ──────────────────────────────────────────────────────
+
+  /// Copies any .txt journals from the local app documents directory into the
+  /// iCloud container. Runs once (guarded by a sentinel file). Safe to call
+  /// if the iCloud path happens to equal the local path — it skips that case.
+  Future<void> _migrateLocalToICloud(String iCloudPath) async {
+    final sentinel = File(
+      p.join(iCloudPath, 'journal', '.migrated_from_local'),
+    );
+    if (sentinel.existsSync()) return;
+
+    final localDocsPath = (await getApplicationDocumentsDirectory()).path;
+
+    // Nothing to do if iCloud IS the local path (shouldn't happen, but safe).
+    if (p.equals(iCloudPath, localDocsPath)) {
+      await sentinel.writeAsString(DateTime.now().toIso8601String());
+      return;
+    }
+
+    final localJournalDir = Directory(p.join(localDocsPath, 'journal'));
+    if (localJournalDir.existsSync()) {
+      try {
+        final files = localJournalDir
+            .listSync()
+            .whereType<File>()
+            .where((f) => p.extension(f.path) == '.txt');
+        for (final file in files) {
+          final dest = File(
+            p.join(iCloudPath, 'journal', p.basename(file.path)),
+          );
+          if (!dest.existsSync()) {
+            await file.copy(dest.path);
+            // ignore: avoid_print
+            print(
+              '[JournalService] local→iCloud: ${p.basename(file.path)}',
+            );
+          }
+        }
+      } catch (e) {
+        // Non-fatal — local journals remain intact.
+        // ignore: avoid_print
+        print('[JournalService] local→iCloud migration error: $e');
+      }
+    }
+
+    await sentinel.writeAsString(DateTime.now().toIso8601String());
+  }
 
   /// Reads any existing rows from the legacy journal.db and writes them as
   /// text files. Skips dates that already have a text file. Marks completion
