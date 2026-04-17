@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
@@ -15,6 +17,42 @@ class SettingsScreen extends ConsumerStatefulWidget {
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _exporting = false;
+  bool _exportingObsidian = false;
+
+  Future<void> _exportToObsidian(BuildContext context) async {
+    setState(() => _exportingObsidian = true);
+    try {
+      final service = await ref.read(journalServiceProvider.future);
+      final home = service.realHomePath;
+      if (home == null) {
+        if (!context.mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not resolve home directory.')),
+        );
+        return;
+      }
+      final obsidianPath =
+          '$home/Library/Mobile Documents/iCloud~md~obsidian/Documents/BibleJournal';
+      final count = await service.exportToFolder(obsidianPath);
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            count == 0
+                ? 'No journal entries to export.'
+                : '$count ${count == 1 ? 'entry' : 'entries'} copied to Obsidian.',
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Export failed: $e')),
+      );
+    } finally {
+      if (mounted) setState(() => _exportingObsidian = false);
+    }
+  }
 
   Future<void> _exportJournal(BuildContext context) async {
     setState(() => _exporting = true);
@@ -125,27 +163,59 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: Colors.grey[200]!),
             ),
-            child: ListTile(
-              title: const Text(
-                'Export entries',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Color(0xFF2C2C2C),
-                  fontWeight: FontWeight.w500,
+            child: Column(
+              children: [
+                ListTile(
+                  title: const Text(
+                    'Export entries',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Color(0xFF2C2C2C),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Share all journal entries as Markdown files',
+                    style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+                  ),
+                  trailing: _exporting
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : Icon(Icons.ios_share, color: Colors.grey[600], size: 20),
+                  onTap: _exporting ? null : () => _exportJournal(context),
                 ),
-              ),
-              subtitle: Text(
-                'Share all journal entries as Markdown files',
-                style: TextStyle(fontSize: 13, color: Colors.grey[600]),
-              ),
-              trailing: _exporting
-                  ? const SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    )
-                  : Icon(Icons.ios_share, color: Colors.grey[600], size: 20),
-              onTap: _exporting ? null : () => _exportJournal(context),
+                if (Platform.isMacOS) ...[
+                  Divider(height: 1, color: Colors.grey[200]),
+                  ListTile(
+                    title: const Text(
+                      'Copy to Obsidian',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Color(0xFF2C2C2C),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    subtitle: Text(
+                      'Copy all entries to BibleJournal vault folder',
+                      style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+                    ),
+                    trailing: _exportingObsidian
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : Icon(Icons.folder_copy_outlined,
+                            color: Colors.grey[600], size: 20),
+                    onTap: _exportingObsidian
+                        ? null
+                        : () => _exportToObsidian(context),
+                  ),
+                ],
+              ],
             ),
           ),
         ],

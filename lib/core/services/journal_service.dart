@@ -47,6 +47,17 @@ class JournalService {
   /// The journal sub-directory path — used by the file watcher provider.
   String get journalDirPath => p.join(_basePath, 'journal');
 
+  /// Derives the real user home directory from the known base path.
+  /// e.g. /Users/pete/Library/Mobile Documents/... → /Users/pete
+  /// Returns null if the path doesn't follow the expected structure.
+  String? get realHomePath {
+    final parts = _basePath.split('/');
+    if (parts.length >= 3 && parts[1] == 'Users') {
+      return '/${parts[1]}/${parts[2]}';
+    }
+    return null;
+  }
+
   File _fileForDate(String date) =>
       File(p.join(_basePath, 'journal', '$date.md'));
 
@@ -65,6 +76,31 @@ class JournalService {
   /// Writes the journal document for [date].
   Future<void> upsertDocument(String date, String body) async {
     await _fileForDate(date).writeAsString(body);
+  }
+
+  /// Copies all journal .md files to [destinationPath], creating the folder
+  /// if needed. Returns the number of files copied.
+  /// Copies journal .md files to [destinationPath], creating the folder if
+  /// needed. Skips files where the destination already exists and is newer
+  /// than the source — preserving any annotations added in Obsidian.
+  /// Returns the number of files actually copied.
+  Future<int> exportToFolder(String destinationPath) async {
+    final dest = Directory(destinationPath);
+    await dest.create(recursive: true);
+    final paths = await allEntryPaths();
+    int copied = 0;
+    for (final path in paths) {
+      final source = File(path);
+      final destFile = File(p.join(destinationPath, p.basename(path)));
+      if (destFile.existsSync()) {
+        final srcModified = source.lastModifiedSync();
+        final destModified = destFile.lastModifiedSync();
+        if (!srcModified.isAfter(destModified)) continue;
+      }
+      await source.copy(destFile.path);
+      copied++;
+    }
+    return copied;
   }
 
   /// Returns the file paths of all journal entries, sorted by date.

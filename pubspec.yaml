@@ -2,7 +2,7 @@ name: biblejournal_v2
 description: A calm, local-first Bible journaling companion with M’Cheyne rhythm
 publish_to: 'none'
 
-version: 1.0.0+23
+version: 1.0.0+24
 
 environment:
   sdk: '^3.11.0'      # This is the missing line (matches your Dart 3.11.4)
@@ -47,3 +47,6 @@ flutter_launcher_icons:
   ios: true
   android: false
   image_path: "assets/images/bjIcon.png"
+  macos:
+    generate: true
+    image_path: "assets/images/bjIcon.png"

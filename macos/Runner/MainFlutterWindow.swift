@@ -10,6 +10,9 @@ class MainFlutterWindow: NSWindow {
 
     RegisterGeneratedPlugins(registry: flutterViewController)
 
+    let registrar = flutterViewController.registrar(forPlugin: "ICloudService")
+    ICloudService.register(with: registrar)
+
     super.awakeFromNib()
   }
 }

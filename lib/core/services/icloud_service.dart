@@ -21,6 +21,20 @@ class ICloudService {
           .timeout(const Duration(seconds: 6), onTimeout: () => null);
     } on PlatformException {
       return null;
+    } on MissingPluginException {
+      return null;
+    }
+  }
+
+  /// Returns the real (non-sandboxed) home directory path on macOS.
+  /// Returns null on other platforms or if the call fails.
+  static Future<String?> get realHomePath async {
+    try {
+      return await _channel.invokeMethod<String>('getRealHomePath');
+    } on PlatformException {
+      return null;
+    } on MissingPluginException {
+      return null;
     }
   }
 

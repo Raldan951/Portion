@@ -52,6 +52,14 @@ class ICloudService: NSObject, FlutterPlugin {
         }
       }
 
+    case "getRealHomePath":
+      let pw = getpwuid(getuid())
+      if let pw = pw {
+        result(String(cString: pw.pointee.pw_dir))
+      } else {
+        result(nil)
+      }
+
     case "kvGet":
       guard ICloudService.kvsAvailable else { result(nil); return }
       guard let args = call.arguments as? [String: Any],
