@@ -7,6 +7,7 @@ import '../../../core/providers/date_provider.dart';
 import '../../../core/providers/journal_providers.dart';
 import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
+import '../../../core/providers/theme_provider.dart';
 import '../../../core/services/bible_link_service.dart';
 import '../../../core/services/reading_plan_service.dart';
 import '../../journal/presentation/journal_page.dart';
@@ -18,9 +19,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const String bgImage = 'assets/images/desk_texture.jpg';
-    const String cardBgImage = 'assets/images/aramaic2.jpg';
-    const double cardOpacity = 0.15;
+    final theme = ref.watch(journalThemeProvider);
 
     final schedule = ref.watch(todaysScheduleProvider);
     final planAsync = ref.watch(activePlanProvider);
@@ -52,11 +51,11 @@ class HomeScreen extends ConsumerWidget {
       // On iOS the SingleChildScrollView renders off-screen content on the
       // Scaffold background — set it to the texture's dark base tone so
       // white text and buttons don't disappear against white when scrolled.
-      backgroundColor: const Color(0xFF3F2E1F),
+      backgroundColor: theme.scaffoldFallbackColor,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(bgImage),
+            image: AssetImage(theme.bgAsset),
             fit: BoxFit.cover,
             opacity: 1.0,
           ),
@@ -129,9 +128,9 @@ class HomeScreen extends ConsumerWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       image: DecorationImage(
-                        image: AssetImage(cardBgImage),
+                        image: AssetImage(theme.cardBgAsset),
                         fit: BoxFit.cover,
-                        opacity: cardOpacity,
+                        opacity: theme.cardOpacity,
                       ),
                     ),
                     padding: EdgeInsets.all(cardPad),
@@ -779,8 +778,8 @@ class _PlanSelectorState extends ConsumerState<_PlanSelector> {
                     final currentModeLabel =
                         (startMode == null || startMode == 'calendar')
                         ? (plan.calendarAligned
-                            ? 'Following the calendar'
-                            : 'Synced with Plan')
+                              ? 'Following the calendar'
+                              : 'Synced with Plan')
                         : 'Started $startMode';
 
                     return GestureDetector(

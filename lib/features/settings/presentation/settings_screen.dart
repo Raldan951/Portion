@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../../core/models/journal_theme.dart';
 import '../../../core/providers/journal_providers.dart';
+import '../../../core/providers/theme_provider.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -52,6 +54,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final currentTheme = ref.watch(journalThemeProvider);
+
     return Scaffold(
       backgroundColor: const Color(0xFFFBF8F2),
       appBar: AppBar(
@@ -73,6 +77,47 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         children: [
+          _SectionHeader('Appearance'),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey[200]!),
+            ),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Theme',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: const Color(0xFF2C2C2C),
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: JournalTheme.values.map((theme) {
+                      final isSelected = theme == currentTheme;
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 12),
+                        child: GestureDetector(
+                          onTap: () =>
+                              ref.read(journalThemeProvider.notifier).select(theme),
+                          child: _ThemeCard(theme: theme, isSelected: isSelected),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
           _SectionHeader('Journal'),
           Container(
             decoration: BoxDecoration(
@@ -105,6 +150,81 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// A small card showing the theme's background thumbnail and accent colour swatch.
+class _ThemeCard extends StatelessWidget {
+  final JournalTheme theme;
+  final bool isSelected;
+
+  const _ThemeCard({required this.theme, required this.isSelected});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: 72,
+          height: 96,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: isSelected
+                  ? const Color(0xFF5C6B4A)
+                  : Colors.grey[300]!,
+              width: isSelected ? 2.5 : 1.0,
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(9),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Image.asset(theme.bgAsset, fit: BoxFit.cover),
+                // Accent colour swatch strip at the bottom
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: 16,
+                  child: ColoredBox(color: theme.accentColor),
+                ),
+                if (isSelected)
+                  Positioned(
+                    top: 6,
+                    right: 6,
+                    child: Container(
+                      width: 18,
+                      height: 18,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF5C6B4A),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.check,
+                        size: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          theme.displayName,
+          style: TextStyle(
+            fontSize: 11,
+            color: isSelected
+                ? const Color(0xFF5C6B4A)
+                : Colors.grey[600],
+            fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+          ),
+        ),
+      ],
     );
   }
 }

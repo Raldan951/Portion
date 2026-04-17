@@ -48,6 +48,26 @@ assets/
 - **iCloud sync**: `NSUbiquitousKeyValueStore` for translation preference; `Directory.watch()` on journal dir for file sync.
 - **Morning/Evening labels**: M'Cheyne's "Family/Secret" renamed for clarity.
 
+## How to Add a New Theme
+
+Three files only — the screens pick up new values automatically.
+
+1. **Add image assets** → `assets/images/`
+2. **Register in `pubspec.yaml`** under the `assets:` list
+3. **Add enum entry** in `lib/core/models/journal_theme.dart`:
+   ```dart
+   myTheme(
+     id: 'my_theme',
+     displayName: 'My Theme',
+     bgAsset: 'assets/images/bg_mytheme.jpg',
+     cardBgAsset: 'assets/images/card_mytheme.jpg',
+     cardOpacity: 0.15,
+     accentColor: Color(0xFF......),
+     scaffoldFallbackColor: Color(0xFF......),
+   ),
+   ```
+   Nothing else to touch — `SettingsScreen` and `HomeScreen` consume `JournalTheme.values` automatically.
+
 ## Native / Platform Files
 - `ios/Runner/ICloudService.swift` + `macos/Runner/ICloudService.swift` — method channel: getContainerPath, kvGet, kvSet
 - `lib/core/services/icloud_service.dart` — Dart wrapper
