@@ -244,16 +244,38 @@ class HomeScreen extends ConsumerWidget {
 
                 const SizedBox(height: 48),
                 Center(
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.settings,
-                      color: Colors.white.withValues(alpha: 0.35),
-                      size: 22,
-                    ),
-                    onPressed: () => Navigator.of(context).push(
+                  child: GestureDetector(
+                    onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (_) => const SettingsScreen()),
                     ),
-                    tooltip: 'Settings',
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.settings,
+                          color: Colors.white.withValues(alpha: 0.65),
+                          size: 22,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Settings',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: Colors.white.withValues(alpha: 0.65),
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          'build 33',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.white.withValues(alpha: 0.4),
+                            letterSpacing: 0.3,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

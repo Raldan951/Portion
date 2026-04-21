@@ -9,6 +9,7 @@ import '../../../core/models/founding_doc.dart';
 import '../../../core/models/journal_theme.dart';
 import '../../../core/providers/founding_docs_provider.dart';
 import '../../../core/providers/journal_providers.dart';
+import '../../../core/providers/journal_share_provider.dart';
 import '../../../core/providers/theme_provider.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
@@ -190,6 +191,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       : Icon(Icons.ios_share, color: Colors.grey[600], size: 20),
                   onTap: _exporting ? null : () => _exportJournal(context),
                 ),
+                Divider(height: 1, color: Colors.grey[200]),
+                _ShareDestinationTile(),
                 if (Platform.isMacOS) ...[
                   Divider(height: 1, color: Colors.grey[200]),
                   ListTile(
@@ -337,6 +340,7 @@ class _FoundingDocsSettings extends ConsumerWidget {
                       selectedForegroundColor: Colors.white,
                       selectedBackgroundColor: const Color(0xFF9C7A5B),
                       side: const BorderSide(color: Color(0xFF9C7A5B)),
+                      textStyle: const TextStyle(fontSize: 11),
                     ),
                   ),
                 ],
@@ -346,6 +350,61 @@ class _FoundingDocsSettings extends ConsumerWidget {
         ],
       ),
     );
+  }
+}
+
+class _ShareDestinationTile extends ConsumerWidget {
+  const _ShareDestinationTile();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final dest = ref.watch(journalShareDestinationProvider);
+    final label = switch (dest) {
+      JournalShareDestination.email => 'Email',
+      JournalShareDestination.messages => 'Messages',
+      null => 'Not set',
+    };
+
+    return ListTile(
+      title: const Text(
+        'Share entry to',
+        style: TextStyle(
+          fontSize: 15,
+          color: Color(0xFF2C2C2C),
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      subtitle: Text(
+        label,
+        style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+      ),
+      trailing: Icon(Icons.chevron_right, color: Colors.grey[400], size: 20),
+      onTap: () => _pick(context, ref),
+    );
+  }
+
+  Future<void> _pick(BuildContext context, WidgetRef ref) async {
+    final dest = await showDialog<JournalShareDestination>(
+      context: context,
+      builder: (ctx) => SimpleDialog(
+        title: const Text('Share entry to'),
+        children: [
+          SimpleDialogOption(
+            onPressed: () =>
+                Navigator.of(ctx).pop(JournalShareDestination.messages),
+            child: const Text('Messages'),
+          ),
+          SimpleDialogOption(
+            onPressed: () =>
+                Navigator.of(ctx).pop(JournalShareDestination.email),
+            child: const Text('Email'),
+          ),
+        ],
+      ),
+    );
+    if (dest != null) {
+      ref.read(journalShareDestinationProvider.notifier).select(dest);
+    }
   }
 }
 

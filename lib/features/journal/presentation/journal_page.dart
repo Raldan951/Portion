@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/models/reading_plan.dart';
 import '../../../core/providers/date_provider.dart';
 import '../../../core/providers/journal_providers.dart';
+import '../../../core/providers/journal_share_provider.dart';
 import '../../../core/services/journal_service.dart';
 import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
@@ -32,6 +34,7 @@ class _JournalPageState extends ConsumerState<JournalPage> {
   final _controller = TextEditingController();
   Timer? _debounce;
   bool _initialized = false;
+  bool _hasContent = false;
 
   // Cached so dispose() can save without accessing ref after unmount.
   JournalService? _cachedService;
@@ -66,6 +69,8 @@ class _JournalPageState extends ConsumerState<JournalPage> {
   void _onTextChanged() {
     _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 300), _saveNow);
+    final hasContent = _controller.text.trim().isNotEmpty;
+    if (hasContent != _hasContent) setState(() => _hasContent = hasContent);
   }
 
   Future<void> _saveNow() async {
@@ -114,6 +119,60 @@ class _JournalPageState extends ConsumerState<JournalPage> {
     _saveNow();
   }
 
+  Future<JournalShareDestination?> _pickDestination() async {
+    return showDialog<JournalShareDestination>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Where do you send yourself notes?'),
+        content: const Text(
+          'Your preference will be saved. You can change it in Settings.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () =>
+                Navigator.of(ctx).pop(JournalShareDestination.messages),
+            child: const Text('Messages'),
+          ),
+          TextButton(
+            onPressed: () =>
+                Navigator.of(ctx).pop(JournalShareDestination.email),
+            child: const Text('Email'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _shareEntry(String dateLabel) async {
+    final text = _controller.text.trim();
+    if (text.isEmpty) return;
+
+    var dest = ref.read(journalShareDestinationProvider);
+    if (dest == null) {
+      dest = await _pickDestination();
+      if (dest == null) return;
+      await ref.read(journalShareDestinationProvider.notifier).select(dest);
+    }
+
+    final Uri uri;
+    if (dest == JournalShareDestination.email) {
+      final subject = Uri.encodeComponent('Journal — $dateLabel');
+      final body = Uri.encodeComponent(text);
+      uri = Uri.parse('mailto:?subject=$subject&body=$body');
+    } else {
+      final body = Uri.encodeComponent(text);
+      uri = Uri.parse('sms:?body=$body');
+    }
+
+    if (!await launchUrl(uri)) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Could not open share destination.')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final docAsync = ref.watch(journalDocumentProvider);
@@ -137,6 +196,9 @@ class _JournalPageState extends ConsumerState<JournalPage> {
           // New entries get a date header; existing entries load as-is.
           _controller.text = doc?.body ?? '# $dateLabel\n\n';
           _controller.addListener(_onTextChanged);
+          setState(() {
+            _hasContent = _controller.text.trim().isNotEmpty;
+          });
           // Drain any clip that was queued before the page opened.
           final pending = ref.read(clipQueueProvider);
           if (pending != null) {
@@ -196,6 +258,18 @@ class _JournalPageState extends ConsumerState<JournalPage> {
             color: Color(0xFF2C3A2A),
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.ios_share,
+              color: _hasContent
+                  ? const Color(0xFF2C3A2A)
+                  : Colors.grey[300],
+            ),
+            onPressed: _hasContent ? () => _shareEntry(dateLabel) : null,
+            tooltip: 'Share entry',
+          ),
+        ],
       ),
       body: Column(
         children: [
