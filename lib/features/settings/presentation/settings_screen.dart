@@ -3,8 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../../core/models/founding_doc.dart';
 import '../../../core/models/journal_theme.dart';
+import '../../../core/providers/founding_docs_provider.dart';
 import '../../../core/providers/journal_providers.dart';
 import '../../../core/providers/theme_provider.dart';
 
@@ -218,6 +221,128 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ],
             ),
           ),
+          const SizedBox(height: 24),
+          _SectionHeader('Founding Documents'),
+          _FoundingDocsSettings(),
+          const SizedBox(height: 24),
+          _SectionHeader('Feedback'),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey[200]!),
+            ),
+            child: ListTile(
+              title: const Text(
+                'Send feedback',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Color(0xFF2C2C2C),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              subtitle: Text(
+                'Feature requests, bug reports, or general feedback',
+                style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+              ),
+              trailing: Icon(Icons.mail_outline, color: Colors.grey[600], size: 20),
+              onTap: () async {
+                final uri = Uri.parse(
+                  'mailto:Raldan@proton.me?subject=BibleJournal%20Feedback',
+                );
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri);
+                }
+              },
+            ),
+          ),
+          const SizedBox(height: 8),
+          Center(
+            child: Text(
+              'Logos is a trademark of Faithlife. BibleJournal is not affiliated with or endorsed by Faithlife.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 11, color: Colors.grey[400], height: 1.5),
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
+    );
+  }
+}
+
+class _FoundingDocsSettings extends ConsumerWidget {
+  const _FoundingDocsSettings();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final enabled = ref.watch(foundingDocsEnabledProvider);
+    final activeDoc = ref.watch(foundingDocsActiveProvider);
+
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey[200]!),
+      ),
+      child: Column(
+        children: [
+          SwitchListTile(
+            title: const Text(
+              'Show Founding Documents',
+              style: TextStyle(
+                fontSize: 15,
+                color: Color(0xFF2C2C2C),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            subtitle: Text(
+              'Adds a reading card below Scripture',
+              style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+            ),
+            value: enabled,
+            activeThumbColor: const Color(0xFF9C7A5B),
+            onChanged: (v) =>
+                ref.read(foundingDocsEnabledProvider.notifier).set(v),
+          ),
+          if (enabled) ...[
+            Divider(height: 1, color: Colors.grey[200]),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Active document',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey[700],
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SegmentedButton<FoundingDocType>(
+                    segments: FoundingDocType.values
+                        .map((t) => ButtonSegment<FoundingDocType>(
+                              value: t,
+                              label: Text(t.displayName),
+                            ))
+                        .toList(),
+                    selected: {activeDoc},
+                    onSelectionChanged: (s) => ref
+                        .read(foundingDocsActiveProvider.notifier)
+                        .select(s.first),
+                    style: SegmentedButton.styleFrom(
+                      foregroundColor: const Color(0xFF9C7A5B),
+                      selectedForegroundColor: Colors.white,
+                      selectedBackgroundColor: const Color(0xFF9C7A5B),
+                      side: const BorderSide(color: Color(0xFF9C7A5B)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ],
       ),
     );

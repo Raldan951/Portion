@@ -19,13 +19,14 @@ class ReadingPlanService {
       assetPath: 'assets/plans/mcheyne_plan.json',
     ),
     ReadingPlanMeta(
-      id: 'bible_in_a_year',
-      name: 'Bible in a Year',
+      id: 'three_streams',
+      name: 'The Three Streams',
       description:
-          'Read through the entire Bible in one year with a single daily '
-          'reading that moves sequentially through the Old and New Testaments.',
-      author: 'Traditional',
-      assetPath: 'assets/plans/bible_in_a_year.json',
+          'Three daily readings — Old Testament, New Testament, and '
+          'Psalms & Proverbs — each flowing as its own continuous thread '
+          'through the year. Read when you can, not by the clock.',
+      author: 'BibleJournal',
+      assetPath: 'assets/plans/three_streams.json',
     ),
     ReadingPlanMeta(
       id: 'nt_90_days',
@@ -36,16 +37,6 @@ class ReadingPlanService {
       author: 'Traditional',
       assetPath: 'assets/plans/nt_90_days.json',
       calendarAligned: false,
-    ),
-    ReadingPlanMeta(
-      id: 'three_streams',
-      name: 'The Three Streams',
-      description:
-          'Three daily readings — Old Testament, New Testament, and '
-          'Psalms & Proverbs — each flowing as its own continuous thread '
-          'through the year. Read when you can, not by the clock.',
-      author: 'BibleJournal',
-      assetPath: 'assets/plans/three_streams.json',
     ),
   ];
 

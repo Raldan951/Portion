@@ -10,9 +10,12 @@ import '../../../core/providers/translation_provider.dart';
 import '../../../core/providers/theme_provider.dart';
 import '../../../core/services/bible_link_service.dart';
 import '../../../core/services/reading_plan_service.dart';
+import '../../founding_docs/presentation/founding_doc_reader_screen.dart';
 import '../../journal/presentation/journal_page.dart';
 import '../../reading/presentation/passage_screen.dart';
 import '../../settings/presentation/settings_screen.dart';
+import '../../../core/models/founding_doc.dart';
+import '../../../core/providers/founding_docs_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -233,6 +236,11 @@ class HomeScreen extends ConsumerWidget {
                 const _JournalPreviewCard(),
                 const SizedBox(height: 20),
                 const _DateNavigator(compact: true),
+
+                if (ref.watch(foundingDocsEnabledProvider)) ...[
+                  const SizedBox(height: 56),
+                  const _FoundingDocsCard(),
+                ],
 
                 const SizedBox(height: 48),
                 Center(
@@ -1145,6 +1153,259 @@ class _DayEntryDialogState extends State<_DayEntryDialog> {
           child: const Text('Cancel'),
         ),
         TextButton(onPressed: _submit, child: const Text('Go')),
+      ],
+    );
+  }
+}
+
+/// Card below the Scripture reading card showing the current Founding Document.
+///
+/// Federalist Papers: shows the bookmarked segment with a preview and mark-read
+/// action. Declaration / Constitution: shows a single "Read" entry.
+/// A three-pill selector at the bottom switches between documents.
+class _FoundingDocsCard extends ConsumerWidget {
+  const _FoundingDocsCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final activeDoc = ref.watch(foundingDocsActiveProvider);
+    final docsAsync = ref.watch(foundingDocsProvider);
+    final bookmark = ref.watch(federalistBookmarkProvider);
+
+    final w = MediaQuery.of(context).size.width;
+    final cardPad = w < 600 ? 20.0 : w < 900 ? 32.0 : 52.0;
+
+    return Card(
+      elevation: 6,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          image: const DecorationImage(
+            image: AssetImage('assets/images/AmerFlag.jpg'),
+            fit: BoxFit.cover,
+            opacity: 0.15,
+          ),
+        ),
+        padding: EdgeInsets.all(cardPad),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.history_edu, size: 38, color: Color(0xFF9C7A5B)),
+                const SizedBox(width: 24),
+                Text(
+                  'Founding Docs',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // ── Content area ──────────────────────────────────────────────
+            docsAsync.when(
+              loading: () => const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12),
+                child: Text('Loading…', style: TextStyle(color: Colors.grey)),
+              ),
+              error: (e, _) => Text('Error: $e',
+                  style: const TextStyle(color: Colors.red)),
+              data: (docs) {
+                if (activeDoc == FoundingDocType.federalistPapers) {
+                  final segs = docs.federalistSegments;
+                  final idx = bookmark.clamp(0, segs.length - 1);
+                  final seg = segs[idx];
+                  return _FederalistCardBody(seg: seg, totalSegments: docs.federalistTotalSegments);
+                } else {
+                  return _ReferenceDocCardBody(docType: activeDoc);
+                }
+              },
+            ),
+
+            const SizedBox(height: 24),
+
+            // ── Document selector pills ────────────────────────────────────
+            Wrap(
+              spacing: 8,
+              children: FoundingDocType.values.map((type) {
+                final isActive = type == activeDoc;
+                return GestureDetector(
+                  onTap: () =>
+                      ref.read(foundingDocsActiveProvider.notifier).select(type),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: isActive
+                          ? const Color(0xFF9C7A5B).withValues(alpha: 0.15)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: isActive
+                            ? const Color(0xFF9C7A5B)
+                            : Colors.grey.withValues(alpha: 0.4),
+                        width: isActive ? 1.5 : 1.0,
+                      ),
+                    ),
+                    child: Text(
+                      type.displayName,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: isActive
+                            ? FontWeight.w600
+                            : FontWeight.normal,
+                        color: isActive
+                            ? const Color(0xFF9C7A5B)
+                            : Colors.grey[600],
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _FederalistCardBody extends ConsumerWidget {
+  final FederalistSegment seg;
+  final int totalSegments;
+
+  const _FederalistCardBody({required this.seg, required this.totalSegments});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final preview = seg.paragraphs.isNotEmpty
+        ? seg.paragraphs.first.text
+        : '';
+    final previewText = preview.length > 120
+        ? '${preview.substring(0, 120)}…'
+        : preview;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          seg.cardTitle,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF3F2E1F),
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          seg.author,
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.grey[600],
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        if (seg.isMultiPart) ...[
+          const SizedBox(height: 2),
+          Text(
+            'Part ${seg.segmentInPaper} of ${seg.totalInPaper}',
+            style: TextStyle(fontSize: 11, color: Colors.grey[500]),
+          ),
+        ],
+        const SizedBox(height: 10),
+        Text(
+          previewText,
+          style: TextStyle(
+            fontFamily: 'Georgia',
+            fontSize: 14,
+            color: Colors.grey[700],
+            height: 1.5,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        const SizedBox(height: 14),
+        Row(
+          children: [
+            GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (_) => const FederalistReaderScreen()),
+              ),
+              child: const Text(
+                'Read →',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Color(0xFF9C7A5B),
+                  fontWeight: FontWeight.w600,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Color(0xFF9C7A5B),
+                ),
+              ),
+            ),
+            const Spacer(),
+            GestureDetector(
+              onTap: () => ref
+                  .read(federalistBookmarkProvider.notifier)
+                  .advance(totalSegments),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.check_circle_outline,
+                      size: 16, color: Colors.grey[500]),
+                  const SizedBox(width: 4),
+                  Text(
+                    'Mark as read',
+                    style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _ReferenceDocCardBody extends StatelessWidget {
+  final FoundingDocType docType;
+
+  const _ReferenceDocCardBody({required this.docType});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            docType.fullTitle,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF3F2E1F),
+            ),
+          ),
+        ),
+        const SizedBox(width: 12),
+        GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => DocSectionReaderScreen(docType: docType),
+            ),
+          ),
+          child: const Text(
+            'Read →',
+            style: TextStyle(
+              fontSize: 15,
+              color: Color(0xFF9C7A5B),
+              fontWeight: FontWeight.w600,
+              decoration: TextDecoration.underline,
+              decorationColor: Color(0xFF9C7A5B),
+            ),
+          ),
+        ),
       ],
     );
   }
