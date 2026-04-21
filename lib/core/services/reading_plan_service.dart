@@ -27,6 +27,7 @@ class ReadingPlanService {
           'through the year. Read when you can, not by the clock.',
       author: 'BibleJournal',
       assetPath: 'assets/plans/three_streams.json',
+      calendarAligned: false,
     ),
     ReadingPlanMeta(
       id: 'nt_90_days',
