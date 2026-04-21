@@ -630,8 +630,8 @@
             {
               "book": "Exodus",
               "chapter": 5,
-              "chapter_end": 7,
-              "display": "Exodus 5-7"
+              "chapter_end": 6,
+              "display": "Exodus 5-6"
             }
           ]
         },
@@ -663,9 +663,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 8,
-              "chapter_end": 10,
-              "display": "Exodus 8-10"
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Exodus 7-8"
             }
           ]
         },
@@ -697,9 +697,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 11,
-              "chapter_end": 13,
-              "display": "Exodus 11-13"
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Exodus 9-10"
             }
           ]
         },
@@ -731,9 +731,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 14,
-              "chapter_end": 16,
-              "display": "Exodus 14-16"
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Exodus 11-12"
             }
           ]
         },
@@ -765,9 +765,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 17,
-              "chapter_end": 19,
-              "display": "Exodus 17-19"
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Exodus 13-14"
             }
           ]
         },
@@ -799,9 +799,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 20,
-              "chapter_end": 22,
-              "display": "Exodus 20-22"
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Exodus 15-16"
             }
           ]
         },
@@ -833,9 +833,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 23,
-              "chapter_end": 25,
-              "display": "Exodus 23-25"
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "Exodus 17-18"
             }
           ]
         },
@@ -867,9 +867,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 26,
-              "chapter_end": 28,
-              "display": "Exodus 26-28"
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Exodus 19-20"
             }
           ]
         },
@@ -901,9 +901,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 29,
-              "chapter_end": 31,
-              "display": "Exodus 29-31"
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "Exodus 21-22"
             }
           ]
         },
@@ -935,9 +935,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 32,
-              "chapter_end": 34,
-              "display": "Exodus 32-34"
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "Exodus 23-24"
             }
           ]
         },
@@ -969,9 +969,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 35,
-              "chapter_end": 37,
-              "display": "Exodus 35-37"
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Exodus 25-26"
             }
           ]
         },
@@ -1003,9 +1003,9 @@
           "readings": [
             {
               "book": "Exodus",
-              "chapter": 38,
-              "chapter_end": 40,
-              "display": "Exodus 38-40"
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "Exodus 27-28"
             }
           ]
         },
@@ -1036,10 +1036,10 @@
         {
           "readings": [
             {
-              "book": "Leviticus",
-              "chapter": 1,
-              "chapter_end": 3,
-              "display": "Leviticus 1-3"
+              "book": "Exodus",
+              "chapter": 29,
+              "chapter_end": 30,
+              "display": "Exodus 29-30"
             }
           ]
         },
@@ -1070,10 +1070,10 @@
         {
           "readings": [
             {
-              "book": "Leviticus",
-              "chapter": 4,
-              "chapter_end": 6,
-              "display": "Leviticus 4-6"
+              "book": "Exodus",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Exodus 31-32"
             }
           ]
         },
@@ -1104,10 +1104,10 @@
         {
           "readings": [
             {
-              "book": "Leviticus",
-              "chapter": 7,
-              "chapter_end": 9,
-              "display": "Leviticus 7-9"
+              "book": "Exodus",
+              "chapter": 33,
+              "chapter_end": 34,
+              "display": "Exodus 33-34"
             }
           ]
         },
@@ -1138,10 +1138,10 @@
         {
           "readings": [
             {
-              "book": "Leviticus",
-              "chapter": 10,
-              "chapter_end": 12,
-              "display": "Leviticus 10-12"
+              "book": "Exodus",
+              "chapter": 35,
+              "chapter_end": 36,
+              "display": "Exodus 35-36"
             }
           ]
         },
@@ -1172,10 +1172,10 @@
         {
           "readings": [
             {
-              "book": "Leviticus",
-              "chapter": 13,
-              "chapter_end": 15,
-              "display": "Leviticus 13-15"
+              "book": "Exodus",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Exodus 37-38"
             }
           ]
         },
@@ -1206,10 +1206,10 @@
         {
           "readings": [
             {
-              "book": "Leviticus",
-              "chapter": 16,
-              "chapter_end": 18,
-              "display": "Leviticus 16-18"
+              "book": "Exodus",
+              "chapter": 39,
+              "chapter_end": 40,
+              "display": "Exodus 39-40"
             }
           ]
         },
@@ -1241,9 +1241,9 @@
           "readings": [
             {
               "book": "Leviticus",
-              "chapter": 19,
-              "chapter_end": 21,
-              "display": "Leviticus 19-21"
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Leviticus 1-2"
             }
           ]
         },
@@ -1275,9 +1275,9 @@
           "readings": [
             {
               "book": "Leviticus",
-              "chapter": 22,
-              "chapter_end": 24,
-              "display": "Leviticus 22-24"
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Leviticus 3-4"
             }
           ]
         },
@@ -1309,9 +1309,9 @@
           "readings": [
             {
               "book": "Leviticus",
-              "chapter": 25,
-              "chapter_end": 27,
-              "display": "Leviticus 25-27"
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Leviticus 5-6"
             }
           ]
         },
@@ -1342,10 +1342,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 1,
-              "chapter_end": 3,
-              "display": "Numbers 1-3"
+              "book": "Leviticus",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Leviticus 7-8"
             }
           ]
         },
@@ -1376,10 +1376,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 4,
-              "chapter_end": 6,
-              "display": "Numbers 4-6"
+              "book": "Leviticus",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Leviticus 9-10"
             }
           ]
         },
@@ -1410,10 +1410,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 7,
-              "chapter_end": 9,
-              "display": "Numbers 7-9"
+              "book": "Leviticus",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Leviticus 11-12"
             }
           ]
         },
@@ -1444,10 +1444,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 10,
-              "chapter_end": 12,
-              "display": "Numbers 10-12"
+              "book": "Leviticus",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Leviticus 13-14"
             }
           ]
         },
@@ -1478,10 +1478,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 13,
-              "chapter_end": 15,
-              "display": "Numbers 13-15"
+              "book": "Leviticus",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Leviticus 15-16"
             }
           ]
         },
@@ -1512,10 +1512,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 16,
+              "book": "Leviticus",
+              "chapter": 17,
               "chapter_end": 18,
-              "display": "Numbers 16-18"
+              "display": "Leviticus 17-18"
             }
           ]
         },
@@ -1546,10 +1546,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
+              "book": "Leviticus",
               "chapter": 19,
-              "chapter_end": 21,
-              "display": "Numbers 19-21"
+              "chapter_end": 20,
+              "display": "Leviticus 19-20"
             }
           ]
         },
@@ -1580,10 +1580,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 22,
-              "chapter_end": 24,
-              "display": "Numbers 22-24"
+              "book": "Leviticus",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "Leviticus 21-22"
             }
           ]
         },
@@ -1614,10 +1614,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 25,
-              "chapter_end": 27,
-              "display": "Numbers 25-27"
+              "book": "Leviticus",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "Leviticus 23-24"
             }
           ]
         },
@@ -1648,10 +1648,10 @@
         {
           "readings": [
             {
-              "book": "Numbers",
-              "chapter": 28,
-              "chapter_end": 30,
-              "display": "Numbers 28-30"
+              "book": "Leviticus",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Leviticus 25-26"
             }
           ]
         },
@@ -1682,10 +1682,14 @@
         {
           "readings": [
             {
+              "book": "Leviticus",
+              "chapter": 27,
+              "display": "Leviticus 27"
+            },
+            {
               "book": "Numbers",
-              "chapter": 31,
-              "chapter_end": 33,
-              "display": "Numbers 31-33"
+              "chapter": 1,
+              "display": "Numbers 1"
             }
           ]
         },
@@ -1717,9 +1721,9 @@
           "readings": [
             {
               "book": "Numbers",
-              "chapter": 34,
-              "chapter_end": 36,
-              "display": "Numbers 34-36"
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Numbers 2-3"
             }
           ]
         },
@@ -1750,10 +1754,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 1,
-              "chapter_end": 3,
-              "display": "Deuteronomy 1-3"
+              "book": "Numbers",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Numbers 4-5"
             }
           ]
         },
@@ -1784,10 +1788,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 4,
-              "chapter_end": 6,
-              "display": "Deuteronomy 4-6"
+              "book": "Numbers",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Numbers 6-7"
             }
           ]
         },
@@ -1818,10 +1822,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 7,
+              "book": "Numbers",
+              "chapter": 8,
               "chapter_end": 9,
-              "display": "Deuteronomy 7-9"
+              "display": "Numbers 8-9"
             }
           ]
         },
@@ -1852,10 +1856,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
+              "book": "Numbers",
               "chapter": 10,
-              "chapter_end": 12,
-              "display": "Deuteronomy 10-12"
+              "chapter_end": 11,
+              "display": "Numbers 10-11"
             }
           ]
         },
@@ -1886,10 +1890,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 13,
-              "chapter_end": 15,
-              "display": "Deuteronomy 13-15"
+              "book": "Numbers",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Numbers 12-13"
             }
           ]
         },
@@ -1920,10 +1924,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 16,
-              "chapter_end": 18,
-              "display": "Deuteronomy 16-18"
+              "book": "Numbers",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Numbers 14-15"
             }
           ]
         },
@@ -1954,10 +1958,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 19,
-              "chapter_end": 21,
-              "display": "Deuteronomy 19-21"
+              "book": "Numbers",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Numbers 16-17"
             }
           ]
         },
@@ -1988,10 +1992,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 22,
-              "chapter_end": 24,
-              "display": "Deuteronomy 22-24"
+              "book": "Numbers",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Numbers 18-19"
             }
           ]
         },
@@ -2022,10 +2026,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 25,
-              "chapter_end": 27,
-              "display": "Deuteronomy 25-27"
+              "book": "Numbers",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Numbers 20-21"
             }
           ]
         },
@@ -2056,10 +2060,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 28,
-              "chapter_end": 30,
-              "display": "Deuteronomy 28-30"
+              "book": "Numbers",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Numbers 22-23"
             }
           ]
         },
@@ -2090,10 +2094,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 31,
-              "chapter_end": 33,
-              "display": "Deuteronomy 31-33"
+              "book": "Numbers",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "Numbers 24-25"
             }
           ]
         },
@@ -2124,15 +2128,10 @@
         {
           "readings": [
             {
-              "book": "Deuteronomy",
-              "chapter": 34,
-              "display": "Deuteronomy 34"
-            },
-            {
-              "book": "Joshua",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "Joshua 1-2"
+              "book": "Numbers",
+              "chapter": 26,
+              "chapter_end": 27,
+              "display": "Numbers 26-27"
             }
           ]
         },
@@ -2163,10 +2162,10 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 3,
-              "chapter_end": 5,
-              "display": "Joshua 3-5"
+              "book": "Numbers",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Numbers 28-29"
             }
           ]
         },
@@ -2197,10 +2196,10 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 6,
-              "chapter_end": 8,
-              "display": "Joshua 6-8"
+              "book": "Numbers",
+              "chapter": 30,
+              "chapter_end": 31,
+              "display": "Numbers 30-31"
             }
           ]
         },
@@ -2231,10 +2230,10 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 9,
-              "chapter_end": 11,
-              "display": "Joshua 9-11"
+              "book": "Numbers",
+              "chapter": 32,
+              "chapter_end": 33,
+              "display": "Numbers 32-33"
             }
           ]
         },
@@ -2265,10 +2264,10 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 12,
-              "chapter_end": 14,
-              "display": "Joshua 12-14"
+              "book": "Numbers",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "Numbers 34-35"
             }
           ]
         },
@@ -2299,10 +2298,14 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 15,
-              "chapter_end": 17,
-              "display": "Joshua 15-17"
+              "book": "Numbers",
+              "chapter": 36,
+              "display": "Numbers 36"
+            },
+            {
+              "book": "Deuteronomy",
+              "chapter": 1,
+              "display": "Deuteronomy 1"
             }
           ]
         },
@@ -2333,10 +2336,10 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 18,
-              "chapter_end": 20,
-              "display": "Joshua 18-20"
+              "book": "Deuteronomy",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Deuteronomy 2-3"
             }
           ]
         },
@@ -2367,10 +2370,10 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 21,
-              "chapter_end": 23,
-              "display": "Joshua 21-23"
+              "book": "Deuteronomy",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Deuteronomy 4-5"
             }
           ]
         },
@@ -2401,15 +2404,10 @@
         {
           "readings": [
             {
-              "book": "Joshua",
-              "chapter": 24,
-              "display": "Joshua 24"
-            },
-            {
-              "book": "Judges",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "Judges 1-2"
+              "book": "Deuteronomy",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Deuteronomy 6-7"
             }
           ]
         },
@@ -2440,10 +2438,10 @@
         {
           "readings": [
             {
-              "book": "Judges",
-              "chapter": 3,
-              "chapter_end": 5,
-              "display": "Judges 3-5"
+              "book": "Deuteronomy",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Deuteronomy 8-9"
             }
           ]
         },
@@ -2474,10 +2472,10 @@
         {
           "readings": [
             {
-              "book": "Judges",
-              "chapter": 6,
-              "chapter_end": 8,
-              "display": "Judges 6-8"
+              "book": "Deuteronomy",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Deuteronomy 10-11"
             }
           ]
         },
@@ -2508,10 +2506,10 @@
         {
           "readings": [
             {
-              "book": "Judges",
-              "chapter": 9,
-              "chapter_end": 11,
-              "display": "Judges 9-11"
+              "book": "Deuteronomy",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Deuteronomy 12-13"
             }
           ]
         },
@@ -2542,10 +2540,10 @@
         {
           "readings": [
             {
-              "book": "Judges",
-              "chapter": 12,
-              "chapter_end": 14,
-              "display": "Judges 12-14"
+              "book": "Deuteronomy",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Deuteronomy 14-15"
             }
           ]
         },
@@ -2576,10 +2574,10 @@
         {
           "readings": [
             {
-              "book": "Judges",
-              "chapter": 15,
+              "book": "Deuteronomy",
+              "chapter": 16,
               "chapter_end": 17,
-              "display": "Judges 15-17"
+              "display": "Deuteronomy 16-17"
             }
           ]
         },
@@ -2610,10 +2608,10 @@
         {
           "readings": [
             {
-              "book": "Judges",
+              "book": "Deuteronomy",
               "chapter": 18,
-              "chapter_end": 20,
-              "display": "Judges 18-20"
+              "chapter_end": 19,
+              "display": "Deuteronomy 18-19"
             }
           ]
         },
@@ -2644,15 +2642,10 @@
         {
           "readings": [
             {
-              "book": "Judges",
-              "chapter": 21,
-              "display": "Judges 21"
-            },
-            {
-              "book": "Ruth",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "Ruth 1-2"
+              "book": "Deuteronomy",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Deuteronomy 20-21"
             }
           ]
         },
@@ -2683,15 +2676,10 @@
         {
           "readings": [
             {
-              "book": "Ruth",
-              "chapter": 3,
-              "chapter_end": 4,
-              "display": "Ruth 3-4"
-            },
-            {
-              "book": "1 Samuel",
-              "chapter": 1,
-              "display": "1 Samuel 1"
+              "book": "Deuteronomy",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Deuteronomy 22-23"
             }
           ]
         },
@@ -2722,10 +2710,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 2,
-              "chapter_end": 4,
-              "display": "1 Samuel 2-4"
+              "book": "Deuteronomy",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "Deuteronomy 24-25"
             }
           ]
         },
@@ -2756,10 +2744,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 5,
-              "chapter_end": 7,
-              "display": "1 Samuel 5-7"
+              "book": "Deuteronomy",
+              "chapter": 26,
+              "chapter_end": 27,
+              "display": "Deuteronomy 26-27"
             }
           ]
         },
@@ -2790,10 +2778,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 8,
-              "chapter_end": 10,
-              "display": "1 Samuel 8-10"
+              "book": "Deuteronomy",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "Deuteronomy 28-29"
             }
           ]
         },
@@ -2824,10 +2812,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 11,
-              "chapter_end": 13,
-              "display": "1 Samuel 11-13"
+              "book": "Deuteronomy",
+              "chapter": 30,
+              "chapter_end": 31,
+              "display": "Deuteronomy 30-31"
             }
           ]
         },
@@ -2858,10 +2846,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 14,
-              "chapter_end": 16,
-              "display": "1 Samuel 14-16"
+              "book": "Deuteronomy",
+              "chapter": 32,
+              "chapter_end": 33,
+              "display": "Deuteronomy 32-33"
             }
           ]
         },
@@ -2892,10 +2880,14 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 17,
-              "chapter_end": 19,
-              "display": "1 Samuel 17-19"
+              "book": "Deuteronomy",
+              "chapter": 34,
+              "display": "Deuteronomy 34"
+            },
+            {
+              "book": "Joshua",
+              "chapter": 1,
+              "display": "Joshua 1"
             }
           ]
         },
@@ -2926,10 +2918,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 20,
-              "chapter_end": 22,
-              "display": "1 Samuel 20-22"
+              "book": "Joshua",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Joshua 2-3"
             }
           ]
         },
@@ -2960,10 +2952,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 23,
-              "chapter_end": 25,
-              "display": "1 Samuel 23-25"
+              "book": "Joshua",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Joshua 4-5"
             }
           ]
         },
@@ -2994,10 +2986,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 26,
-              "chapter_end": 28,
-              "display": "1 Samuel 26-28"
+              "book": "Joshua",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Joshua 6-7"
             }
           ]
         },
@@ -3028,10 +3020,10 @@
         {
           "readings": [
             {
-              "book": "1 Samuel",
-              "chapter": 29,
-              "chapter_end": 31,
-              "display": "1 Samuel 29-31"
+              "book": "Joshua",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Joshua 8-9"
             }
           ]
         },
@@ -3062,10 +3054,10 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 1,
-              "chapter_end": 3,
-              "display": "2 Samuel 1-3"
+              "book": "Joshua",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Joshua 10-11"
             }
           ]
         },
@@ -3096,10 +3088,10 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 4,
-              "chapter_end": 6,
-              "display": "2 Samuel 4-6"
+              "book": "Joshua",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Joshua 12-13"
             }
           ]
         },
@@ -3130,10 +3122,10 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 7,
-              "chapter_end": 9,
-              "display": "2 Samuel 7-9"
+              "book": "Joshua",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Joshua 14-15"
             }
           ]
         },
@@ -3164,10 +3156,10 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 10,
-              "chapter_end": 12,
-              "display": "2 Samuel 10-12"
+              "book": "Joshua",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Joshua 16-17"
             }
           ]
         },
@@ -3198,10 +3190,10 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 13,
-              "chapter_end": 15,
-              "display": "2 Samuel 13-15"
+              "book": "Joshua",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Joshua 18-19"
             }
           ]
         },
@@ -3232,10 +3224,10 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 16,
-              "chapter_end": 18,
-              "display": "2 Samuel 16-18"
+              "book": "Joshua",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Joshua 20-21"
             }
           ]
         },
@@ -3266,10 +3258,10 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 19,
-              "chapter_end": 21,
-              "display": "2 Samuel 19-21"
+              "book": "Joshua",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "Joshua 22-23"
             }
           ]
         },
@@ -3300,10 +3292,14 @@
         {
           "readings": [
             {
-              "book": "2 Samuel",
-              "chapter": 22,
-              "chapter_end": 24,
-              "display": "2 Samuel 22-24"
+              "book": "Joshua",
+              "chapter": 24,
+              "display": "Joshua 24"
+            },
+            {
+              "book": "Judges",
+              "chapter": 1,
+              "display": "Judges 1"
             }
           ]
         },
@@ -3334,10 +3330,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
-              "chapter": 1,
+              "book": "Judges",
+              "chapter": 2,
               "chapter_end": 3,
-              "display": "1 Kings 1-3"
+              "display": "Judges 2-3"
             }
           ]
         },
@@ -3368,10 +3364,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
+              "book": "Judges",
               "chapter": 4,
-              "chapter_end": 6,
-              "display": "1 Kings 4-6"
+              "chapter_end": 5,
+              "display": "Judges 4-5"
             }
           ]
         },
@@ -3402,10 +3398,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
-              "chapter": 7,
-              "chapter_end": 9,
-              "display": "1 Kings 7-9"
+              "book": "Judges",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Judges 6-7"
             }
           ]
         },
@@ -3436,10 +3432,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
-              "chapter": 10,
-              "chapter_end": 12,
-              "display": "1 Kings 10-12"
+              "book": "Judges",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Judges 8-9"
             }
           ]
         },
@@ -3470,10 +3466,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
-              "chapter": 13,
-              "chapter_end": 15,
-              "display": "1 Kings 13-15"
+              "book": "Judges",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Judges 10-11"
             }
           ]
         },
@@ -3504,10 +3500,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
-              "chapter": 16,
-              "chapter_end": 18,
-              "display": "1 Kings 16-18"
+              "book": "Judges",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Judges 12-13"
             }
           ]
         },
@@ -3538,10 +3534,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
-              "chapter": 19,
-              "chapter_end": 21,
-              "display": "1 Kings 19-21"
+              "book": "Judges",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "Judges 14-15"
             }
           ]
         },
@@ -3572,15 +3568,10 @@
         {
           "readings": [
             {
-              "book": "1 Kings",
-              "chapter": 22,
-              "display": "1 Kings 22"
-            },
-            {
-              "book": "2 Kings",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "2 Kings 1-2"
+              "book": "Judges",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "Judges 16-17"
             }
           ]
         },
@@ -3611,10 +3602,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 3,
-              "chapter_end": 5,
-              "display": "2 Kings 3-5"
+              "book": "Judges",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "Judges 18-19"
             }
           ]
         },
@@ -3645,10 +3636,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 6,
-              "chapter_end": 8,
-              "display": "2 Kings 6-8"
+              "book": "Judges",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "Judges 20-21"
             }
           ]
         },
@@ -3679,10 +3670,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 9,
-              "chapter_end": 11,
-              "display": "2 Kings 9-11"
+              "book": "Ruth",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Ruth 1-2"
             }
           ]
         },
@@ -3713,10 +3704,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 12,
-              "chapter_end": 14,
-              "display": "2 Kings 12-14"
+              "book": "Ruth",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Ruth 3-4"
             }
           ]
         },
@@ -3747,10 +3738,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 15,
-              "chapter_end": 17,
-              "display": "2 Kings 15-17"
+              "book": "1 Samuel",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "1 Samuel 1-2"
             }
           ]
         },
@@ -3781,10 +3772,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 18,
-              "chapter_end": 20,
-              "display": "2 Kings 18-20"
+              "book": "1 Samuel",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "1 Samuel 3-4"
             }
           ]
         },
@@ -3815,10 +3806,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 21,
-              "chapter_end": 23,
-              "display": "2 Kings 21-23"
+              "book": "1 Samuel",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "1 Samuel 5-6"
             }
           ]
         },
@@ -3849,15 +3840,10 @@
         {
           "readings": [
             {
-              "book": "2 Kings",
-              "chapter": 24,
-              "chapter_end": 25,
-              "display": "2 Kings 24-25"
-            },
-            {
-              "book": "1 Chronicles",
-              "chapter": 1,
-              "display": "1 Chronicles 1"
+              "book": "1 Samuel",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "1 Samuel 7-8"
             }
           ]
         },
@@ -3888,10 +3874,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 2,
-              "chapter_end": 4,
-              "display": "1 Chronicles 2-4"
+              "book": "1 Samuel",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "1 Samuel 9-10"
             }
           ]
         },
@@ -3922,10 +3908,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 5,
-              "chapter_end": 7,
-              "display": "1 Chronicles 5-7"
+              "book": "1 Samuel",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "1 Samuel 11-12"
             }
           ]
         },
@@ -3956,10 +3942,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 8,
-              "chapter_end": 10,
-              "display": "1 Chronicles 8-10"
+              "book": "1 Samuel",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "1 Samuel 13-14"
             }
           ]
         },
@@ -3990,10 +3976,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 11,
-              "chapter_end": 13,
-              "display": "1 Chronicles 11-13"
+              "book": "1 Samuel",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "1 Samuel 15-16"
             }
           ]
         },
@@ -4024,10 +4010,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 14,
-              "chapter_end": 16,
-              "display": "1 Chronicles 14-16"
+              "book": "1 Samuel",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "1 Samuel 17-18"
             }
           ]
         },
@@ -4058,10 +4044,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 17,
-              "chapter_end": 19,
-              "display": "1 Chronicles 17-19"
+              "book": "1 Samuel",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "1 Samuel 19-20"
             }
           ]
         },
@@ -4092,10 +4078,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 20,
+              "book": "1 Samuel",
+              "chapter": 21,
               "chapter_end": 22,
-              "display": "1 Chronicles 20-22"
+              "display": "1 Samuel 21-22"
             }
           ]
         },
@@ -4126,10 +4112,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
+              "book": "1 Samuel",
               "chapter": 23,
-              "chapter_end": 25,
-              "display": "1 Chronicles 23-25"
+              "chapter_end": 24,
+              "display": "1 Samuel 23-24"
             }
           ]
         },
@@ -4160,10 +4146,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 26,
-              "chapter_end": 28,
-              "display": "1 Chronicles 26-28"
+              "book": "1 Samuel",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "1 Samuel 25-26"
             }
           ]
         },
@@ -4194,15 +4180,10 @@
         {
           "readings": [
             {
-              "book": "1 Chronicles",
-              "chapter": 29,
-              "display": "1 Chronicles 29"
-            },
-            {
-              "book": "2 Chronicles",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "2 Chronicles 1-2"
+              "book": "1 Samuel",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "1 Samuel 27-28"
             }
           ]
         },
@@ -4233,10 +4214,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 3,
-              "chapter_end": 5,
-              "display": "2 Chronicles 3-5"
+              "book": "1 Samuel",
+              "chapter": 29,
+              "chapter_end": 30,
+              "display": "1 Samuel 29-30"
             }
           ]
         },
@@ -4267,10 +4248,14 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 6,
-              "chapter_end": 8,
-              "display": "2 Chronicles 6-8"
+              "book": "1 Samuel",
+              "chapter": 31,
+              "display": "1 Samuel 31"
+            },
+            {
+              "book": "2 Samuel",
+              "chapter": 1,
+              "display": "2 Samuel 1"
             }
           ]
         },
@@ -4301,10 +4286,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 9,
-              "chapter_end": 11,
-              "display": "2 Chronicles 9-11"
+              "book": "2 Samuel",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Samuel 2-3"
             }
           ]
         },
@@ -4335,10 +4320,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 12,
-              "chapter_end": 14,
-              "display": "2 Chronicles 12-14"
+              "book": "2 Samuel",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "2 Samuel 4-5"
             }
           ]
         },
@@ -4369,10 +4354,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 15,
-              "chapter_end": 17,
-              "display": "2 Chronicles 15-17"
+              "book": "2 Samuel",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "2 Samuel 6-7"
             }
           ]
         },
@@ -4403,10 +4388,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 18,
-              "chapter_end": 20,
-              "display": "2 Chronicles 18-20"
+              "book": "2 Samuel",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "2 Samuel 8-9"
             }
           ]
         },
@@ -4437,10 +4422,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 21,
-              "chapter_end": 23,
-              "display": "2 Chronicles 21-23"
+              "book": "2 Samuel",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "2 Samuel 10-11"
             }
           ]
         },
@@ -4471,10 +4456,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 24,
-              "chapter_end": 26,
-              "display": "2 Chronicles 24-26"
+              "book": "2 Samuel",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "2 Samuel 12-13"
             }
           ]
         },
@@ -4505,10 +4490,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 27,
-              "chapter_end": 29,
-              "display": "2 Chronicles 27-29"
+              "book": "2 Samuel",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "2 Samuel 14-15"
             }
           ]
         },
@@ -4539,10 +4524,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 30,
-              "chapter_end": 32,
-              "display": "2 Chronicles 30-32"
+              "book": "2 Samuel",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "2 Samuel 16-17"
             }
           ]
         },
@@ -4573,10 +4558,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 33,
-              "chapter_end": 35,
-              "display": "2 Chronicles 33-35"
+              "book": "2 Samuel",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "2 Samuel 18-19"
             }
           ]
         },
@@ -4607,15 +4592,10 @@
         {
           "readings": [
             {
-              "book": "2 Chronicles",
-              "chapter": 36,
-              "display": "2 Chronicles 36"
-            },
-            {
-              "book": "Ezra",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "Ezra 1-2"
+              "book": "2 Samuel",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "2 Samuel 20-21"
             }
           ]
         },
@@ -4646,10 +4626,10 @@
         {
           "readings": [
             {
-              "book": "Ezra",
-              "chapter": 3,
-              "chapter_end": 5,
-              "display": "Ezra 3-5"
+              "book": "2 Samuel",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "2 Samuel 22-23"
             }
           ]
         },
@@ -4680,10 +4660,14 @@
         {
           "readings": [
             {
-              "book": "Ezra",
-              "chapter": 6,
-              "chapter_end": 8,
-              "display": "Ezra 6-8"
+              "book": "2 Samuel",
+              "chapter": 24,
+              "display": "2 Samuel 24"
+            },
+            {
+              "book": "1 Kings",
+              "chapter": 1,
+              "display": "1 Kings 1"
             }
           ]
         },
@@ -4714,15 +4698,10 @@
         {
           "readings": [
             {
-              "book": "Ezra",
-              "chapter": 9,
-              "chapter_end": 10,
-              "display": "Ezra 9-10"
-            },
-            {
-              "book": "Nehemiah",
-              "chapter": 1,
-              "display": "Nehemiah 1"
+              "book": "1 Kings",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "1 Kings 2-3"
             }
           ]
         },
@@ -4753,10 +4732,10 @@
         {
           "readings": [
             {
-              "book": "Nehemiah",
-              "chapter": 2,
-              "chapter_end": 4,
-              "display": "Nehemiah 2-4"
+              "book": "1 Kings",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "1 Kings 4-5"
             }
           ]
         },
@@ -4787,10 +4766,10 @@
         {
           "readings": [
             {
-              "book": "Nehemiah",
-              "chapter": 5,
+              "book": "1 Kings",
+              "chapter": 6,
               "chapter_end": 7,
-              "display": "Nehemiah 5-7"
+              "display": "1 Kings 6-7"
             }
           ]
         },
@@ -4821,10 +4800,10 @@
         {
           "readings": [
             {
-              "book": "Nehemiah",
+              "book": "1 Kings",
               "chapter": 8,
-              "chapter_end": 10,
-              "display": "Nehemiah 8-10"
+              "chapter_end": 9,
+              "display": "1 Kings 8-9"
             }
           ]
         },
@@ -4855,10 +4834,10 @@
         {
           "readings": [
             {
-              "book": "Nehemiah",
-              "chapter": 11,
-              "chapter_end": 13,
-              "display": "Nehemiah 11-13"
+              "book": "1 Kings",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "1 Kings 10-11"
             }
           ]
         },
@@ -4889,10 +4868,10 @@
         {
           "readings": [
             {
-              "book": "Esther",
-              "chapter": 1,
-              "chapter_end": 3,
-              "display": "Esther 1-3"
+              "book": "1 Kings",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "1 Kings 12-13"
             }
           ]
         },
@@ -4923,10 +4902,10 @@
         {
           "readings": [
             {
-              "book": "Esther",
-              "chapter": 4,
-              "chapter_end": 6,
-              "display": "Esther 4-6"
+              "book": "1 Kings",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "1 Kings 14-15"
             }
           ]
         },
@@ -4957,10 +4936,10 @@
         {
           "readings": [
             {
-              "book": "Esther",
-              "chapter": 7,
-              "chapter_end": 9,
-              "display": "Esther 7-9"
+              "book": "1 Kings",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "1 Kings 16-17"
             }
           ]
         },
@@ -4991,15 +4970,10 @@
         {
           "readings": [
             {
-              "book": "Esther",
-              "chapter": 10,
-              "display": "Esther 10"
-            },
-            {
-              "book": "Job",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "Job 1-2"
+              "book": "1 Kings",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "1 Kings 18-19"
             }
           ]
         },
@@ -5030,10 +5004,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 3,
-              "chapter_end": 5,
-              "display": "Job 3-5"
+              "book": "1 Kings",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "1 Kings 20-21"
             }
           ]
         },
@@ -5064,10 +5038,14 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 6,
-              "chapter_end": 8,
-              "display": "Job 6-8"
+              "book": "1 Kings",
+              "chapter": 22,
+              "display": "1 Kings 22"
+            },
+            {
+              "book": "2 Kings",
+              "chapter": 1,
+              "display": "2 Kings 1"
             }
           ]
         },
@@ -5098,10 +5076,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 9,
-              "chapter_end": 11,
-              "display": "Job 9-11"
+              "book": "2 Kings",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Kings 2-3"
             }
           ]
         },
@@ -5132,10 +5110,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 12,
-              "chapter_end": 14,
-              "display": "Job 12-14"
+              "book": "2 Kings",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "2 Kings 4-5"
             }
           ]
         },
@@ -5166,10 +5144,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 15,
-              "chapter_end": 17,
-              "display": "Job 15-17"
+              "book": "2 Kings",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "2 Kings 6-7"
             }
           ]
         },
@@ -5200,10 +5178,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 18,
-              "chapter_end": 20,
-              "display": "Job 18-20"
+              "book": "2 Kings",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "2 Kings 8-9"
             }
           ]
         },
@@ -5234,10 +5212,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 21,
-              "chapter_end": 23,
-              "display": "Job 21-23"
+              "book": "2 Kings",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "2 Kings 10-11"
             }
           ]
         },
@@ -5268,10 +5246,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 24,
-              "chapter_end": 26,
-              "display": "Job 24-26"
+              "book": "2 Kings",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "2 Kings 12-13"
             }
           ]
         },
@@ -5302,10 +5280,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 27,
-              "chapter_end": 29,
-              "display": "Job 27-29"
+              "book": "2 Kings",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "2 Kings 14-15"
             }
           ]
         },
@@ -5336,10 +5314,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 30,
-              "chapter_end": 32,
-              "display": "Job 30-32"
+              "book": "2 Kings",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "2 Kings 16-17"
             }
           ]
         },
@@ -5370,10 +5348,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 33,
-              "chapter_end": 35,
-              "display": "Job 33-35"
+              "book": "2 Kings",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "2 Kings 18-19"
             }
           ]
         },
@@ -5404,10 +5382,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 36,
-              "chapter_end": 38,
-              "display": "Job 36-38"
+              "book": "2 Kings",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "2 Kings 20-21"
             }
           ]
         },
@@ -5438,10 +5416,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 39,
-              "chapter_end": 41,
-              "display": "Job 39-41"
+              "book": "2 Kings",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "2 Kings 22-23"
             }
           ]
         },
@@ -5472,15 +5450,10 @@
         {
           "readings": [
             {
-              "book": "Job",
-              "chapter": 42,
-              "display": "Job 42"
-            },
-            {
-              "book": "Psalms",
-              "chapter": 1,
-              "chapter_end": 2,
-              "display": "Psalms 1-2"
+              "book": "2 Kings",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "2 Kings 24-25"
             }
           ]
         },
@@ -5511,10 +5484,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 3,
-              "chapter_end": 5,
-              "display": "Psalms 3-5"
+              "book": "1 Chronicles",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "1 Chronicles 1-2"
             }
           ]
         },
@@ -5545,10 +5518,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 6,
-              "chapter_end": 8,
-              "display": "Psalms 6-8"
+              "book": "1 Chronicles",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "1 Chronicles 3-4"
             }
           ]
         },
@@ -5579,10 +5552,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 9,
-              "chapter_end": 11,
-              "display": "Psalms 9-11"
+              "book": "1 Chronicles",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "1 Chronicles 5-6"
             }
           ]
         },
@@ -5613,10 +5586,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 12,
-              "chapter_end": 14,
-              "display": "Psalms 12-14"
+              "book": "1 Chronicles",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "1 Chronicles 7-8"
             }
           ]
         },
@@ -5647,10 +5620,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 15,
-              "chapter_end": 17,
-              "display": "Psalms 15-17"
+              "book": "1 Chronicles",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "1 Chronicles 9-10"
             }
           ]
         },
@@ -5681,10 +5654,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 18,
-              "chapter_end": 20,
-              "display": "Psalms 18-20"
+              "book": "1 Chronicles",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "1 Chronicles 11-12"
             }
           ]
         },
@@ -5715,10 +5688,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 21,
-              "chapter_end": 23,
-              "display": "Psalms 21-23"
+              "book": "1 Chronicles",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "1 Chronicles 13-14"
             }
           ]
         },
@@ -5749,10 +5722,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 24,
-              "chapter_end": 26,
-              "display": "Psalms 24-26"
+              "book": "1 Chronicles",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "1 Chronicles 15-16"
             }
           ]
         },
@@ -5783,10 +5756,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 27,
-              "chapter_end": 29,
-              "display": "Psalms 27-29"
+              "book": "1 Chronicles",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "1 Chronicles 17-18"
             }
           ]
         },
@@ -5817,10 +5790,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 30,
-              "chapter_end": 32,
-              "display": "Psalms 30-32"
+              "book": "1 Chronicles",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "1 Chronicles 19-20"
             }
           ]
         },
@@ -5851,10 +5824,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 33,
-              "chapter_end": 35,
-              "display": "Psalms 33-35"
+              "book": "1 Chronicles",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "1 Chronicles 21-22"
             }
           ]
         },
@@ -5885,10 +5858,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 36,
-              "chapter_end": 38,
-              "display": "Psalms 36-38"
+              "book": "1 Chronicles",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "1 Chronicles 23-24"
             }
           ]
         },
@@ -5919,10 +5892,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 39,
-              "chapter_end": 41,
-              "display": "Psalms 39-41"
+              "book": "1 Chronicles",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "1 Chronicles 25-26"
             }
           ]
         },
@@ -5953,10 +5926,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 42,
-              "chapter_end": 44,
-              "display": "Psalms 42-44"
+              "book": "1 Chronicles",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "1 Chronicles 27-28"
             }
           ]
         },
@@ -5987,10 +5960,14 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 45,
-              "chapter_end": 47,
-              "display": "Psalms 45-47"
+              "book": "1 Chronicles",
+              "chapter": 29,
+              "display": "1 Chronicles 29"
+            },
+            {
+              "book": "2 Chronicles",
+              "chapter": 1,
+              "display": "2 Chronicles 1"
             }
           ]
         },
@@ -6021,10 +5998,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 48,
-              "chapter_end": 50,
-              "display": "Psalms 48-50"
+              "book": "2 Chronicles",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "2 Chronicles 2-3"
             }
           ]
         },
@@ -6055,10 +6032,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 51,
-              "chapter_end": 53,
-              "display": "Psalms 51-53"
+              "book": "2 Chronicles",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "2 Chronicles 4-5"
             }
           ]
         },
@@ -6089,10 +6066,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 54,
-              "chapter_end": 56,
-              "display": "Psalms 54-56"
+              "book": "2 Chronicles",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "2 Chronicles 6-7"
             }
           ]
         },
@@ -6123,10 +6100,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 57,
-              "chapter_end": 59,
-              "display": "Psalms 57-59"
+              "book": "2 Chronicles",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "2 Chronicles 8-9"
             }
           ]
         },
@@ -6157,10 +6134,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 60,
-              "chapter_end": 62,
-              "display": "Psalms 60-62"
+              "book": "2 Chronicles",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "2 Chronicles 10-11"
             }
           ]
         },
@@ -6191,10 +6168,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 63,
-              "chapter_end": 65,
-              "display": "Psalms 63-65"
+              "book": "2 Chronicles",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "2 Chronicles 12-13"
             }
           ]
         },
@@ -6225,10 +6202,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 66,
-              "chapter_end": 68,
-              "display": "Psalms 66-68"
+              "book": "2 Chronicles",
+              "chapter": 14,
+              "chapter_end": 15,
+              "display": "2 Chronicles 14-15"
             }
           ]
         },
@@ -6259,10 +6236,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 69,
-              "chapter_end": 71,
-              "display": "Psalms 69-71"
+              "book": "2 Chronicles",
+              "chapter": 16,
+              "chapter_end": 17,
+              "display": "2 Chronicles 16-17"
             }
           ]
         },
@@ -6293,10 +6270,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 72,
-              "chapter_end": 74,
-              "display": "Psalms 72-74"
+              "book": "2 Chronicles",
+              "chapter": 18,
+              "chapter_end": 19,
+              "display": "2 Chronicles 18-19"
             }
           ]
         },
@@ -6327,10 +6304,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 75,
-              "chapter_end": 77,
-              "display": "Psalms 75-77"
+              "book": "2 Chronicles",
+              "chapter": 20,
+              "chapter_end": 21,
+              "display": "2 Chronicles 20-21"
             }
           ]
         },
@@ -6361,10 +6338,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 78,
-              "chapter_end": 80,
-              "display": "Psalms 78-80"
+              "book": "2 Chronicles",
+              "chapter": 22,
+              "chapter_end": 23,
+              "display": "2 Chronicles 22-23"
             }
           ]
         },
@@ -6395,10 +6372,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 81,
-              "chapter_end": 83,
-              "display": "Psalms 81-83"
+              "book": "2 Chronicles",
+              "chapter": 24,
+              "chapter_end": 25,
+              "display": "2 Chronicles 24-25"
             }
           ]
         },
@@ -6429,10 +6406,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 84,
-              "chapter_end": 86,
-              "display": "Psalms 84-86"
+              "book": "2 Chronicles",
+              "chapter": 26,
+              "chapter_end": 27,
+              "display": "2 Chronicles 26-27"
             }
           ]
         },
@@ -6463,10 +6440,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 87,
-              "chapter_end": 89,
-              "display": "Psalms 87-89"
+              "book": "2 Chronicles",
+              "chapter": 28,
+              "chapter_end": 29,
+              "display": "2 Chronicles 28-29"
             }
           ]
         },
@@ -6497,10 +6474,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 90,
-              "chapter_end": 92,
-              "display": "Psalms 90-92"
+              "book": "2 Chronicles",
+              "chapter": 30,
+              "chapter_end": 31,
+              "display": "2 Chronicles 30-31"
             }
           ]
         },
@@ -6531,10 +6508,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 93,
-              "chapter_end": 95,
-              "display": "Psalms 93-95"
+              "book": "2 Chronicles",
+              "chapter": 32,
+              "chapter_end": 33,
+              "display": "2 Chronicles 32-33"
             }
           ]
         },
@@ -6565,10 +6542,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 96,
-              "chapter_end": 98,
-              "display": "Psalms 96-98"
+              "book": "2 Chronicles",
+              "chapter": 34,
+              "chapter_end": 35,
+              "display": "2 Chronicles 34-35"
             }
           ]
         },
@@ -6599,10 +6576,14 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 99,
-              "chapter_end": 101,
-              "display": "Psalms 99-101"
+              "book": "2 Chronicles",
+              "chapter": 36,
+              "display": "2 Chronicles 36"
+            },
+            {
+              "book": "Ezra",
+              "chapter": 1,
+              "display": "Ezra 1"
             }
           ]
         },
@@ -6633,10 +6614,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 102,
-              "chapter_end": 104,
-              "display": "Psalms 102-104"
+              "book": "Ezra",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Ezra 2-3"
             }
           ]
         },
@@ -6667,10 +6648,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 105,
-              "chapter_end": 107,
-              "display": "Psalms 105-107"
+              "book": "Ezra",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Ezra 4-5"
             }
           ]
         },
@@ -6701,10 +6682,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 108,
-              "chapter_end": 110,
-              "display": "Psalms 108-110"
+              "book": "Ezra",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Ezra 6-7"
             }
           ]
         },
@@ -6735,10 +6716,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 111,
-              "chapter_end": 113,
-              "display": "Psalms 111-113"
+              "book": "Ezra",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Ezra 8-9"
             }
           ]
         },
@@ -6769,10 +6750,14 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 114,
-              "chapter_end": 116,
-              "display": "Psalms 114-116"
+              "book": "Ezra",
+              "chapter": 10,
+              "display": "Ezra 10"
+            },
+            {
+              "book": "Nehemiah",
+              "chapter": 1,
+              "display": "Nehemiah 1"
             }
           ]
         },
@@ -6803,10 +6788,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 117,
-              "chapter_end": 119,
-              "display": "Psalms 117-119"
+              "book": "Nehemiah",
+              "chapter": 2,
+              "chapter_end": 3,
+              "display": "Nehemiah 2-3"
             }
           ]
         },
@@ -6837,10 +6822,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 120,
-              "chapter_end": 121,
-              "display": "Psalms 120-121"
+              "book": "Nehemiah",
+              "chapter": 4,
+              "chapter_end": 5,
+              "display": "Nehemiah 4-5"
             }
           ]
         },
@@ -6871,10 +6856,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 122,
-              "chapter_end": 123,
-              "display": "Psalms 122-123"
+              "book": "Nehemiah",
+              "chapter": 6,
+              "chapter_end": 7,
+              "display": "Nehemiah 6-7"
             }
           ]
         },
@@ -6905,10 +6890,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 124,
-              "chapter_end": 125,
-              "display": "Psalms 124-125"
+              "book": "Nehemiah",
+              "chapter": 8,
+              "chapter_end": 9,
+              "display": "Nehemiah 8-9"
             }
           ]
         },
@@ -6939,10 +6924,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 126,
-              "chapter_end": 127,
-              "display": "Psalms 126-127"
+              "book": "Nehemiah",
+              "chapter": 10,
+              "chapter_end": 11,
+              "display": "Nehemiah 10-11"
             }
           ]
         },
@@ -6973,10 +6958,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 128,
-              "chapter_end": 129,
-              "display": "Psalms 128-129"
+              "book": "Nehemiah",
+              "chapter": 12,
+              "chapter_end": 13,
+              "display": "Nehemiah 12-13"
             }
           ]
         },
@@ -7007,10 +6992,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 130,
-              "chapter_end": 131,
-              "display": "Psalms 130-131"
+              "book": "Esther",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Esther 1-2"
             }
           ]
         },
@@ -7041,10 +7026,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 132,
-              "chapter_end": 133,
-              "display": "Psalms 132-133"
+              "book": "Esther",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Esther 3-4"
             }
           ]
         },
@@ -7075,10 +7060,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 134,
-              "chapter_end": 135,
-              "display": "Psalms 134-135"
+              "book": "Esther",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Esther 5-6"
             }
           ]
         },
@@ -7109,10 +7094,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 136,
-              "chapter_end": 137,
-              "display": "Psalms 136-137"
+              "book": "Esther",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Esther 7-8"
             }
           ]
         },
@@ -7143,10 +7128,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 138,
-              "chapter_end": 139,
-              "display": "Psalms 138-139"
+              "book": "Esther",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Esther 9-10"
             }
           ]
         },
@@ -7177,10 +7162,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 140,
-              "chapter_end": 141,
-              "display": "Psalms 140-141"
+              "book": "Job",
+              "chapter": 1,
+              "chapter_end": 2,
+              "display": "Job 1-2"
             }
           ]
         },
@@ -7211,10 +7196,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 142,
-              "chapter_end": 143,
-              "display": "Psalms 142-143"
+              "book": "Job",
+              "chapter": 3,
+              "chapter_end": 4,
+              "display": "Job 3-4"
             }
           ]
         },
@@ -7245,10 +7230,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 144,
-              "chapter_end": 145,
-              "display": "Psalms 144-145"
+              "book": "Job",
+              "chapter": 5,
+              "chapter_end": 6,
+              "display": "Job 5-6"
             }
           ]
         },
@@ -7279,10 +7264,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 146,
-              "chapter_end": 147,
-              "display": "Psalms 146-147"
+              "book": "Job",
+              "chapter": 7,
+              "chapter_end": 8,
+              "display": "Job 7-8"
             }
           ]
         },
@@ -7313,10 +7298,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 148,
-              "chapter_end": 149,
-              "display": "Psalms 148-149"
+              "book": "Job",
+              "chapter": 9,
+              "chapter_end": 10,
+              "display": "Job 9-10"
             }
           ]
         },
@@ -7347,14 +7332,10 @@
         {
           "readings": [
             {
-              "book": "Psalms",
-              "chapter": 150,
-              "display": "Psalms 150"
-            },
-            {
-              "book": "Proverbs",
-              "chapter": 1,
-              "display": "Proverbs 1"
+              "book": "Job",
+              "chapter": 11,
+              "chapter_end": 12,
+              "display": "Job 11-12"
             }
           ]
         },
@@ -7385,10 +7366,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 2,
-              "chapter_end": 3,
-              "display": "Proverbs 2-3"
+              "book": "Job",
+              "chapter": 13,
+              "chapter_end": 14,
+              "display": "Job 13-14"
             }
           ]
         },
@@ -7419,10 +7400,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 4,
-              "chapter_end": 5,
-              "display": "Proverbs 4-5"
+              "book": "Job",
+              "chapter": 15,
+              "chapter_end": 16,
+              "display": "Job 15-16"
             }
           ]
         },
@@ -7453,10 +7434,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 6,
-              "chapter_end": 7,
-              "display": "Proverbs 6-7"
+              "book": "Job",
+              "chapter": 17,
+              "chapter_end": 18,
+              "display": "Job 17-18"
             }
           ]
         },
@@ -7487,10 +7468,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 8,
-              "chapter_end": 9,
-              "display": "Proverbs 8-9"
+              "book": "Job",
+              "chapter": 19,
+              "chapter_end": 20,
+              "display": "Job 19-20"
             }
           ]
         },
@@ -7521,10 +7502,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 10,
-              "chapter_end": 11,
-              "display": "Proverbs 10-11"
+              "book": "Job",
+              "chapter": 21,
+              "chapter_end": 22,
+              "display": "Job 21-22"
             }
           ]
         },
@@ -7555,10 +7536,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 12,
-              "chapter_end": 13,
-              "display": "Proverbs 12-13"
+              "book": "Job",
+              "chapter": 23,
+              "chapter_end": 24,
+              "display": "Job 23-24"
             }
           ]
         },
@@ -7589,10 +7570,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 14,
-              "chapter_end": 15,
-              "display": "Proverbs 14-15"
+              "book": "Job",
+              "chapter": 25,
+              "chapter_end": 26,
+              "display": "Job 25-26"
             }
           ]
         },
@@ -7623,10 +7604,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 16,
-              "chapter_end": 17,
-              "display": "Proverbs 16-17"
+              "book": "Job",
+              "chapter": 27,
+              "chapter_end": 28,
+              "display": "Job 27-28"
             }
           ]
         },
@@ -7657,10 +7638,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 18,
-              "chapter_end": 19,
-              "display": "Proverbs 18-19"
+              "book": "Job",
+              "chapter": 29,
+              "chapter_end": 30,
+              "display": "Job 29-30"
             }
           ]
         },
@@ -7691,10 +7672,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 20,
-              "chapter_end": 21,
-              "display": "Proverbs 20-21"
+              "book": "Job",
+              "chapter": 31,
+              "chapter_end": 32,
+              "display": "Job 31-32"
             }
           ]
         },
@@ -7725,10 +7706,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 22,
-              "chapter_end": 23,
-              "display": "Proverbs 22-23"
+              "book": "Job",
+              "chapter": 33,
+              "chapter_end": 34,
+              "display": "Job 33-34"
             }
           ]
         },
@@ -7759,10 +7740,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 24,
-              "chapter_end": 25,
-              "display": "Proverbs 24-25"
+              "book": "Job",
+              "chapter": 35,
+              "chapter_end": 36,
+              "display": "Job 35-36"
             }
           ]
         },
@@ -7793,10 +7774,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 26,
-              "chapter_end": 27,
-              "display": "Proverbs 26-27"
+              "book": "Job",
+              "chapter": 37,
+              "chapter_end": 38,
+              "display": "Job 37-38"
             }
           ]
         },
@@ -7827,10 +7808,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 28,
-              "chapter_end": 29,
-              "display": "Proverbs 28-29"
+              "book": "Job",
+              "chapter": 39,
+              "chapter_end": 40,
+              "display": "Job 39-40"
             }
           ]
         },
@@ -7861,10 +7842,10 @@
         {
           "readings": [
             {
-              "book": "Proverbs",
-              "chapter": 30,
-              "chapter_end": 31,
-              "display": "Proverbs 30-31"
+              "book": "Job",
+              "chapter": 41,
+              "chapter_end": 42,
+              "display": "Job 41-42"
             }
           ]
         },
