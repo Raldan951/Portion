@@ -6,6 +6,7 @@ import '../../../core/models/bible_translation.dart';
 import '../../../core/providers/journal_providers.dart';
 import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
+import '../../../core/providers/tts_provider.dart';
 import '../../../core/services/bible_link_service.dart';
 
 /// Displays a single Bible passage inline with interactive verse selection.
@@ -175,6 +176,12 @@ class _InteractiveVerseTextState
   ({int chapter, int verse})? _anchor;
   ({int chapter, int verse})? _end;
 
+  @override
+  void dispose() {
+    ref.read(ttsProvider.notifier).stop();
+    super.dispose();
+  }
+
   // Sort key that makes cross-chapter comparisons trivial (max 999 verses/chapter)
   static int _key(int chapter, int verse) => chapter * 1000 + verse;
 
@@ -263,8 +270,25 @@ class _InteractiveVerseTextState
     }
   }
 
+  void _showVoicePicker(TtsState tts) {
+    if (tts.availableVoices.isEmpty) return;
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (_) => _VoicePicker(
+        voices: tts.availableVoices,
+        selected: tts.selectedVoice,
+        onSelect: (name) {
+          ref.read(ttsProvider.notifier).setVoice(name);
+          Navigator.of(context).pop();
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final tts = ref.watch(ttsProvider);
+
     // Pre-build a flat list of items: chapter headings + verses
     final bool multiChapter = widget.reference.chapterEnd != null &&
         widget.reference.chapterEnd != widget.reference.chapter;
@@ -281,11 +305,14 @@ class _InteractiveVerseTextState
       items.add(_VerseItem(verse));
     }
 
+    // Map verse index (within widget.verses) to list item index
+    final verseItems = items.whereType<_VerseItem>().toList();
+
     return Stack(
       children: [
         // Verse list
         ListView.builder(
-          padding: const EdgeInsets.only(bottom: 120),
+          padding: const EdgeInsets.only(bottom: 180),
           itemCount: items.length,
           itemBuilder: (context, i) {
             final item = items[i];
@@ -305,15 +332,48 @@ class _InteractiveVerseTextState
             }
             final verse = (item as _VerseItem).verse;
             final selected = _isSelected(verse.chapter, verse.verse);
+            final verseIdx = verseItems.indexOf(item);
+            final isSpeaking = tts.status != TtsStatus.idle &&
+                tts.currentVerseIndex == verseIdx;
             return _VerseRow(
               verse: verse,
               selected: selected,
+              isSpeaking: isSpeaking,
               onVerseNumberTap: _onVerseNumberTap,
             );
           },
         ),
 
-        // Clip pill — slides in when a selection exists
+        // TTS control bar — always shown at bottom
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: _TtsBar(
+            tts: tts,
+            onPlayPause: () {
+              final notifier = ref.read(ttsProvider.notifier);
+              if (tts.status == TtsStatus.playing) {
+                notifier.pause();
+              } else if (tts.status == TtsStatus.paused) {
+                notifier.resume();
+              } else {
+                int startIndex = 0;
+                if (_anchor != null) {
+                  final idx = widget.verses.indexWhere(
+                    (v) => v.chapter == _anchor!.chapter &&
+                           v.verse == _anchor!.verse,
+                  );
+                  if (idx >= 0) startIndex = idx;
+                }
+                notifier.playVerses(widget.verses, startIndex: startIndex);
+              }
+            },
+            onStop: () => ref.read(ttsProvider.notifier).stop(),
+            onRateChange: (v) => ref.read(ttsProvider.notifier).setRate(v),
+            onVoiceTap: () => _showVoicePicker(tts),
+          ),
+        ),
+
+        // Clip pill — slides in when a selection exists, sits above TTS bar
         AnimatedSlide(
           offset: _anchor != null ? Offset.zero : const Offset(0, 0.3),
           duration: const Duration(milliseconds: 220),
@@ -326,7 +386,7 @@ class _InteractiveVerseTextState
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 32),
+                  padding: const EdgeInsets.only(bottom: 104),
                   child: _ClipPill(
                     verseCount: _selectedCount,
                     onClip: _handleClip,
@@ -341,30 +401,193 @@ class _InteractiveVerseTextState
   }
 }
 
+// ── TTS bar ───────────────────────────────────────────────────────────────────
+
+class _TtsBar extends StatelessWidget {
+  final TtsState tts;
+  final VoidCallback onPlayPause;
+  final VoidCallback onStop;
+  final ValueChanged<double> onRateChange;
+  final VoidCallback onVoiceTap;
+
+  const _TtsBar({
+    required this.tts,
+    required this.onPlayPause,
+    required this.onStop,
+    required this.onRateChange,
+    required this.onVoiceTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isActive = tts.status != TtsStatus.idle;
+    return Container(
+      height: 72,
+      decoration: const BoxDecoration(
+        color: Color(0xFFF3EFE6),
+        border: Border(top: BorderSide(color: Color(0xFFDDD8CC), width: 1)),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        children: [
+          // Play / Pause
+          IconButton(
+            icon: Icon(
+              tts.status == TtsStatus.playing
+                  ? Icons.pause_rounded
+                  : Icons.play_arrow_rounded,
+              size: 28,
+            ),
+            color: const Color(0xFF5C6B4A),
+            onPressed: onPlayPause,
+          ),
+          // Stop
+          IconButton(
+            icon: const Icon(Icons.stop_rounded, size: 26),
+            color: isActive ? const Color(0xFF5C6B4A) : const Color(0xFFBBB8B0),
+            onPressed: isActive ? onStop : null,
+          ),
+          // Rate slider
+          Expanded(
+            child: SliderTheme(
+              data: SliderThemeData(
+                activeTrackColor: const Color(0xFF5C6B4A),
+                inactiveTrackColor: const Color(0xFF5C6B4A).withValues(alpha: 0.25),
+                thumbColor: const Color(0xFF5C6B4A),
+                overlayColor: const Color(0xFF5C6B4A).withValues(alpha: 0.15),
+                trackHeight: 2.5,
+                thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 7),
+              ),
+              child: Slider(
+                value: tts.speechRate,
+                min: 0.25,
+                max: 1.0,
+                onChanged: onRateChange,
+              ),
+            ),
+          ),
+          // Voice button
+          TextButton(
+            onPressed: tts.availableVoices.isNotEmpty ? onVoiceTap : null,
+            style: TextButton.styleFrom(
+              foregroundColor: const Color(0xFF5C6B4A),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(Icons.record_voice_over_outlined, size: 17),
+                SizedBox(width: 4),
+                Text('Voice', style: TextStyle(fontSize: 13)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Voice picker ──────────────────────────────────────────────────────────────
+
+class _VoicePicker extends StatelessWidget {
+  final List<String> voices;
+  final String? selected;
+  final ValueChanged<String> onSelect;
+
+  const _VoicePicker({
+    required this.voices,
+    required this.selected,
+    required this.onSelect,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Choose Voice',
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF2C3A2A),
+                ),
+              ),
+            ),
+          ),
+          const Divider(height: 1),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(context).size.height * 0.45,
+            ),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: voices.length,
+              itemBuilder: (_, i) {
+                final name = voices[i];
+                final isSelected = name == selected;
+                return ListTile(
+                  title: Text(
+                    name,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: isSelected
+                          ? const Color(0xFF5C6B4A)
+                          : const Color(0xFF2C3A2A),
+                      fontWeight: isSelected
+                          ? FontWeight.w600
+                          : FontWeight.normal,
+                    ),
+                  ),
+                  trailing: isSelected
+                      ? const Icon(Icons.check, color: Color(0xFF5C6B4A), size: 18)
+                      : null,
+                  onTap: () => onSelect(name),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 8),
+        ],
+      ),
+    );
+  }
+}
+
 // ── Verse row ─────────────────────────────────────────────────────────────────
 
 /// A single verse: tappable verse number + flowing text.
-/// Background warms to amber when the verse is within the active selection.
+/// Background warms to amber when selected; soft blue when currently speaking.
 class _VerseRow extends StatelessWidget {
   final BibleVerse verse;
   final bool selected;
+  final bool isSpeaking;
   final void Function(int chapter, int verse) onVerseNumberTap;
 
   const _VerseRow({
     required this.verse,
     required this.selected,
+    required this.isSpeaking,
     required this.onVerseNumberTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    // Row-based layout replaces RichText+WidgetSpan. GestureDetector inside
-    // WidgetSpan has broken hit-testing on iOS (especially verse 1). A plain
-    // Row with a fixed-width verse-number column is fully reliable on all
-    // platforms and matches the standard Bible app layout.
+    final Color bg = isSpeaking
+        ? const Color(0xFFDCEEFF)
+        : selected
+            ? const Color(0xFFFFF3C4)
+            : Colors.transparent;
+
     return AnimatedContainer(
       duration: const Duration(milliseconds: 140),
-      color: selected ? const Color(0xFFFFF3C4) : Colors.transparent,
+      color: bg,
       padding: const EdgeInsets.symmetric(vertical: 1),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -381,9 +604,11 @@ class _VerseRow extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w700,
-                    color: selected
-                        ? const Color(0xFF8B6914)
-                        : const Color(0xFF5C6B4A),
+                    color: isSpeaking
+                        ? const Color(0xFF1A5C9C)
+                        : selected
+                            ? const Color(0xFF8B6914)
+                            : const Color(0xFF5C6B4A),
                   ),
                 ),
               ),
