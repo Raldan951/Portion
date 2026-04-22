@@ -272,7 +272,7 @@ class HomeScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          'build 36',
+                          'build 37',
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.white.withValues(alpha: 0.4),
@@ -1472,8 +1472,11 @@ class _QuickStartBanner extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const Icon(Icons.menu_book_outlined,
-                size: 20, color: Color(0xFF5C6B4A)),
+            const Icon(
+              Icons.menu_book_outlined,
+              size: 20,
+              color: Color(0xFF5C6B4A),
+            ),
             const SizedBox(width: 12),
             const Expanded(
               child: Text(
