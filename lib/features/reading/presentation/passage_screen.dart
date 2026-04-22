@@ -6,6 +6,7 @@ import '../../../core/models/bible_translation.dart';
 import '../../../core/providers/journal_providers.dart';
 import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
+import '../../../core/providers/settings_provider.dart';
 import '../../../core/providers/tts_provider.dart';
 import '../../../core/services/bible_link_service.dart';
 
@@ -176,9 +177,20 @@ class _InteractiveVerseTextState
   ({int chapter, int verse})? _anchor;
   ({int chapter, int verse})? _end;
 
+  bool _readAloudActive = false;
+
+  // Cached so dispose() can call stop() without relying on ref validity
+  late final TtsNotifier _ttsNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+    _ttsNotifier = ref.read(ttsProvider.notifier);
+  }
+
   @override
   void dispose() {
-    ref.read(ttsProvider.notifier).stop();
+    _ttsNotifier.stop();
     super.dispose();
   }
 
@@ -200,21 +212,33 @@ class _InteractiveVerseTextState
           .length;
 
   void _onVerseNumberTap(int chapter, int verse) {
+    // While TTS is active AND read aloud is on, tapping a verse number seeks
+    if (_readAloudActive && ref.read(ttsProvider).status != TtsStatus.idle) {
+      _seekToVerse(chapter, verse);
+      return;
+    }
+    // Otherwise: clip selection behavior
     setState(() {
       if (_anchor == null) {
-        // First tap — set anchor
         _anchor = (chapter: chapter, verse: verse);
         _end = null;
       } else if (_end == null &&
           chapter == _anchor!.chapter &&
           verse == _anchor!.verse) {
-        // Tap same verse with nothing else selected → clear
         _anchor = null;
       } else {
-        // Extend or adjust range end
         _end = (chapter: chapter, verse: verse);
       }
     });
+  }
+
+  void _seekToVerse(int chapter, int verse) {
+    final idx = widget.verses.indexWhere(
+      (v) => v.chapter == chapter && v.verse == verse,
+    );
+    if (idx < 0) return;
+    ref.read(ttsProvider.notifier).playVerses(widget.verses, startIndex: idx);
+    setState(() { _anchor = null; _end = null; });
   }
 
   void _handleClip() {
@@ -288,6 +312,7 @@ class _InteractiveVerseTextState
   @override
   Widget build(BuildContext context) {
     final tts = ref.watch(ttsProvider);
+    final showReadAloud = ref.watch(appSettingsProvider).showReadAloud;
 
     // Pre-build a flat list of items: chapter headings + verses
     final bool multiChapter = widget.reference.chapterEnd != null &&
@@ -305,95 +330,148 @@ class _InteractiveVerseTextState
       items.add(_VerseItem(verse));
     }
 
-    // Map verse index (within widget.verses) to list item index
     final verseItems = items.whereType<_VerseItem>().toList();
+    final bottomPad = _readAloudActive ? 180.0 : 32.0;
 
-    return Stack(
+    return Column(
       children: [
-        // Verse list
-        ListView.builder(
-          padding: const EdgeInsets.only(bottom: 180),
-          itemCount: items.length,
-          itemBuilder: (context, i) {
-            final item = items[i];
-            if (item is _ChapterHeadingItem) {
-              return Padding(
-                padding: const EdgeInsets.only(top: 24, bottom: 8),
-                child: Text(
-                  item.text,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF2C3A2A),
-                    letterSpacing: 0.8,
+        // Read Aloud toggle — only if enabled in Settings
+        if (showReadAloud) ...[
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            decoration: BoxDecoration(
+              color: _readAloudActive
+                  ? const Color(0xFF5C6B4A).withValues(alpha: 0.08)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Checkbox(
+                  value: _readAloudActive,
+                  activeColor: const Color(0xFF5C6B4A),
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  visualDensity: VisualDensity.compact,
+                  onChanged: (v) {
+                    setState(() => _readAloudActive = v ?? false);
+                    if (!(v ?? false)) _ttsNotifier.stop();
+                  },
+                ),
+                const SizedBox(width: 4),
+                const Icon(Icons.volume_up_outlined,
+                    size: 16, color: Color(0xFF5C6B4A)),
+                const SizedBox(width: 6),
+                const Text(
+                  'Read Aloud',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Color(0xFF5C6B4A),
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-              );
-            }
-            final verse = (item as _VerseItem).verse;
-            final selected = _isSelected(verse.chapter, verse.verse);
-            final verseIdx = verseItems.indexOf(item);
-            final isSpeaking = tts.status != TtsStatus.idle &&
-                tts.currentVerseIndex == verseIdx;
-            return _VerseRow(
-              verse: verse,
-              selected: selected,
-              isSpeaking: isSpeaking,
-              onVerseNumberTap: _onVerseNumberTap,
-            );
-          },
-        ),
-
-        // TTS control bar — always shown at bottom
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: _TtsBar(
-            tts: tts,
-            onPlayPause: () {
-              final notifier = ref.read(ttsProvider.notifier);
-              if (tts.status == TtsStatus.playing) {
-                notifier.pause();
-              } else if (tts.status == TtsStatus.paused) {
-                notifier.resume();
-              } else {
-                int startIndex = 0;
-                if (_anchor != null) {
-                  final idx = widget.verses.indexWhere(
-                    (v) => v.chapter == _anchor!.chapter &&
-                           v.verse == _anchor!.verse,
-                  );
-                  if (idx >= 0) startIndex = idx;
-                }
-                notifier.playVerses(widget.verses, startIndex: startIndex);
-              }
-            },
-            onStop: () => ref.read(ttsProvider.notifier).stop(),
-            onRateChange: (v) => ref.read(ttsProvider.notifier).setRate(v),
-            onVoiceTap: () => _showVoicePicker(tts),
+              ],
+            ),
           ),
-        ),
+          const SizedBox(height: 12),
+        ],
 
-        // Clip pill — slides in when a selection exists, sits above TTS bar
-        AnimatedSlide(
-          offset: _anchor != null ? Offset.zero : const Offset(0, 0.3),
-          duration: const Duration(milliseconds: 220),
-          curve: Curves.easeOut,
-          child: AnimatedOpacity(
-            opacity: _anchor != null ? 1.0 : 0.0,
-            duration: const Duration(milliseconds: 180),
-            child: IgnorePointer(
-              ignoring: _anchor == null,
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 104),
-                  child: _ClipPill(
-                    verseCount: _selectedCount,
-                    onClip: _handleClip,
+        // Verse list + overlays
+        Expanded(
+          child: Stack(
+            children: [
+              ListView.builder(
+                padding: EdgeInsets.only(bottom: bottomPad),
+                itemCount: items.length,
+                itemBuilder: (context, i) {
+                  final item = items[i];
+                  if (item is _ChapterHeadingItem) {
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 24, bottom: 8),
+                      child: Text(
+                        item.text,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF2C3A2A),
+                          letterSpacing: 0.8,
+                        ),
+                      ),
+                    );
+                  }
+                  final verse = (item as _VerseItem).verse;
+                  final selected = _isSelected(verse.chapter, verse.verse);
+                  final verseIdx = verseItems.indexOf(item);
+                  final isSpeaking = _readAloudActive &&
+                      tts.status != TtsStatus.idle &&
+                      tts.currentVerseIndex == verseIdx;
+                  return _VerseRow(
+                    verse: verse,
+                    selected: selected,
+                    isSpeaking: isSpeaking,
+                    onVerseNumberTap: _onVerseNumberTap,
+                    onVerseTextTap: _readAloudActive ? _seekToVerse : (_, _) {},
+                  );
+                },
+              ),
+
+              // TTS control bar — only when Read Aloud is active
+              if (_readAloudActive)
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: _TtsBar(
+                    tts: tts,
+                    onPlayPause: () {
+                      final notifier = ref.read(ttsProvider.notifier);
+                      if (tts.status == TtsStatus.playing) {
+                        notifier.pause();
+                      } else if (tts.status == TtsStatus.paused) {
+                        notifier.resume();
+                      } else {
+                        int startIndex = 0;
+                        if (_anchor != null) {
+                          final idx = widget.verses.indexWhere(
+                            (v) => v.chapter == _anchor!.chapter &&
+                                   v.verse == _anchor!.verse,
+                          );
+                          if (idx >= 0) startIndex = idx;
+                        }
+                        notifier.playVerses(widget.verses, startIndex: startIndex);
+                        setState(() { _anchor = null; _end = null; });
+                      }
+                    },
+                    onStop: () => ref.read(ttsProvider.notifier).stop(),
+                    onRateChange: (v) => ref.read(ttsProvider.notifier).setRate(v),
+                    onVoiceTap: () => _showVoicePicker(tts),
+                  ),
+                ),
+
+              // Clip pill — above TTS bar when Read Aloud active, else standard position
+              AnimatedSlide(
+                offset: _anchor != null ? Offset.zero : const Offset(0, 0.3),
+                duration: const Duration(milliseconds: 220),
+                curve: Curves.easeOut,
+                child: AnimatedOpacity(
+                  opacity: _anchor != null ? 1.0 : 0.0,
+                  duration: const Duration(milliseconds: 180),
+                  child: IgnorePointer(
+                    ignoring: _anchor == null,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          bottom: _readAloudActive ? 104 : 32,
+                        ),
+                        child: _ClipPill(
+                          verseCount: _selectedCount,
+                          onClip: _handleClip,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
         ),
       ],
@@ -448,6 +526,10 @@ class _TtsBar extends StatelessWidget {
             onPressed: isActive ? onStop : null,
           ),
           // Rate slider
+          const Text(
+            'Speed',
+            style: TextStyle(fontSize: 12, color: Color(0xFF5C6B4A)),
+          ),
           Expanded(
             child: SliderTheme(
               data: SliderThemeData(
@@ -569,12 +651,14 @@ class _VerseRow extends StatelessWidget {
   final bool selected;
   final bool isSpeaking;
   final void Function(int chapter, int verse) onVerseNumberTap;
+  final void Function(int chapter, int verse) onVerseTextTap;
 
   const _VerseRow({
     required this.verse,
     required this.selected,
     required this.isSpeaking,
     required this.onVerseNumberTap,
+    required this.onVerseTextTap,
   });
 
   @override
@@ -615,12 +699,16 @@ class _VerseRow extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Text(
-              '${verse.text} ',
-              style: const TextStyle(
-                fontSize: 18,
-                color: Color(0xFF2C3A2A),
-                height: 1.8,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => onVerseTextTap(verse.chapter, verse.verse),
+              child: Text(
+                '${verse.text} ',
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF2C3A2A),
+                  height: 1.8,
+                ),
               ),
             ),
           ),

@@ -10,6 +10,7 @@ import '../../../core/models/journal_theme.dart';
 import '../../../core/providers/founding_docs_provider.dart';
 import '../../../core/providers/journal_providers.dart';
 import '../../../core/providers/journal_share_provider.dart';
+import '../../../core/providers/settings_provider.dart';
 import '../../../core/providers/theme_provider.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
@@ -221,6 +222,56 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         : () => _exportToObsidian(context),
                   ),
                 ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          _SectionHeader('Quick Start'),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey[200]!),
+            ),
+            child: Column(
+              children: [
+                SwitchListTile(
+                  title: const Text(
+                    'Show Quick Start Guide',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Color(0xFF2C2C2C),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Displays a guide banner at the top of the home screen',
+                    style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+                  ),
+                  value: ref.watch(appSettingsProvider).showQuickStart,
+                  activeThumbColor: const Color(0xFF5C6B4A),
+                  onChanged: (v) =>
+                      ref.read(appSettingsProvider.notifier).setShowQuickStart(v),
+                ),
+                Divider(height: 1, color: Colors.grey[200]),
+                SwitchListTile(
+                  title: const Text(
+                    'Show Read Aloud controls',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Color(0xFF2C2C2C),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Adds a Read Aloud toggle inside each passage',
+                    style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+                  ),
+                  value: ref.watch(appSettingsProvider).showReadAloud,
+                  activeThumbColor: const Color(0xFF5C6B4A),
+                  onChanged: (v) =>
+                      ref.read(appSettingsProvider.notifier).setShowReadAloud(v),
+                ),
               ],
             ),
           ),

@@ -82,8 +82,8 @@ class TtsNotifier extends Notifier<TtsState> {
 
   Future<void> pause() async {
     if (state.status != TtsStatus.playing) return;
-    await _service.stop();
     state = state.copyWith(status: TtsStatus.paused);
+    await _service.stop();
   }
 
   Future<void> resume() async {
@@ -98,14 +98,22 @@ class TtsNotifier extends Notifier<TtsState> {
   }
 
   Future<void> stop() async {
-    await _service.stop();
     _verses = [];
     state = state.copyWith(status: TtsStatus.idle, currentVerseIndex: -1);
+    await _service.stop();
   }
 
   Future<void> setRate(double rate) async {
     state = state.copyWith(speechRate: rate);
     await _service.setRate(rate);
+    // Restart current verse so new rate takes effect immediately
+    if (state.status == TtsStatus.playing) {
+      final idx = state.currentVerseIndex;
+      if (idx >= 0 && idx < _verses.length) {
+        await _service.stop();
+        await _service.speak(_verses[idx].text);
+      }
+    }
   }
 
   Future<void> setVoice(String name) async {

@@ -8,6 +8,7 @@ import '../../../core/providers/journal_providers.dart';
 import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
 import '../../../core/providers/theme_provider.dart';
+import '../../../core/providers/settings_provider.dart';
 import '../../../core/services/bible_link_service.dart';
 import '../../../core/services/reading_plan_service.dart';
 import '../../founding_docs/presentation/founding_doc_reader_screen.dart';
@@ -113,6 +114,10 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ),
 
+                if (ref.watch(appSettingsProvider).showQuickStart) ...[
+                  const SizedBox(height: 16),
+                  const _QuickStartBanner(),
+                ],
                 const SizedBox(height: 32),
                 const _DateNavigator(),
                 const SizedBox(height: 40),
@@ -267,7 +272,7 @@ class HomeScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          'build 33',
+                          'build 36',
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.white.withValues(alpha: 0.4),
@@ -1195,7 +1200,11 @@ class _FoundingDocsCard extends ConsumerWidget {
     final bookmark = ref.watch(federalistBookmarkProvider);
 
     final w = MediaQuery.of(context).size.width;
-    final cardPad = w < 600 ? 20.0 : w < 900 ? 32.0 : 52.0;
+    final cardPad = w < 600
+        ? 20.0
+        : w < 900
+        ? 32.0
+        : 52.0;
 
     return Card(
       elevation: 6,
@@ -1216,7 +1225,11 @@ class _FoundingDocsCard extends ConsumerWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.history_edu, size: 38, color: Color(0xFF9C7A5B)),
+                const Icon(
+                  Icons.history_edu,
+                  size: 38,
+                  color: Color(0xFF9C7A5B),
+                ),
                 const SizedBox(width: 24),
                 Text(
                   'Founding Docs',
@@ -1232,14 +1245,17 @@ class _FoundingDocsCard extends ConsumerWidget {
                 padding: EdgeInsets.symmetric(vertical: 12),
                 child: Text('Loading…', style: TextStyle(color: Colors.grey)),
               ),
-              error: (e, _) => Text('Error: $e',
-                  style: const TextStyle(color: Colors.red)),
+              error: (e, _) =>
+                  Text('Error: $e', style: const TextStyle(color: Colors.red)),
               data: (docs) {
                 if (activeDoc == FoundingDocType.federalistPapers) {
                   final segs = docs.federalistSegments;
                   final idx = bookmark.clamp(0, segs.length - 1);
                   final seg = segs[idx];
-                  return _FederalistCardBody(seg: seg, totalSegments: docs.federalistTotalSegments);
+                  return _FederalistCardBody(
+                    seg: seg,
+                    totalSegments: docs.federalistTotalSegments,
+                  );
                 } else {
                   return _ReferenceDocCardBody(docType: activeDoc);
                 }
@@ -1254,11 +1270,14 @@ class _FoundingDocsCard extends ConsumerWidget {
               children: FoundingDocType.values.map((type) {
                 final isActive = type == activeDoc;
                 return GestureDetector(
-                  onTap: () =>
-                      ref.read(foundingDocsActiveProvider.notifier).select(type),
+                  onTap: () => ref
+                      .read(foundingDocsActiveProvider.notifier)
+                      .select(type),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 6),
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     decoration: BoxDecoration(
                       color: isActive
                           ? const Color(0xFF9C7A5B).withValues(alpha: 0.15)
@@ -1302,9 +1321,7 @@ class _FederalistCardBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final preview = seg.paragraphs.isNotEmpty
-        ? seg.paragraphs.first.text
-        : '';
+    final preview = seg.paragraphs.isNotEmpty ? seg.paragraphs.first.text : '';
     final previewText = preview.length > 120
         ? '${preview.substring(0, 120)}…'
         : preview;
@@ -1353,7 +1370,8 @@ class _FederalistCardBody extends ConsumerWidget {
             GestureDetector(
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (_) => const FederalistReaderScreen()),
+                  builder: (_) => const FederalistReaderScreen(),
+                ),
               ),
               child: const Text(
                 'Read →',
@@ -1374,8 +1392,11 @@ class _FederalistCardBody extends ConsumerWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.check_circle_outline,
-                      size: 16, color: Colors.grey[500]),
+                  Icon(
+                    Icons.check_circle_outline,
+                    size: 16,
+                    color: Colors.grey[500],
+                  ),
                   const SizedBox(width: 4),
                   Text(
                     'Mark as read',
@@ -1429,6 +1450,225 @@ class _ReferenceDocCardBody extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+// ── Quick Start Banner ────────────────────────────────────────────────────────
+
+class _QuickStartBanner extends StatelessWidget {
+  const _QuickStartBanner();
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _showGuide(context),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.82),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          children: [
+            const Icon(Icons.menu_book_outlined,
+                size: 20, color: Color(0xFF5C6B4A)),
+            const SizedBox(width: 12),
+            const Expanded(
+              child: Text(
+                'Quick Start Guide',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF3F2E1F),
+                ),
+              ),
+            ),
+            const Text(
+              'Start here →',
+              style: TextStyle(
+                fontSize: 13,
+                color: Color(0xFF5C6B4A),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showGuide(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => const _QuickStartSheet(),
+    );
+  }
+}
+
+class _QuickStartSheet extends StatelessWidget {
+  const _QuickStartSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    return DraggableScrollableSheet(
+      initialChildSize: 0.85,
+      minChildSize: 0.5,
+      maxChildSize: 0.95,
+      expand: false,
+      builder: (_, controller) => Column(
+        children: [
+          // Handle
+          const SizedBox(height: 12),
+          Center(
+            child: Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          // Header
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'BibleJournal',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF3F2E1F),
+                        ),
+                      ),
+                      Text(
+                        'Quick Start — a guide for new readers',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey[600],
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.close, size: 20),
+                  color: Colors.grey[400],
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Divider(height: 1, color: Colors.grey[200]),
+          // Content
+          Expanded(
+            child: ListView(
+              controller: controller,
+              padding: const EdgeInsets.fromLTRB(24, 20, 24, 40),
+              children: const [
+                _QsSection(
+                  title: 'WHAT IS THIS?',
+                  body:
+                      'A quiet reading companion built around the M\'Cheyne plan — four passages a day, calibrated to the church calendar. Open it, read, write what moves you, close it. That\'s the whole idea.\n\nThink of it as a desk you return to each morning.',
+                ),
+                _QsSection(
+                  title: 'GETTING STARTED',
+                  body:
+                      'Your reading plan and translation are set and waiting on the main screen. The passages for today are already there.\n\nTo switch plans or adjust where you are in a plan, tap the plan name — the small italic line just beneath the word Reading.\n\nYou can also choose your Bible translation there: KJV, BSB, or Logos if you have it installed.',
+                ),
+                _QsSection(
+                  title: 'READING AT YOUR OWN PACE',
+                  body:
+                      'BibleJournal doesn\'t track streaks or mark you absent. Come back after a week away — your plan is right where you left it, no guilt attached.\n\nUse the arrows on either side of the date to move forward or back. Read ahead if you\'re on a roll. Catch up when life settles. When you\'re ready to return to today, a "Return to Today" pill will appear — one tap brings you home.\n\nWelcome back. Just read.',
+                ),
+                _QsSection(
+                  title: 'PICKING UP WHERE YOU LEFT OFF',
+                  body:
+                      'Been away for a few days? Navigate back to the last day you read and tap Sync Plan at the bottom of the reading card — you\'ll land on today with those readings waiting.',
+                ),
+                _QsSection(
+                  title: 'CLIPPING VERSES',
+                  body:
+                      'Open any passage from the reading card. Tap a verse number to anchor a selection — tap a second to extend the range. A Clip pill floats up at the bottom; tap it and the selected verses are formatted as a block quote, attributed with the reference and translation, and sent straight to your journal entry.\n\nClipped verses land at the cursor in your journal. From there, use the standard copy, cut, and paste to arrange them however you like.',
+                ),
+                _QsSection(
+                  title: 'LISTEN TO A PASSAGE',
+                  body:
+                      'Check the Read Aloud box at the top of any passage to enable listening mode. Tap the play button to begin — the passage is read verse by verse, with the current verse highlighted in blue.\n\nTap any verse to jump to that point. Use the Speed slider to slow things down or speed them up. Tap Voice to choose from any English voice installed on your device.\n\nThe default system voices are serviceable but thin. The enhanced and premium voices are dramatically better — natural pacing, clear diction, easy to follow. Worth the download.\n\nOn iPhone or iPad:\nSettings → Accessibility → Spoken Content → Voices → English → tap a voice → Download.\nLook for voices marked Enhanced or Premium. Siri voices (where available) are excellent.\n\nOn Mac:\nSystem Settings → Accessibility → Spoken Content → System Voice → Manage Voices → download any Enhanced voice under English.\n\nOnce downloaded, they appear immediately in the Voice picker inside BibleJournal. No restart needed.',
+                ),
+                _QsSection(
+                  title: 'THE JOURNAL',
+                  body:
+                      'Tap Open journal to write. It saves automatically as you type — there\'s no save button, nothing to lose.\n\nWhen you want a copy for yourself, tap the share icon in the upper right. The first time, it will ask whether you prefer Email or Messages — your entry lands wherever you already look for things.',
+                ),
+                _QsSection(
+                  title: 'FOUNDING DOCUMENTS (OPTIONAL)',
+                  body:
+                      'Settings → Show Founding Documents adds a daily reading from the Federalist Papers, the Declaration of Independence, or the Constitution below your Scripture card. Toggle it off to hide.',
+                ),
+                _QsSection(
+                  title: 'SENDING FEEDBACK',
+                  body:
+                      'Take a screenshot of anything that confuses you or breaks. TestFlight will offer to attach it to a feedback report — that comes straight to us with your device information included. No email, no form to find.\n\nIf something delights you, that\'s worth a screenshot too.',
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _QsSection extends StatelessWidget {
+  final String title;
+  final String body;
+
+  const _QsSection({required this.title, required this.body});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 28),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFF5C6B4A),
+              letterSpacing: 1.1,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            body,
+            style: const TextStyle(
+              fontSize: 15,
+              color: Color(0xFF3F2E1F),
+              height: 1.65,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
