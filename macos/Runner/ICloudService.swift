@@ -10,12 +10,14 @@ import Foundation
 /// 2. `kvGet` / `kvSet` — NSUbiquitousKeyValueStore wrappers for preferences.
 class ICloudService: NSObject, FlutterPlugin {
 
-  static let channelName = "com.peterparise.biblejournal/icloud"
-  static let containerID  = "iCloud.com.peterparise.biblejournal"
+  static let channelName = "com.peterparise.portion/icloud"
+  static let containerID  = "iCloud.com.peterparise.portion"
 
   private static var kvsAvailable: Bool = {
     return FileManager.default.ubiquityIdentityToken != nil
   }()
+
+  private var accessedBookmarkURL: URL? = nil
 
   static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(
@@ -79,6 +81,72 @@ class ICloudService: NSObject, FlutterPlugin {
       }
       NSUbiquitousKeyValueStore.default.set(value, forKey: key)
       NSUbiquitousKeyValueStore.default.synchronize()
+      result(nil)
+
+    case "pickFolder":
+      DispatchQueue.main.async {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.allowsMultipleSelection = false
+        panel.message = "Choose a folder for your Portion journal entries"
+        panel.prompt = "Select"
+
+        guard panel.runModal() == .OK, let url = panel.url else {
+          result(nil)
+          return
+        }
+
+        do {
+          let data = try url.bookmarkData(
+            options: .withSecurityScope,
+            includingResourceValuesForKeys: nil,
+            relativeTo: nil
+          )
+          UserDefaults.standard.set(data, forKey: "exportFolderBookmark")
+        } catch {
+          result(FlutterError(code: "BOOKMARK_ERROR",
+                              message: error.localizedDescription,
+                              details: nil))
+          return
+        }
+
+        self.accessedBookmarkURL?.stopAccessingSecurityScopedResource()
+        _ = url.startAccessingSecurityScopedResource()
+        self.accessedBookmarkURL = url
+        result(url.path)
+      }
+
+    case "loadBookmarkedFolder":
+      guard let data = UserDefaults.standard.data(forKey: "exportFolderBookmark") else {
+        result(nil)
+        return
+      }
+      do {
+        var isStale = false
+        let url = try URL(
+          resolvingBookmarkData: data,
+          options: .withSecurityScope,
+          relativeTo: nil,
+          bookmarkDataIsStale: &isStale
+        )
+        if isStale {
+          UserDefaults.standard.removeObject(forKey: "exportFolderBookmark")
+          result(nil)
+          return
+        }
+        self.accessedBookmarkURL?.stopAccessingSecurityScopedResource()
+        _ = url.startAccessingSecurityScopedResource()
+        self.accessedBookmarkURL = url
+        result(url.path)
+      } catch {
+        UserDefaults.standard.removeObject(forKey: "exportFolderBookmark")
+        result(nil)
+      }
+
+    case "releaseFolder":
+      self.accessedBookmarkURL?.stopAccessingSecurityScopedResource()
+      self.accessedBookmarkURL = nil
       result(nil)
 
     default:

@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 /// - [kvGet] / [kvSet]: NSUbiquitousKeyValueStore wrappers for small
 ///   preferences that should sync across devices within seconds.
 class ICloudService {
-  static const _channel = MethodChannel('com.peterparise.biblejournal/icloud');
+  static const _channel = MethodChannel('com.peterparise.portion/icloud');
 
   /// Returns the iCloud Documents container path, or null if unavailable.
   /// Hard timeout of 6 s so a slow or unavailable iCloud daemon never hangs
@@ -53,6 +53,41 @@ class ICloudService {
       await _channel.invokeMethod<void>('kvSet', {'key': key, 'value': value});
     } on PlatformException {
       // Best-effort — local shared_preferences will still have the value.
+    }
+  }
+
+  /// Opens NSOpenPanel (macOS only) so the user can pick an export folder.
+  /// Saves a security-scoped bookmark and starts access. Returns path or null.
+  static Future<String?> pickExportFolder() async {
+    try {
+      return await _channel.invokeMethod<String>('pickFolder');
+    } on PlatformException {
+      return null;
+    } on MissingPluginException {
+      return null;
+    }
+  }
+
+  /// Resolves the previously saved export-folder bookmark.
+  /// Returns the path if still valid, null if the user needs to re-pick.
+  static Future<String?> loadExportFolder() async {
+    try {
+      return await _channel.invokeMethod<String>('loadBookmarkedFolder');
+    } on PlatformException {
+      return null;
+    } on MissingPluginException {
+      return null;
+    }
+  }
+
+  /// Releases the security-scoped resource. Call after the export copy completes.
+  static Future<void> releaseExportFolder() async {
+    try {
+      await _channel.invokeMethod<void>('releaseFolder');
+    } on PlatformException {
+      // best-effort
+    } on MissingPluginException {
+      // not on macOS — safe to ignore
     }
   }
 }

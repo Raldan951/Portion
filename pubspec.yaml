@@ -1,8 +1,8 @@
-name: biblejournal_v2
-description: A calm, local-first Bible journaling companion with M’Cheyne rhythm
+name: portion
+description: A free, local-first Bible reading and journaling companion
 publish_to: 'none'
 
-version: 1.0.0+39
+version: 1.0.0+40
 
 environment:
   sdk: '^3.11.0'      # This is the missing line (matches your Dart 3.11.4)

@@ -13,8 +13,8 @@ import Foundation
 ///    to other devices within seconds.
 @objc class ICloudService: NSObject, FlutterPlugin {
 
-  static let channelName = "com.peterparise.biblejournal/icloud"
-  static let containerID  = "iCloud.com.peterparise.biblejournal"
+  static let channelName = "com.peterparise.portion/icloud"
+  static let containerID  = "iCloud.com.peterparise.portion"
 
   /// True when iCloud account is signed in and KVS entitlement is present.
   private static var kvsAvailable: Bool = {

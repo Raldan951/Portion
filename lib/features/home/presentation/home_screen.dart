@@ -71,7 +71,7 @@ class HomeScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // === Bible Journal Heading / Logo Area ===
+                // === Portion Heading / Logo Area ===
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(
@@ -95,7 +95,7 @@ class HomeScreen extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'BibleJournal',
+                              'Portion',
                               style: Theme.of(context).textTheme.headlineMedium
                                   ?.copyWith(
                                     color: const Color(0xFF3F2E1F),
@@ -103,7 +103,7 @@ class HomeScreen extends ConsumerWidget {
                                   ),
                             ),
                             Text(
-                              'Thy Word is a lamp unto my feet\nand a Light unto my path',
+                              'The LORD is my portion, saith my soul;\ntherefore will I hope in Him.\n\u2014 Lamentations 3:24',
                               style: Theme.of(context).textTheme.bodySmall
                                   ?.copyWith(color: Colors.grey[700]),
                             ),
@@ -272,7 +272,7 @@ class HomeScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          'build 37',
+                          'build 40',
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.white.withValues(alpha: 0.4),
@@ -1551,7 +1551,7 @@ class _QuickStartSheet extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'BibleJournal',
+                        'Portion',
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w700,
@@ -1598,7 +1598,7 @@ class _QuickStartSheet extends StatelessWidget {
                 _QsSection(
                   title: 'READING AT YOUR OWN PACE',
                   body:
-                      'BibleJournal doesn\'t track streaks or mark you absent. Come back after a week away — your plan is right where you left it, no guilt attached.\n\nUse the arrows on either side of the date to move forward or back. Read ahead if you\'re on a roll. Catch up when life settles. When you\'re ready to return to today, a "Return to Today" pill will appear — one tap brings you home.\n\nWelcome back. Just read.',
+                      'Portion doesn\'t track streaks or mark you absent. Come back after a week away — your plan is right where you left it, no guilt attached.\n\nUse the arrows on either side of the date to move forward or back. Read ahead if you\'re on a roll. Catch up when life settles. When you\'re ready to return to today, a "Return to Today" pill will appear — one tap brings you home.\n\nWelcome back. Just read.',
                 ),
                 _QsSection(
                   title: 'PICKING UP WHERE YOU LEFT OFF',
@@ -1613,7 +1613,7 @@ class _QuickStartSheet extends StatelessWidget {
                 _QsSection(
                   title: 'LISTEN TO A PASSAGE',
                   body:
-                      'Check the Read Aloud box at the top of any passage to enable listening mode. Tap the play button to begin — the passage is read verse by verse, with the current verse highlighted in blue.\n\nTap any verse to jump to that point. Use the Speed slider to slow things down or speed them up. Tap Voice to choose from any English voice installed on your device.\n\nThe default system voices are serviceable but thin. The enhanced and premium voices are dramatically better — natural pacing, clear diction, easy to follow. Worth the download.\n\nOn iPhone or iPad:\nSettings → Accessibility → Spoken Content → Voices → English → tap a voice → Download.\nLook for voices marked Enhanced or Premium. Siri voices (where available) are excellent.\n\nOn Mac:\nSystem Settings → Accessibility → Spoken Content → System Voice → Manage Voices → download any Enhanced voice under English.\n\nOnce downloaded, they appear immediately in the Voice picker inside BibleJournal. No restart needed.',
+                      'Check the Read Aloud box at the top of any passage to enable listening mode. Tap the play button to begin — the passage is read verse by verse, with the current verse highlighted in blue.\n\nTap any verse to jump to that point. Use the Speed slider to slow things down or speed them up. Tip: Turning the screen sideways allows easier speed adjustment. Tap Voice to choose from any English voice installed on your device.\n\nThe default system voices are serviceable but thin. The enhanced and premium voices are dramatically better — natural pacing, clear diction, easy to follow. Worth the download.\n\nOn iPhone or iPad:\nSettings → Accessibility → Spoken Content → Voices → English → tap a voice → Download.\nLook for voices marked Enhanced or Premium. Siri voices (where available) are excellent.\n\nOn Mac:\nSystem Settings → Accessibility → Spoken Content → System Voice → Manage Voices → download any Enhanced voice under English.\n\nOnce downloaded, they appear immediately in the Voice picker inside Portion. No restart needed.',
                 ),
                 _QsSection(
                   title: 'THE JOURNAL',

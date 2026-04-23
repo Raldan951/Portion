@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/models/founding_doc.dart';
+import '../../../core/services/icloud_service.dart';
 import '../../../core/models/journal_theme.dart';
 import '../../../core/providers/founding_docs_provider.dart';
 import '../../../core/providers/journal_providers.dart';
@@ -24,36 +25,29 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _exporting = false;
   bool _exportingObsidian = false;
 
-  Future<void> _exportToObsidian(BuildContext context) async {
+  Future<void> _exportToFolder(BuildContext context) async {
     setState(() => _exportingObsidian = true);
     try {
+      String? path = await ICloudService.loadExportFolder();
+      path ??= await ICloudService.pickExportFolder();
+
+      if (path == null) return; // user cancelled
+
       final service = await ref.read(journalServiceProvider.future);
-      final home = service.realHomePath;
-      if (home == null) {
-        if (!context.mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Could not resolve home directory.')),
-        );
-        return;
-      }
-      final obsidianPath =
-          '$home/Library/Mobile Documents/iCloud~md~obsidian/Documents/BibleJournal';
-      final count = await service.exportToFolder(obsidianPath);
+      final count = await service.exportToFolder(path);
+      await ICloudService.releaseExportFolder();
+
       if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            count == 0
-                ? 'No journal entries to export.'
-                : '$count ${count == 1 ? 'entry' : 'entries'} copied to Obsidian.',
-          ),
-        ),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(count == 0
+            ? 'No journal entries to export.'
+            : '$count ${count == 1 ? 'entry' : 'entries'} exported.'),
+      ));
     } catch (e) {
+      await ICloudService.releaseExportFolder();
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Export failed: $e')),
-      );
+          SnackBar(content: Text('Export failed: $e')));
     } finally {
       if (mounted) setState(() => _exportingObsidian = false);
     }
@@ -87,7 +81,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
       await Share.shareXFiles(
         files,
-        subject: 'BibleJournal entries',
+        subject: 'Portion entries',
         sharePositionOrigin: origin,
       );
     } finally {
@@ -198,7 +192,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   Divider(height: 1, color: Colors.grey[200]),
                   ListTile(
                     title: const Text(
-                      'Copy to Obsidian',
+                      'Export to folder',
                       style: TextStyle(
                         fontSize: 15,
                         color: Color(0xFF2C2C2C),
@@ -206,7 +200,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       ),
                     ),
                     subtitle: Text(
-                      'Copy all entries to BibleJournal vault folder',
+                      'Copy all entries to a folder you choose',
                       style: TextStyle(fontSize: 13, color: Colors.grey[600]),
                     ),
                     trailing: _exportingObsidian
@@ -219,7 +213,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                             color: Colors.grey[600], size: 20),
                     onTap: _exportingObsidian
                         ? null
-                        : () => _exportToObsidian(context),
+                        : () => _exportToFolder(context),
                   ),
                 ],
               ],
@@ -302,7 +296,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               trailing: Icon(Icons.mail_outline, color: Colors.grey[600], size: 20),
               onTap: () async {
                 final uri = Uri.parse(
-                  'mailto:Raldan@proton.me?subject=BibleJournal%20Feedback',
+                  'mailto:Raldan@proton.me?subject=Portion%20Feedback',
                 );
                 if (await canLaunchUrl(uri)) {
                   await launchUrl(uri);
@@ -313,7 +307,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           const SizedBox(height: 8),
           Center(
             child: Text(
-              'Logos is a trademark of Faithlife. BibleJournal is not affiliated with or endorsed by Faithlife.',
+              'Logos is a trademark of Faithlife. Portion is not affiliated with or endorsed by Faithlife.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 11, color: Colors.grey[400], height: 1.5),
             ),

@@ -25,7 +25,7 @@ class ReadingPlanService {
           'Three daily readings — Old Testament, New Testament, and '
           'Psalms & Proverbs — each flowing as its own continuous thread '
           'through the year. Read when you can, not by the clock.',
-      author: 'BibleJournal',
+      author: 'Portion',
       assetPath: 'assets/plans/three_streams.json',
       calendarAligned: false,
     ),

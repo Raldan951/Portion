@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = BibleJournal
+PRODUCT_NAME = Portion
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.peterparise.biblejournal
+PRODUCT_BUNDLE_IDENTIFIER = com.peterparise.portion
 
 // Development team for signing
 DEVELOPMENT_TEAM = 5Z3GFMWL86

@@ -1,9 +1,9 @@
-# CLAUDE.md — BibleJournal V2 Flutter UI
+# CLAUDE.md — Portion (formerly BibleJournal V2) Flutter UI
 *Technical reference for this project. Status and roadmap: PKA/projects/BibleJournal/roadmap.md*
 
 ## What This Is
 A calm, local-first daily devotional companion built around the M'Cheyne reading plan.
-Not a commercial product. Pete's personal app.
+Free for all Bible readers. Not for profit — Pete controls the code to protect the user experience, not to monetize it.
 "A quiet study desk where the Word takes center stage, not the tool."
 
 ## Architecture
@@ -71,8 +71,8 @@ Three files only — the screens pick up new values automatically.
 ## Native / Platform Files
 - `ios/Runner/ICloudService.swift` + `macos/Runner/ICloudService.swift` — method channel: getContainerPath, kvGet, kvSet
 - `lib/core/services/icloud_service.dart` — Dart wrapper
-- iCloud container: `iCloud.com.peterparise.biblejournal`
-- Bundle ID: `com.peterparise.biblejournal` — Apple Team: `5Z3GFMWL86`
+- iCloud container: `iCloud.com.peterparise.portion`
+- Bundle ID: `com.peterparise.portion` — Apple Team: `5Z3GFMWL86`
 
 ## Known Constraints
 - iOS debug mode crashes on iOS 26.x (Flutter VSyncClient bug) — use Release scheme in Xcode

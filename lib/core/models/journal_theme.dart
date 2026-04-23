@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// A visual theme variant for BibleJournal.
+/// A visual theme variant for Portion.
 ///
 /// Each variant bundles a background image, card texture, accent colour, and
 /// the dark fallback colour shown on iOS when the user over-scrolls past the

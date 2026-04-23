@@ -1,17 +1,11 @@
-# biblejournal_v2
+# Portion
 
-A new Flutter project.
+*"The LORD is my portion, saith my soul; therefore will I hope in Him." — Lamentations 3:24*
 
-## Getting Started
+A free, local-first Bible reading and journaling companion built around the M'Cheyne reading plan. Four passages a day, a journal that saves itself, and verse clipping that puts Scripture directly into your notes.
 
-This project is a starting point for a Flutter application.
+Available free on the App Store for iOS and macOS.
 
-A few resources to get you started if this is your first Flutter project:
+## License
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Copyright 2026 Peter Parise. Licensed under the [GNU General Public License v3](LICENSE).

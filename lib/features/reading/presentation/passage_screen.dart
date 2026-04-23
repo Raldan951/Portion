@@ -8,7 +8,6 @@ import '../../../core/providers/reading_providers.dart';
 import '../../../core/providers/translation_provider.dart';
 import '../../../core/providers/settings_provider.dart';
 import '../../../core/providers/tts_provider.dart';
-import '../../../core/services/bible_link_service.dart';
 
 /// Displays a single Bible passage inline with interactive verse selection.
 ///
@@ -45,58 +44,12 @@ class PassageScreen extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 12),
-            child: TextButton.icon(
-              onPressed: () async {
-                final launched = await BibleLinkService.openInLogos(reference);
-                if (!launched && context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                          'Could not open Logos \u2014 is it installed?'),
-                    ),
-                  );
-                }
-              },
-              icon: const Icon(Icons.open_in_new, size: 16),
-              label: const Text('Open in Logos'),
-              style: TextButton.styleFrom(
-                foregroundColor: const Color(0xFF5C6B4A),
-              ),
-            ),
-          ),
-        ],
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 32, 24, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              decoration: BoxDecoration(
-                color: const Color(0xFF5C6B4A).withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                translation.fullName,
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: Color(0xFF5C6B4A),
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            const SizedBox(height: 28),
-            Expanded(
-              child: _PassageBody(
-                reference: reference,
-                translation: translation,
-              ),
-            ),
-          ],
+        padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),
+        child: _PassageBody(
+          reference: reference,
+          translation: translation,
         ),
       ),
     );
@@ -313,6 +266,7 @@ class _InteractiveVerseTextState
   Widget build(BuildContext context) {
     final tts = ref.watch(ttsProvider);
     final showReadAloud = ref.watch(appSettingsProvider).showReadAloud;
+    final translation = ref.watch(selectedTranslationProvider);
 
     // Pre-build a flat list of items: chapter headings + verses
     final bool multiChapter = widget.reference.chapterEnd != null &&
@@ -335,46 +289,51 @@ class _InteractiveVerseTextState
 
     return Column(
       children: [
-        // Read Aloud toggle — only if enabled in Settings
-        if (showReadAloud) ...[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-            decoration: BoxDecoration(
-              color: _readAloudActive
-                  ? const Color(0xFF5C6B4A).withValues(alpha: 0.08)
-                  : Colors.transparent,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Checkbox(
-                  value: _readAloudActive,
-                  activeColor: const Color(0xFF5C6B4A),
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  visualDensity: VisualDensity.compact,
-                  onChanged: (v) {
-                    setState(() => _readAloudActive = v ?? false);
-                    if (!(v ?? false)) _ttsNotifier.stop();
-                  },
+        // Header: translation badge + optional Read Aloud toggle
+        Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              decoration: BoxDecoration(
+                color: const Color(0xFF5C6B4A).withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Text(
+                translation.fullName,
+                style: const TextStyle(
+                  fontSize: 11,
+                  color: Color(0xFF5C6B4A),
+                  fontWeight: FontWeight.w500,
                 ),
-                const SizedBox(width: 4),
-                const Icon(Icons.volume_up_outlined,
-                    size: 16, color: Color(0xFF5C6B4A)),
-                const SizedBox(width: 6),
-                const Text(
-                  'Read Aloud',
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: Color(0xFF5C6B4A),
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-          const SizedBox(height: 12),
-        ],
+            if (showReadAloud) ...[
+              const Spacer(),
+              Checkbox(
+                value: _readAloudActive,
+                activeColor: const Color(0xFF5C6B4A),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
+                onChanged: (v) {
+                  setState(() => _readAloudActive = v ?? false);
+                  if (!(v ?? false)) _ttsNotifier.stop();
+                },
+              ),
+              const Icon(Icons.volume_up_outlined, size: 13, color: Color(0xFF5C6B4A)),
+              const SizedBox(width: 4),
+              const Text(
+                'Read Aloud',
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Color(0xFF5C6B4A),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(width: 2),
+            ],
+          ],
+        ),
+        const SizedBox(height: 8),
 
         // Verse list + overlays
         Expanded(
@@ -804,7 +763,7 @@ class _ComingSoon extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             'We\u2019re building the text library now.\n'
-            'Use \u201cOpen in Logos\u201d above in the meantime.',
+            'Open Logos from the home screen in the meantime.',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
