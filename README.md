@@ -6,6 +6,8 @@ A free, local-first Bible reading and journaling companion built around the M'Ch
 
 Available free on the App Store for iOS and macOS.
 
+**Beta testers:** [Join on TestFlight](https://testflight.apple.com/join/mEX3AxhM)
+
 ## License
 
 Copyright 2026 Peter Parise. Licensed under the [GNU General Public License v3](LICENSE).
