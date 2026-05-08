@@ -9,16 +9,6 @@ class ReadingPlanService {
   /// All bundled reading plans available in the app.
   static const List<ReadingPlanMeta> availablePlans = [
     ReadingPlanMeta(
-      id: 'mcheyne',
-      name: "M'Cheyne One-Year Reading Plan",
-      description:
-          "Covers the Old Testament once and the New Testament and Psalms "
-          "twice in one year, with four readings daily — two in the morning "
-          "and two in the evening.",
-      author: "Robert Murray M'Cheyne (1806–1843)",
-      assetPath: 'assets/plans/mcheyne_plan.json',
-    ),
-    ReadingPlanMeta(
       id: 'three_streams',
       name: 'The Three Streams',
       description:
@@ -28,6 +18,16 @@ class ReadingPlanService {
       author: 'Portion',
       assetPath: 'assets/plans/three_streams.json',
       calendarAligned: false,
+    ),
+    ReadingPlanMeta(
+      id: 'mcheyne',
+      name: "M'Cheyne One-Year Reading Plan",
+      description:
+          "Covers the Old Testament once and the New Testament and Psalms "
+          "twice in one year, with four readings daily — two in the morning "
+          "and two in the evening.",
+      author: "Robert Murray M'Cheyne (1806–1843)",
+      assetPath: 'assets/plans/mcheyne_plan.json',
     ),
     ReadingPlanMeta(
       id: 'nt_90_days',

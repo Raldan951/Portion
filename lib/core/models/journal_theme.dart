@@ -18,23 +18,23 @@ enum JournalTheme {
     accentColor: Color(0xFF5C6B4A),
     scaffoldFallbackColor: Color(0xFF3F2E1F),
   ),
-  catsLight(
-    id: 'cats_light',
-    displayName: 'Cats Light Desk',
-    bgAsset: 'assets/images/bg_Cats1.jpg',
+  pastelLight(
+    id: 'pastel_light',
+    displayName: 'Pastel Light',
+    bgAsset: 'assets/images/pastel1.jpg',
     cardBgAsset: 'assets/images/aramaic2.jpg',
     cardOpacity: 0.15,
     accentColor: Color(0xFF4A5A6B),
     scaffoldFallbackColor: Color(0xFF3F2E1F),
   ),
-  catsDark(
-    id: 'cats_dark',
-    displayName: 'Cats Dark Desk',
-    bgAsset: 'assets/images/bg_Cats3.jpg',
+  pastelDark(
+    id: 'pastel_dark',
+    displayName: 'Pastel Dark',
+    bgAsset: 'assets/images/pastel2.jpg',
     cardBgAsset: 'assets/images/aramaic2.jpg',
     cardOpacity: 0.15,
     accentColor: Color(0xFF4A5A6B),
-    scaffoldFallbackColor: Color(0xFF3F2E1F),
+    scaffoldFallbackColor: Color(0xFF2A2A3A),
   );
 
   // ── Future variants ────────────────────────────────────────────────────────

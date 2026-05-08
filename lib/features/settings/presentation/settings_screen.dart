@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/models/founding_doc.dart';
 import '../../../core/services/icloud_service.dart';
+import 'user_manual_screen.dart';
 import '../../../core/models/journal_theme.dart';
 import '../../../core/providers/founding_docs_provider.dart';
 import '../../../core/providers/journal_providers.dart';
@@ -272,6 +273,33 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           const SizedBox(height: 24),
           _SectionHeader('Founding Documents'),
           _FoundingDocsSettings(),
+          const SizedBox(height: 24),
+          _SectionHeader('Help'),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey[200]!),
+            ),
+            child: ListTile(
+              title: const Text(
+                'User Manual',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Color(0xFF2C2C2C),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              subtitle: Text(
+                'Full guide to all features',
+                style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+              ),
+              trailing: Icon(Icons.chevron_right, color: Colors.grey[400], size: 20),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const UserManualScreen()),
+              ),
+            ),
+          ),
           const SizedBox(height: 24),
           _SectionHeader('Feedback'),
           Container(

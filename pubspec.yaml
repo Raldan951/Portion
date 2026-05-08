@@ -2,7 +2,7 @@ name: portion
 description: A free, local-first Bible reading and journaling companion
 publish_to: 'none'
 
-version: 1.0.0+41
+version: 1.0.0+42
 
 environment:
   sdk: '^3.11.0'      # This is the missing line (matches your Dart 3.11.4)
@@ -35,9 +35,8 @@ flutter:
     - assets/images/desk_texture.jpg
     - assets/images/desk_texture1.jpg
     - assets/images/desk_texture2.jpg
-    - assets/images/bg_Cats1.jpg
-    - assets/images/bg_Cats2.jpg
-    - assets/images/bg_Cats3.jpg
+    - assets/images/pastel1.jpg
+    - assets/images/pastel2.jpg
     - assets/images/AmerFlag.jpg
     - assets/images/aramaic2.jpg
     - assets/images/bjIcon.png
