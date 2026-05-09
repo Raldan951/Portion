@@ -275,7 +275,7 @@ class HomeScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          'build 42',
+                          'build 44',
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.white.withValues(alpha: 0.4),

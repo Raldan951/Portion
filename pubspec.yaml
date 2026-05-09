@@ -2,7 +2,7 @@ name: portion
 description: A free, local-first Bible reading and journaling companion
 publish_to: 'none'
 
-version: 1.0.0+42
+version: 1.0.0+44
 
 environment:
   sdk: '^3.11.0'      # This is the missing line (matches your Dart 3.11.4)
