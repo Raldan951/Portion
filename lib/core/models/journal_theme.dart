@@ -17,6 +17,7 @@ enum JournalTheme {
     cardOpacity: 0.15,
     accentColor: Color(0xFF5C6B4A),
     scaffoldFallbackColor: Color(0xFF3F2E1F),
+    cardTextColor: Color(0xFF2C1F14),
   ),
   pastelLight(
     id: 'pastel_light',
@@ -26,6 +27,7 @@ enum JournalTheme {
     cardOpacity: 0.15,
     accentColor: Color(0xFF4A5A6B),
     scaffoldFallbackColor: Color(0xFF3F2E1F),
+    cardTextColor: Color(0xFF1E2C3A),
   ),
   pastelDark(
     id: 'pastel_dark',
@@ -35,6 +37,7 @@ enum JournalTheme {
     cardOpacity: 0.15,
     accentColor: Color(0xFF4A5A6B),
     scaffoldFallbackColor: Color(0xFF2A2A3A),
+    cardTextColor: Color(0xFF1A2030),
   );
 
   // ── Future variants ────────────────────────────────────────────────────────
@@ -58,6 +61,7 @@ enum JournalTheme {
     required this.cardOpacity,
     required this.accentColor,
     required this.scaffoldFallbackColor,
+    required this.cardTextColor,
   });
 
   final String id;
@@ -70,6 +74,9 @@ enum JournalTheme {
   /// Dark solid colour shown on iOS over-scroll edges and as the Scaffold
   /// background behind the scrollable content.
   final Color scaffoldFallbackColor;
+
+  /// Text and icon colour for content inside cards (adapts to card background).
+  final Color cardTextColor;
 
   static JournalTheme fromId(String id) => JournalTheme.values.firstWhere(
     (t) => t.id == id,

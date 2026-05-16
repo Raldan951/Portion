@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../core/models/bible_book.dart';
 import '../../../core/models/bible_translation.dart';
 import '../../../core/models/reading_plan.dart';
 import '../../../core/providers/date_provider.dart';
@@ -160,7 +162,7 @@ class HomeScreen extends ConsumerWidget {
                             Text(
                               'Reading',
                               style: Theme.of(context).textTheme.headlineMedium
-                                  ?.copyWith(color: Colors.white),
+                                  ?.copyWith(color: theme.cardTextColor),
                             ),
                           ],
                         ),
@@ -235,7 +237,9 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ),
 
-                const SizedBox(height: 88),
+                const SizedBox(height: 32),
+                const _BibleBrowserCard(),
+                const SizedBox(height: 32),
 
                 Text(
                   'Your Journal',
@@ -1758,6 +1762,370 @@ class _StartButton extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+// ── Bible Browser Card ────────────────────────────────────────────────────────
+
+class _BibleBrowserCard extends ConsumerStatefulWidget {
+  const _BibleBrowserCard();
+
+  @override
+  ConsumerState<_BibleBrowserCard> createState() => _BibleBrowserCardState();
+}
+
+class _BibleBrowserCardState extends ConsumerState<_BibleBrowserCard> {
+  bool _isExpanded = false;
+  BibleTestament _testament = BibleTestament.ot;
+  int _groupIndex = 0;
+  int _bookIndex = 0;
+  int _chapterIndex = 0;
+
+  late final FixedExtentScrollController _groupCtrl;
+  late final FixedExtentScrollController _bookCtrl;
+  late final FixedExtentScrollController _chapterCtrl;
+
+  List<BibleGroup> get _groups =>
+      BibleGroup.values.where((g) => g.testament == _testament).toList();
+
+  List<BibleBook> get _books =>
+      kBibleBooks.where((b) => b.group == _groups[_groupIndex]).toList();
+
+  @override
+  void initState() {
+    super.initState();
+    _groupCtrl = FixedExtentScrollController();
+    _bookCtrl = FixedExtentScrollController();
+    _chapterCtrl = FixedExtentScrollController();
+  }
+
+  @override
+  void dispose() {
+    _groupCtrl.dispose();
+    _bookCtrl.dispose();
+    _chapterCtrl.dispose();
+    super.dispose();
+  }
+
+  void _toggleExpand() {
+    final expanding = !_isExpanded;
+    setState(() => _isExpanded = expanding);
+    if (expanding) {
+      // Controllers lose position when the roller widgets leave the tree.
+      // Restore them on the first frame after rebuild, then fidget.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted || !_isExpanded) return;
+        _groupCtrl.jumpToItem(_groupIndex);
+        _bookCtrl.jumpToItem(_bookIndex);
+        _chapterCtrl.jumpToItem(_chapterIndex);
+        _doFidget();
+      });
+    }
+  }
+
+  void _doFidget() {
+    final target = (_groups.length - 1).clamp(0, 2);
+    Future.delayed(const Duration(milliseconds: 200), () {
+      if (!mounted || !_isExpanded) return;
+      _groupCtrl
+          .animateToItem(target,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeInOut)
+          .then((_) {
+        if (!mounted || !_isExpanded) return;
+        _groupCtrl.animateToItem(_groupIndex,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.elasticOut);
+      });
+    });
+  }
+
+  void _setTestament(BibleTestament t) {
+    if (t == _testament) return;
+    setState(() {
+      _testament = t;
+      _groupIndex = 0;
+      _bookIndex = 0;
+      _chapterIndex = 0;
+    });
+    _groupCtrl.jumpToItem(0);
+    _bookCtrl.jumpToItem(0);
+    _chapterCtrl.jumpToItem(0);
+  }
+
+  void _onGroupChanged(int i) {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _groupIndex = i;
+      _bookIndex = 0;
+      _chapterIndex = 0;
+    });
+    _bookCtrl.jumpToItem(0);
+    _chapterCtrl.jumpToItem(0);
+  }
+
+  void _onBookChanged(int i) {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _bookIndex = i;
+      _chapterIndex = 0;
+    });
+    _chapterCtrl.jumpToItem(0);
+  }
+
+  void _onChapterChanged(int i) {
+    HapticFeedback.selectionClick();
+    setState(() => _chapterIndex = i);
+  }
+
+  void _openPassage(BuildContext context) {
+    final translation = ref.read(selectedTranslationProvider);
+    if (translation.isExternal) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Select KJV or BSB to browse freely')),
+      );
+      return;
+    }
+    final book = _books[_bookIndex];
+    final bibleRef = BibleReference(
+      book: book.name,
+      chapter: _chapterIndex + 1,
+      display: '${book.name} ${_chapterIndex + 1}',
+    );
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) =>
+            PassageScreen(reference: bibleRef, translation: translation),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = ref.watch(journalThemeProvider);
+    final groups = _groups;
+    final books = _books;
+    final chapterCount = books[_bookIndex].chapters;
+
+    return Card(
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          height: _isExpanded ? 400 : 72,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            image: DecorationImage(
+              image: AssetImage(theme.cardBgAsset),
+              fit: BoxFit.cover,
+              opacity: theme.cardOpacity,
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Column(
+              children: [
+                // Header
+                GestureDetector(
+                  onTap: _toggleExpand,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 16),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.menu_book,
+                            size: 28, color: Color(0xFF5C6B4A)),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Text(
+                            'Open Bible',
+                            style: TextStyle(
+                              fontFamily: 'Georgia',
+                              fontSize: 22,
+                              color: theme.cardTextColor,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        AnimatedRotation(
+                          turns: _isExpanded ? 0.5 : 0,
+                          duration: const Duration(milliseconds: 300),
+                          child: Icon(Icons.expand_more,
+                              color: theme.cardTextColor.withValues(alpha: 0.6)),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Expanded content
+                if (_isExpanded) ...[
+                  // OT / NT toggle
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children: BibleTestament.values.map((t) {
+                        final selected = _testament == t;
+                        return Expanded(
+                          child: GestureDetector(
+                            onTap: () => _setTestament(t),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 4),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8),
+                              decoration: BoxDecoration(
+                                color: selected
+                                    ? theme.accentColor
+                                    : theme.cardTextColor.withValues(alpha: 0.08),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Text(
+                                t == BibleTestament.ot
+                                    ? 'Old Testament'
+                                    : 'New Testament',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: selected
+                                      ? Colors.white
+                                      : theme.cardTextColor,
+                                  fontWeight: selected
+                                      ? FontWeight.w600
+                                      : FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
+
+                  // Rollers
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: ListWheelScrollView.useDelegate(
+                            controller: _groupCtrl,
+                            itemExtent: 40,
+                            diameterRatio: 1.4,
+                            overAndUnderCenterOpacity: 0.3,
+                            physics: const FixedExtentScrollPhysics(),
+                            onSelectedItemChanged: _onGroupChanged,
+                            childDelegate: ListWheelChildBuilderDelegate(
+                              childCount: groups.length,
+                              builder: (_, i) => Center(
+                                child: Text(
+                                  groups[i].displayName,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: 'Georgia',
+                                    fontSize: 13,
+                                    color: theme.cardTextColor,
+                                    fontWeight: i == _groupIndex
+                                        ? FontWeight.w600
+                                        : FontWeight.normal,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(width: 1, color: theme.cardTextColor.withValues(alpha: 0.15)),
+                        Expanded(
+                          child: ListWheelScrollView.useDelegate(
+                            controller: _bookCtrl,
+                            itemExtent: 40,
+                            diameterRatio: 1.4,
+                            overAndUnderCenterOpacity: 0.3,
+                            physics: const FixedExtentScrollPhysics(),
+                            onSelectedItemChanged: _onBookChanged,
+                            childDelegate: ListWheelChildBuilderDelegate(
+                              childCount: books.length,
+                              builder: (_, i) => Center(
+                                child: Text(
+                                  books[i].name,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: 'Georgia',
+                                    fontSize: 13,
+                                    color: theme.cardTextColor,
+                                    fontWeight: i == _bookIndex
+                                        ? FontWeight.w600
+                                        : FontWeight.normal,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(width: 1, color: theme.cardTextColor.withValues(alpha: 0.15)),
+                        Expanded(
+                          child: ListWheelScrollView.useDelegate(
+                            controller: _chapterCtrl,
+                            itemExtent: 40,
+                            diameterRatio: 1.4,
+                            overAndUnderCenterOpacity: 0.3,
+                            physics: const FixedExtentScrollPhysics(),
+                            onSelectedItemChanged: _onChapterChanged,
+                            childDelegate: ListWheelChildBuilderDelegate(
+                              childCount: chapterCount,
+                              builder: (_, i) => Center(
+                                child: Text(
+                                  '${i + 1}',
+                                  style: TextStyle(
+                                    fontFamily: 'Georgia',
+                                    fontSize: 15,
+                                    color: theme.cardTextColor,
+                                    fontWeight: i == _chapterIndex
+                                        ? FontWeight.w600
+                                        : FontWeight.normal,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Read button
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () => _openPassage(context),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: theme.accentColor,
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                        ),
+                        child: const Text(
+                          'Read',
+                          style: TextStyle(
+                              fontFamily: 'Georgia',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
     );
   }
 }
