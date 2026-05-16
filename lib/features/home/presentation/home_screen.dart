@@ -159,7 +159,8 @@ class HomeScreen extends ConsumerWidget {
                             const SizedBox(width: 24),
                             Text(
                               'Reading',
-                              style: Theme.of(context).textTheme.headlineMedium,
+                              style: Theme.of(context).textTheme.headlineMedium
+                                  ?.copyWith(color: Colors.white),
                             ),
                           ],
                         ),
@@ -238,7 +239,8 @@ class HomeScreen extends ConsumerWidget {
 
                 Text(
                   'Your Journal',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: Theme.of(context).textTheme.headlineMedium
+                      ?.copyWith(color: Colors.white),
                 ),
                 const SizedBox(height: 28),
                 const _JournalPreviewCard(),
@@ -1236,7 +1238,8 @@ class _FoundingDocsCard extends ConsumerWidget {
                 const SizedBox(width: 24),
                 Text(
                   'Founding Docs',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: Theme.of(context).textTheme.headlineMedium
+                      ?.copyWith(color: Colors.white),
                 ),
               ],
             ),

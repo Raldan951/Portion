@@ -175,10 +175,10 @@ class _InteractiveVerseTextState
       if (_anchor == null) {
         _anchor = (chapter: chapter, verse: verse);
         _end = null;
-      } else if (_end == null &&
-          chapter == _anchor!.chapter &&
+      } else if (chapter == _anchor!.chapter &&
           verse == _anchor!.verse) {
         _anchor = null;
+        _end = null;
       } else {
         _end = (chapter: chapter, verse: verse);
       }
@@ -243,7 +243,11 @@ class _InteractiveVerseTextState
           behavior: SnackBarBehavior.floating,
         ),
       );
-      Navigator.of(context).pop();
+      // Defer pop by one frame so the pill fade-out animation starts before
+      // the page slide begins — prevents both animations running simultaneously.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) Navigator.of(context).pop();
+      });
     }
   }
 

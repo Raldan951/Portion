@@ -32,6 +32,7 @@ class JournalPage extends ConsumerStatefulWidget {
 
 class _JournalPageState extends ConsumerState<JournalPage> {
   final _controller = TextEditingController();
+  final _undoController = UndoHistoryController();
   Timer? _debounce;
   bool _initialized = false;
   bool _hasContent = false;
@@ -63,6 +64,7 @@ class _JournalPageState extends ConsumerState<JournalPage> {
       _debounce?.cancel();
     }
     _controller.dispose();
+    _undoController.dispose();
     super.dispose();
   }
 
@@ -178,7 +180,7 @@ class _JournalPageState extends ConsumerState<JournalPage> {
     final docAsync = ref.watch(journalDocumentProvider);
     final selectedDate = ref.watch(selectedDateProvider);
     final schedule = ref.watch(todaysScheduleProvider);
-    final dateLabel = DateFormat('EEEE, MMMM d, y').format(selectedDate);
+    final dateLabel = DateFormat('EEE, MMM d').format(selectedDate);
 
     // Initialise the controller once, when the document first resolves.
     // Uses addPostFrameCallback so we never mutate controller or provider
@@ -259,6 +261,23 @@ class _JournalPageState extends ConsumerState<JournalPage> {
           ),
         ),
         actions: [
+          ValueListenableBuilder<UndoHistoryValue>(
+            valueListenable: _undoController,
+            builder: (context, value, _) => Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.undo, color: Color(0xFF2C3A2A)),
+                  onPressed: value.canUndo ? _undoController.undo : null,
+                  tooltip: 'Undo',
+                ),
+                IconButton(
+                  icon: const Icon(Icons.redo, color: Color(0xFF2C3A2A)),
+                  onPressed: value.canRedo ? _undoController.redo : null,
+                  tooltip: 'Redo',
+                ),
+              ],
+            ),
+          ),
           IconButton(
             icon: Icon(
               Icons.ios_share,
@@ -293,6 +312,7 @@ class _JournalPageState extends ConsumerState<JournalPage> {
                     padding: const EdgeInsets.fromLTRB(64, 14, 24, 120),
                     child: TextField(
                       controller: _controller,
+                      undoController: _undoController,
                       autofocus: true,
                       maxLines: null,
                       minLines: 32,
